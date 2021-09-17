@@ -1,6 +1,5 @@
 from keycloak_admin_aio.resources import KeycloakResource
-
-from ...types import RoleRepresentation
+from keycloak_admin_aio.types import RoleRepresentation
 
 
 class RolesByNameComposites(KeycloakResource):
