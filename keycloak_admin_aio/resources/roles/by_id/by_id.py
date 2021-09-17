@@ -1,10 +1,12 @@
+from keycloak_admin_aio.types import RoleRepresentation
+
 from ... import KeycloakResource, KeycloakResourcesType
-from ..types import RoleRepresentation
 from .composites import RolesByIdComposites
 
 
 class RolesById(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [("composites", RolesByIdComposites)]
+    composites: RolesByIdComposites
 
     def get_url(self, role_id):
         return f"{self._get_parent_url()}-by-id/{role_id}"
