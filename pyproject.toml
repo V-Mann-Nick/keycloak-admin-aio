@@ -3,9 +3,7 @@ name = "keycloak-admin-aio"
 version = "0.0.1"
 description = "async keycloak admin api wrapper"
 authors = ["Nicklas Sedlock <nicklas@delphai.com>"]
-packages = [
-  {include = "keycloak_admin_aio"}
-]
+homepage = "https://github.com/delphai/keycloak-admin-aio"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -29,3 +27,7 @@ tag_format = "$version"
 
 [tool.poe.tasks]
 install_pre_commit = "pre-commit install --hook-type commit-msg"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
