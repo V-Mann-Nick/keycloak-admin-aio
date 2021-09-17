@@ -3,9 +3,7 @@ name = "keycloak-admin-aio"
 version = "0.1.0"
 description = "async keycloak admin api wrapper"
 authors = ["Nicklas Sedlock <nicklas@delphai.com>"]
-packages = [
-  {include = "keycloak_admin_aio"}
-]
+homepage = "https://github.com/delphai/keycloak-admin-aio"
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -16,3 +14,7 @@ dacite = "^1.6.0"
 pep8-naming = "^0.11.1"
 flake8 = "^3.8.3"
 black = "^21.9b0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

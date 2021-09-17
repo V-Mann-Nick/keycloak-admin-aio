@@ -1,11 +1,11 @@
 from typing import Optional
 
 from keycloak_admin_aio.lib.utils import remove_none
+from keycloak_admin_aio.types import RoleRepresentation
 
 from .. import KeycloakResource, KeycloakResourcesType
 from .by_id import RolesById
 from .by_name import RolesByName
-from .types import RoleRepresentation
 
 
 class Roles(KeycloakResource):
@@ -13,6 +13,8 @@ class Roles(KeycloakResource):
         ("by_name", RolesByName),
         ("by_id", RolesById),
     ]
+    by_name: RolesByName
+    by_id: RolesById
 
     def get_url(self):
         return f"{self._get_parent_url()}/roles"
