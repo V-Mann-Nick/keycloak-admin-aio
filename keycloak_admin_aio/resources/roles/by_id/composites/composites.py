@@ -6,7 +6,7 @@ class RolesByIdComposites(KeycloakResource):
     def get_url(self, role_id: str):
         return f"{self._get_parent_url(role_id)}/composites"
 
-    async def add(self, role_id: str, composite_roles: list[RoleRepresentation]):
+    async def create(self, role_id: str, composite_roles: list[RoleRepresentation]):
         connection = await self._get_connection()
         await connection.post(
             self.get_url(role_id),
