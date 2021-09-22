@@ -107,3 +107,15 @@ class UserRepresentation(DataClass):
     groups: Optional[list[str]] = None
     serviceAccountClientId: Optional[str] = None
     clientRoles: Optional[dict[str, Any]] = None
+
+
+@dataclass
+class GroupRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    realmRoles: Optional[list[str]] = None
+    path: Optional[str] = None
+    subGroups: Optional[list[dict]] = None
+    clientRoles: Optional[dict[str, Any]] = None
+    attributes: Optional[dict[str, list[str]]] = None
+    access: Optional[dict[str, bool]] = None
