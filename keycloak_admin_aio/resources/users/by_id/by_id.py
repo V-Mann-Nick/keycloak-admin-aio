@@ -3,13 +3,16 @@ from keycloak_admin_aio.types import UserRepresentation
 
 from ... import KeycloakResource
 from .role_mappings import UsersByIdRoleMappings
+from .groups import UsersByIdGroups
 
 
 class UsersById(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [
-        ("role_mappings", UsersByIdRoleMappings)
+        ("role_mappings", UsersByIdRoleMappings),
+        ("groups", UsersByIdGroups)
     ]
     role_mappings: UsersByIdRoleMappings
+    groups: UsersByIdGroups
 
     def get_url(self, user_id: str) -> str:
         return f"{self._get_parent_url()}/{user_id}"
