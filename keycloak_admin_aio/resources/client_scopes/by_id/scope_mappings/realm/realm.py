@@ -7,7 +7,7 @@ class ClientScopesScopeMappingsRealm(KeycloakResource):
     def get_url(self, client_scope_id: str):
         return f"{self._get_parent_url(client_scope_id)}/realm"
 
-    async def add(
+    async def create(
         self, client_scope_id: str, role_representations: list[RoleRepresentation]
     ):
         connection = await self._get_connection()

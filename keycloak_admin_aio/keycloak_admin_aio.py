@@ -7,6 +7,7 @@ import httpx
 from .resources import KeycloakResourcesType
 from .resources.roles import Roles
 from .resources.client_scopes import ClientScopes
+from .resources.users import Users
 
 URL_TOKEN = "realms/{realm-name}/protocol/openid-connect/token"
 
@@ -15,9 +16,11 @@ class KeycloakAdmin:
     __keycloak_resources: KeycloakResourcesType = [
         ("roles", Roles),
         ("client_scopes", ClientScopes),
+        ("users", Users),
     ]
     roles: Roles
     client_scopes: ClientScopes
+    users: Users
 
     def __init__(
         self,
