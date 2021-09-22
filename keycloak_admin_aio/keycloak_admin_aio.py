@@ -1,5 +1,6 @@
 import asyncio
 from datetime import datetime, timedelta
+import logging
 from typing import Literal, Optional
 
 import httpx
@@ -176,6 +177,7 @@ class KeycloakAdmin:
             raise Exception(
                 "Positional argument 'token_type' needs to be either 'access_token' or 'refresh_token'"
             )
+        logging.debug(f"token payload: {payload}")
         response = await self.__connection.post(
             token_endpoint, data=payload, headers=headers
         )
