@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from keycloak_admin_aio.lib.data_class import DataClass
-from typing import Optional
+from typing import Any, Optional
 
 
 @dataclass
@@ -50,3 +50,60 @@ class ClientScopeRepresentation(DataClass):
     protocol: Optional[str] = None
     protocolMappers: Optional[list[ProtocolMapperRepresentation]] = None
     attributes: Optional[dict[str, str]] = None
+
+
+@dataclass
+class FederatedIdentitiyRepresentation(DataClass):
+    userId: Optional[str] = None
+    userName: Optional[str] = None
+    identityProvider: Optional[str] = None
+
+
+@dataclass
+class CredentialRepresentation(DataClass):
+    id: Optional[str] = None
+    createdDate: Optional[int] = None
+    credentialData: Optional[str] = None
+    priority: Optional[int] = None
+    secretData: Optional[str] = None
+    temporary: Optional[bool] = None
+    type: Optional[str] = None
+    userLabel: Optional[str] = None
+    value: Optional[str] = None
+
+
+@dataclass
+class UserConsentRepresentation(DataClass):
+    clientId: Optional[str] = None
+    createdDate: Optional[int] = None
+    grantedClientScopes: Optional[list[str]] = None
+    lastUpdatedDate: Optional[int] = None
+
+
+
+@dataclass
+class UserRepresentation(DataClass):
+    id: Optional[str] = None
+    firstName: Optional[str] = None
+    lastName: Optional[str] = None
+    email: Optional[str] = None
+    emailVerified: Optional[bool] = None
+    username: Optional[str] = None
+    requiredActions: Optional[list[str]] = None
+    createdTimestamp: Optional[int] = None
+    federationLink: Optional[str] = None
+    federatedIdentities: Optional[list[FederatedIdentitiyRepresentation]] = None
+    enabled: Optional[bool] = None
+    disableableCredentialTypes: Optional[list[str]] = None
+    credentials: Optional[list[CredentialRepresentation]] = None
+    notBefore: Optional[int] = None
+    access: Optional[dict[str, bool]] = None
+    attributes: Optional[dict[str, list[str]]] = None
+    clientConsents: Optional[list[UserConsentRepresentation]] = None
+    totp: Optional[bool] = None
+    self: Optional[str] = None
+    origin: Optional[str] = None
+    realmRoles: Optional[list[str]] = None
+    groups: Optional[list[str]] = None
+    serviceAccountClientId: Optional[str] = None
+    clientRoles: Optional[dict[str, Any]] = None
