@@ -4,13 +4,13 @@ from keycloak_admin_aio.lib.utils import remove_none
 from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
 from keycloak_admin_aio.types import UserRepresentation
 
-from .. import KeycloakResource
+from .. import KeycloakResource, KeycloakResourceWithIdentifierGetter
 from .by_id import UsersById
 
 
 class Users(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [("by_id", UsersById)]
-    by_id: UsersById
+    by_id: KeycloakResourceWithIdentifierGetter[UsersById]
 
     def get_url(self):
         return f"{self._get_parent_url()}/users"

@@ -1,1 +1,6 @@
-from .keycloak_resource import KeycloakResource, KeycloakResourcesType
+from .keycloak_resource import (
+    KeycloakResource,
+    KeycloakResourcesType,
+    KeycloakResourceWithIdentifier,
+    KeycloakResourceWithIdentifierGetter,
+)

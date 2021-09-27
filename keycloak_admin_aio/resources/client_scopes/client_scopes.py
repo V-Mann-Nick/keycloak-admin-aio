@@ -1,13 +1,12 @@
-from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
-from .. import KeycloakResource
+from .. import KeycloakResource, KeycloakResourcesType, KeycloakResourceWithIdentifierGetter
 from .by_id import ClientScopesById
 
 
 class ClientScopes(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [("by_id", ClientScopesById)]
-    by_id: ClientScopesById
+    by_id: KeycloakResourceWithIdentifierGetter[ClientScopesById]
 
     def get_url(self):
         return f"{self._get_parent_url()}/client-scopes"

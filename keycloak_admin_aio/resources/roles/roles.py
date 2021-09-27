@@ -1,3 +1,6 @@
+from keycloak_admin_aio.resources.keycloak_resource import (
+    KeycloakResourceWithIdentifierGetter,
+)
 from typing import Optional
 
 from keycloak_admin_aio.lib.utils import remove_none
@@ -10,11 +13,11 @@ from .by_name import RolesByName
 
 class Roles(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [
-        ("by_name", RolesByName),
         ("by_id", RolesById),
+        ("by_name", RolesByName),
     ]
-    by_name: RolesByName
-    by_id: RolesById
+    by_name: KeycloakResourceWithIdentifierGetter[RolesByName]
+    by_id: KeycloakResourceWithIdentifierGetter[RolesById]
 
     def get_url(self):
         return f"{self._get_parent_url()}/roles"
