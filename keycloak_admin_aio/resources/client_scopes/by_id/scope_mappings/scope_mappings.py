@@ -1,7 +1,6 @@
-from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
 from keycloak_admin_aio.types import MappingsRepresentation
 
-from .... import KeycloakResource
+from .... import KeycloakResource, KeycloakResourcesType
 from .realm import ClientScopesScopeMappingsRealm
 
 
@@ -11,10 +10,10 @@ class ClientScopesScopeMappings(KeycloakResource):
     ]
     realm: ClientScopesScopeMappingsRealm
 
-    def get_url(self, client_scope_id: str):
-        return f"{self._get_parent_url(client_scope_id)}/scope-mappings"
+    def get_url(self):
+        return f"{self._get_parent_url()}/scope-mappings"
 
-    async def get(self, client_scope_id: str) -> MappingsRepresentation:
+    async def get(self) -> MappingsRepresentation:
         connection = await self._get_connection()
-        response = await connection.get(self.get_url(client_scope_id))
+        response = await connection.get(self.get_url())
         return MappingsRepresentation.from_dict(response.json())

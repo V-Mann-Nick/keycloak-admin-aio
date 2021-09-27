@@ -8,10 +8,10 @@ class UsersByIdRoleMappings(KeycloakResource):
     _keycloak_resources: KeycloakResourcesType = [("realm", UsersByIdRoleMappingsRealm)]
     realm: UsersByIdRoleMappingsRealm
 
-    def get_url(self, user_id: str) -> str:
-        return f"{self._get_parent_url(user_id)}/role-mappings"
+    def get_url(self) -> str:
+        return f"{self._get_parent_url()}/role-mappings"
 
-    async def get(self, user_id: str) -> MappingsRepresentation:
+    async def get(self) -> MappingsRepresentation:
         connection = await self._get_connection()
-        response = await connection.get(self.get_url(user_id))
+        response = await connection.get(self.get_url())
         return MappingsRepresentation.from_dict(response.json())
