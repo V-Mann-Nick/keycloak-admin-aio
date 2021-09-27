@@ -1,25 +1,25 @@
 from keycloak_admin_aio.types import RoleRepresentation
 
-from ... import KeycloakResource, KeycloakResourcesType
+from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
 from .composites import RolesByIdComposites
 
 
-class RolesById(KeycloakResource):
+class RolesById(KeycloakResourceWithIdentifier):
     _keycloak_resources: KeycloakResourcesType = [("composites", RolesByIdComposites)]
     composites: RolesByIdComposites
 
-    def get_url(self, role_id):
-        return f"{self._get_parent_url()}-by-id/{role_id}"
+    def get_url(self):
+        return f"{self._get_parent_url()}-by-id/{self.identifier}"
 
-    async def get(self, role_id: str) -> RoleRepresentation:
+    async def get(self) -> RoleRepresentation:
         connection = await self._get_connection()
-        response = await connection.get(self.get_url(role_id))
+        response = await connection.get(self.get_url())
         return RoleRepresentation.from_dict(response.json())
 
-    async def update(self, role_id: str, role_representation: RoleRepresentation):
+    async def update(self, role_representation: RoleRepresentation):
         connection = await self._get_connection()
-        await connection.put(self.get_url(role_id), json=role_representation.to_dict())
+        await connection.put(self.get_url(), json=role_representation.to_dict())
 
-    async def delete(self, role_id: str):
+    async def delete(self):
         connection = await self._get_connection()
-        await connection.delete(self.get_url(role_id))
+        await connection.delete(self.get_url())
