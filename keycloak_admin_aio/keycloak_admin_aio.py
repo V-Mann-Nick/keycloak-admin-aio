@@ -1,16 +1,14 @@
 import asyncio
 from datetime import datetime, timedelta
-import logging
-from typing import Literal, Optional
+from typing import Any, Literal, Optional
 
 import httpx
 
+from .lib.utils import remove_none
 from .resources import KeycloakResourcesType
-from .resources.roles import Roles
 from .resources.client_scopes import ClientScopes
+from .resources.roles import Roles
 from .resources.users import Users
-
-URL_TOKEN = "realms/{realm-name}/protocol/openid-connect/token"
 
 
 class KeycloakAdmin:
@@ -115,18 +113,6 @@ class KeycloakAdmin:
     def get_url(self):
         return f"{self._server_url}/admin/realms/{self._realm}"
 
-    async def get_access_token(self):
-        if not self.__access_token or not self.__refresh_token:
-            await self.__token("access_token")
-        else:
-            now = datetime.now()
-            if now > self.access_token_expire:
-                if now < self.refresh_token_expire:
-                    await self.__token("refresh_token")
-                else:
-                    await self.__token("access_token")
-        return self.__access_token
-
     async def close(self):
         await self.__connection.aclose()
 
@@ -144,52 +130,61 @@ class KeycloakAdmin:
     async def __aexit__(self, *_, **__):
         await self.close()
 
-    async def __token(
-        self,
-        token_type: Literal["access_token", "refresh_token"],
-    ):
-        token_endpoint = f"{self._server_url}/{URL_TOKEN}".format(
-            **{"realm-name": self._realm}
-        )
-        headers = httpx.Headers({"Content-Type": "application/x-www-form-urlencoded"})
-        payload = {"client_id": self._client_id}
-        if token_type == "refresh_token":
-            payload.update(
-                {
-                    "grant_type": "refresh_token",
-                    "refresh_token": self.__refresh_token,
-                }
-            )
-        elif token_type == "access_token":
-            grant_type = self.grant_type
-            payload.update(
-                {
-                    "grant_type": grant_type,
-                }
-            )
-            if grant_type == "client_credentials":
-                payload.update(
-                    {"client_id": self._client_id, "client_secret": self._client_secret}
-                )
-            else:
-                payload.update({"username": self._username, "password": self._password})
+    async def get_access_token(self):
+        if not self.__access_token:
+            await self.__token()
         else:
-            raise Exception(
-                "Positional argument 'token_type' needs to be either 'access_token' or 'refresh_token'"
-            )
-        logging.debug(f"token payload: {payload}")
-        response = await self.__connection.post(
-            token_endpoint, data=payload, headers=headers
-        )
-        token = response.json()
-        self.__access_token = token["access_token"]
-        self.__refresh_token = token.get("refresh_token")
+            now = datetime.now()
+            if now > self.access_token_expire:
+                if now < self.refresh_token_expire:
+                    await self.__token()
+                else:
+                    await self.__token_refresh()
+        return self.__access_token
+
+    def get_token_url(self) -> str:
+        return f"{self._server_url}/realms/{self._realm}/protocol/openid-connect/token"
+
+    def __parse_token_response(self, token_response: dict[str, Any]):
+        self.__access_token = token_response["access_token"]
+        self.__refresh_token = token_response.get("refresh_token")
         self.access_token_expire = datetime.now() + timedelta(
-            seconds=token["expires_in"] - 10
+            seconds=token_response["expires_in"] - 10
         )
         self.refresh_token_expire = datetime.now() + timedelta(
-            seconds=token.get("refresh_expires_in", 0) - 10
+            seconds=token_response.get("refresh_expires_in", 0) - 10
         )
+
+    async def __token_refresh(self):
+        headers = httpx.Headers({"Content-Type": "application/x-www-form-urlencoded"})
+        payload = remove_none(
+            {
+                "client_id": self._client_id,
+                "client_secret": self._client_secret,
+                "grant_type": "refresh_token",
+                "refresh_token": self.__refresh_token,
+            }
+        )
+        response = await self.__connection.post(
+            self.get_token_url(), data=payload, headers=headers
+        )
+        self.__parse_token_response(response.json())
+
+    async def __token(self):
+        headers = httpx.Headers({"Content-Type": "application/x-www-form-urlencoded"})
+        payload = remove_none(
+            {
+                "client_id": self._client_id,
+                "grant_type": self._grant_type,
+                "client_secret": self._client_secret,
+                "username": self._username,
+                "password": self._password,
+            }
+        )
+        response = await self.__connection.post(
+            self.get_token_url(), data=payload, headers=headers
+        )
+        self.__parse_token_response(response.json())
 
     async def __get_connection(self):
         access_token = await self.get_access_token()
