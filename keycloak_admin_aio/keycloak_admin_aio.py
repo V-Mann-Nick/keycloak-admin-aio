@@ -9,6 +9,7 @@ from .resources import KeycloakResourcesType
 from .resources.client_scopes import ClientScopes
 from .resources.roles import Roles
 from .resources.users import Users
+from .resources.clients import Clients
 
 
 class KeycloakAdmin:
@@ -16,10 +17,12 @@ class KeycloakAdmin:
         ("roles", Roles),
         ("client_scopes", ClientScopes),
         ("users", Users),
+        ("clients", Clients),
     ]
     roles: Roles
     client_scopes: ClientScopes
     users: Users
+    clients: Clients
 
     def __init__(
         self,
@@ -30,6 +33,7 @@ class KeycloakAdmin:
         client_id: Optional[str] = None,
         client_secret: Optional[str] = None,
         realm: str = "master",
+        httpx_args={},
     ):
         allowed_grant_types = ["client_credentials", "password"]
         if not any([grant_type == allowed for allowed in allowed_grant_types]):
@@ -46,7 +50,7 @@ class KeycloakAdmin:
             response.raise_for_status()
 
         self.__connection = httpx.AsyncClient(
-            event_hooks={"response": [raise_for_status_hook]}
+            event_hooks={"response": [raise_for_status_hook]}, **httpx_args
         )
         self.__access_token = None
         self.__refresh_token = None
@@ -54,7 +58,12 @@ class KeycloakAdmin:
 
     @classmethod
     def with_client_credentials(
-        cls, server_url: str, client_id: str, client_secret: str, realm: str = "master"
+        cls,
+        server_url: str,
+        client_id: str,
+        client_secret: str,
+        realm: str = "master",
+        httpx_args={},
     ):
         return cls(
             server_url,
@@ -62,6 +71,7 @@ class KeycloakAdmin:
             client_id=client_id,
             client_secret=client_secret,
             realm=realm,
+            httpx_args=httpx_args,
         )
 
     @classmethod
@@ -72,6 +82,7 @@ class KeycloakAdmin:
         password: Optional[str] = None,
         client_id: Optional[str] = "admin-cli",
         realm: str = "master",
+        httpx_args={},
     ):
         return cls(
             server_url,
@@ -80,6 +91,7 @@ class KeycloakAdmin:
             username=username,
             password=password,
             realm=realm,
+            httpx_args=httpx_args,
         )
 
     @property
