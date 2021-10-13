@@ -80,7 +80,6 @@ class UserConsentRepresentation(DataClass):
     lastUpdatedDate: Optional[int] = None
 
 
-
 @dataclass
 class UserRepresentation(DataClass):
     id: Optional[str] = None
@@ -119,3 +118,95 @@ class GroupRepresentation(DataClass):
     clientRoles: Optional[dict[str, Any]] = None
     attributes: Optional[dict[str, list[str]]] = None
     access: Optional[dict[str, bool]] = None
+
+
+@dataclass
+class ScopeRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    displayName: Optional[str] = None
+    iconUri: Optional[str] = None
+    policies: Optional[list[dict]] = None
+
+
+@dataclass
+class ResourceRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    displayName: Optional[str] = None
+    icon_uri: Optional[str] = None
+    attributes: Optional[dict[str, str]] = None
+    ownerManagedAccess: Optional[bool] = None
+    scopes: Optional[list[ScopeRepresentation]] = None
+    type: Optional[str] = None
+    uris: Optional[list[str]] = None
+
+
+@dataclass
+class PolicyRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    config: Optional[dict[str, str]] = None
+    owner: Optional[str] = None
+    logic: Optional[str] = None
+    policies: Optional[list[str]] = None
+    resources: Optional[list[str]] = None
+    resourcesData: Optional[list[ResourceRepresentation]] = None
+    scopes: Optional[list[str]] = None
+    scopesData: Optional[list[ScopeRepresentation]] = None
+    type: Optional[str] = None
+
+
+@dataclass
+class ResourceServerRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    allowRemoteResourceManagement: Optional[bool] = None
+    clientId: Optional[str] = None
+    decisionStrategy: Optional[str] = None
+    policyEnforcementMode: Optional[str] = None
+    resources: Optional[list[ResourceRepresentation]] = None
+    scopes: Optional[list[ScopeRepresentation]] = None
+
+
+@dataclass
+class ClientRepresentation(DataClass):
+    id: Optional[str] = None
+    name: Optional[str] = None
+    access: Optional[dict[str, bool]] = None
+    adminUrl: Optional[str] = None
+    alwaysDisplayInConsole: Optional[bool] = None
+    attributes: Optional[dict[str, str]] = None
+    authenticationFlowBindingOverrides: Optional[dict[str, str]] = None
+    authorizationServicesEnabled: Optional[bool] = None
+    authorizationSettings: Optional[ResourceServerRepresentation] = None
+    baseUrl: Optional[str] = None
+    bearerOnly: Optional[bool] = None
+    clientAuthenticatorType: Optional[str] = None
+    clientId: Optional[str] = None
+    consentRequired: Optional[bool] = None
+    defaultClientScopes: Optional[list[str]] = None
+    description: Optional[str] = None
+    directAccessGrantsEnabled: Optional[bool] = None
+    enabled: Optional[bool] = None
+    frontchannelLogout: Optional[bool] = None
+    fullScopeAllowed: Optional[bool] = None
+    implicitFlowEnabled: Optional[bool] = None
+    nodeReRegistrationTimeout: Optional[int] = None
+    notBefore: Optional[int] = None
+    oauth2DeviceAuthorizationGrantEnabled: Optional[bool] = None
+    optionalClientScopes: Optional[list[str]] = None
+    origin: Optional[str] = None
+    protocol: Optional[str] = None
+    protocolMappers: Optional[list[ProtocolMapperRepresentation]] = None
+    publicClient: Optional[bool] = None
+    redirectUris: Optional[list[str]] = None
+    registeredNodes: Optional[dict[str, str]] = None
+    registrationAccessToken: Optional[str] = None
+    rootUrl: Optional[str] = None
+    secret: Optional[str] = None
+    serviceAccountsEnabled: Optional[bool] = None
+    standardFlowEnabled: Optional[bool] = None
+    surrogateAuthRequired: Optional[bool] = None
+    webOrigins: Optional[list[str]] = None
