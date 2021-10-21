@@ -11,6 +11,7 @@ from .resources.roles import Roles
 from .resources.users import Users
 from .resources.clients import Clients
 from .resources.admin_events import AdminEvents
+from .resources.authentication import Authentication
 
 
 class KeycloakAdmin:
@@ -20,12 +21,14 @@ class KeycloakAdmin:
         ("users", Users),
         ("clients", Clients),
         ("admin_events", AdminEvents),
+        ("authentication", Authentication)
     ]
     roles: Roles
     client_scopes: ClientScopes
     users: Users
     clients: Clients
     admin_events: AdminEvents
+    authentication: Authentication
 
     def __init__(
         self,
