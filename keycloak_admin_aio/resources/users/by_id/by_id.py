@@ -3,15 +3,18 @@ from keycloak_admin_aio.types import UserRepresentation
 from ... import KeycloakResourceWithIdentifier, KeycloakResourcesType
 from .role_mappings import UsersByIdRoleMappings
 from .groups import UsersByIdGroups
+from .execute_actions_email import UsersByIdExecuteActionsEmail
 
 
 class UsersById(KeycloakResourceWithIdentifier):
     _keycloak_resources: KeycloakResourcesType = [
         ("role_mappings", UsersByIdRoleMappings),
         ("groups", UsersByIdGroups),
+        ("execute_actions_email", UsersByIdExecuteActionsEmail),
     ]
     role_mappings: UsersByIdRoleMappings
     groups: UsersByIdGroups
+    execute_actions_email: UsersByIdExecuteActionsEmail
 
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/{self.identifier}"
