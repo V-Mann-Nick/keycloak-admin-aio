@@ -16,7 +16,7 @@ class UsersById(KeycloakResourceWithIdentifier):
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/{self.identifier}"
 
-    async def get(self):
+    async def get(self) -> UserRepresentation:
         connection = await self._get_connection()
         response = await connection.get(self.get_url())
         return UserRepresentation.from_dict(response.json())

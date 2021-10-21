@@ -1,6 +1,6 @@
 from typing import Optional
 
-from keycloak_admin_aio.lib.utils import remove_none
+from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header, remove_none
 from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
 from keycloak_admin_aio.types import UserRepresentation
 
@@ -30,7 +30,7 @@ class Users(KeycloakResource):
         idp_alias: Optional[str] = None,
         idp_user_id: Optional[str] = None,
         username: Optional[str] = None,
-    ):
+    ) -> list[UserRepresentation]:
         connection = await self._get_connection()
         params = remove_none(
             {
@@ -52,9 +52,10 @@ class Users(KeycloakResource):
         response = await connection.get(self.get_url(), params=params)
         return UserRepresentation.from_list(response.json())
 
-    async def create(self, user_representation: UserRepresentation):
+    async def create(self, user_representation: UserRepresentation) -> str:
         connection = await self._get_connection()
-        await connection.post(self.get_url(), json=user_representation.to_dict())
+        response = await connection.post(self.get_url(), json=user_representation.to_dict())
+        return get_resource_id_in_location_header(response)
 
     async def count(
         self,

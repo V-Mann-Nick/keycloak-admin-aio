@@ -1,5 +1,8 @@
+import uuid
 from typing import Any, Union
 from dataclasses import asdict as _asdict
+
+import httpx
 
 
 def remove_none(dictionary: dict[str, Any]) -> dict[str, Any]:
@@ -14,3 +17,20 @@ def remove_none(dictionary: dict[str, Any]) -> dict[str, Any]:
 
 def asdict(dataclass) -> dict[str, Any]:
     return remove_none(_asdict(dataclass))
+
+
+def is_uuid(value: str) -> bool:
+    try:
+        uuid.UUID(value)
+        return True
+    except ValueError:
+        return False
+
+def get_resource_id_in_location_header( response: httpx.Response) -> str:
+    location_header = response.headers.get("location")
+    if not location_header or type(location_header) != str:
+        raise Exception("The response headers didn't include location.")
+    resource_id = location_header.split("/").pop()
+    if type(resource_id) != str or not is_uuid(resource_id):
+        raise Exception("Resource id couldn't be found in location header.")
+    return resource_id
