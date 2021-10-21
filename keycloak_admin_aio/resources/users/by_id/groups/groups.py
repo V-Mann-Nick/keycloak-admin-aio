@@ -24,7 +24,7 @@ class UsersByIdGroups(KeycloakResource):
         max: Optional[int] = None,
         search: Optional[str] = None,
         brief_representation: bool = True,
-    ):
+    ) -> list[GroupRepresentation]:
         connection = await self._get_connection()
         params = remove_none(
             {
@@ -35,7 +35,7 @@ class UsersByIdGroups(KeycloakResource):
             }
         )
         response = await connection.get(self.get_url(), params=params)
-        return GroupRepresentation.from_dict(response.json())
+        return GroupRepresentation.from_list(response.json())
 
     async def count(
         self,
