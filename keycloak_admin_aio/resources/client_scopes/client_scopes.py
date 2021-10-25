@@ -1,6 +1,10 @@
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
-from .. import KeycloakResource, KeycloakResourcesType, KeycloakResourceWithIdentifierGetter
+from .. import (
+    KeycloakResource,
+    KeycloakResourcesType,
+    KeycloakResourceWithIdentifierGetter,
+)
 from .by_id import ClientScopesById
 
 

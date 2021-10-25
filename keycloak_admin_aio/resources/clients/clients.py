@@ -5,8 +5,8 @@ from keycloak_admin_aio.types import ClientRepresentation
 
 from .. import (
     KeycloakResource,
-    KeycloakResourceWithIdentifierGetter,
     KeycloakResourcesType,
+    KeycloakResourceWithIdentifierGetter,
 )
 from .by_id import ClientsById
 

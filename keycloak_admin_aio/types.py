@@ -1,6 +1,7 @@
 from dataclasses import dataclass
-from keycloak_admin_aio.lib.data_class import DataClass
 from typing import Any, Literal, Optional
+
+from keycloak_admin_aio.lib.data_class import DataClass
 
 
 @dataclass

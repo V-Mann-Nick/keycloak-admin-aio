@@ -1,9 +1,9 @@
 from keycloak_admin_aio.types import UserRepresentation
 
-from ... import KeycloakResourceWithIdentifier, KeycloakResourcesType
-from .role_mappings import UsersByIdRoleMappings
-from .groups import UsersByIdGroups
+from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
 from .execute_actions_email import UsersByIdExecuteActionsEmail
+from .groups import UsersByIdGroups
+from .role_mappings import UsersByIdRoleMappings
 
 
 class UsersById(KeycloakResourceWithIdentifier):

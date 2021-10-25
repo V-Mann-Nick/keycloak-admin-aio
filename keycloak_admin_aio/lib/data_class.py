@@ -1,6 +1,8 @@
-from typing import Any, TypeVar
+from typing import TypeVar
+
+from dacite.core import from_dict
+
 from .utils import asdict
-from dacite import from_dict
 
 T = TypeVar("T")
 

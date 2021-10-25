@@ -5,16 +5,16 @@ from httpx import AsyncClient
 
 
 def create_getter(
-    Resource: Any,
+    resource: Any,
     get_connection: Callable[..., Coroutine[Any, Any, AsyncClient]],
     get_url: Callable[..., str],
 ):
     """
-        Creates a getter function for identified resources.  This function
-        creator helper is required as using a lambda as an inline function leads to
-        a reference problem with Python.
+    Creates a getter function for identified resources.  This function
+    creator helper is required as using a lambda as an inline function leads to
+    a reference problem with Python.
     """
-    return lambda identifier: Resource(get_connection, get_url, identifier)
+    return lambda identifier: resource(get_connection, get_url, identifier)
 
 
 class KeycloakResource:
@@ -34,16 +34,16 @@ class KeycloakResource:
     def __set_keycloak_resources(self):
         if not hasattr(self, "_keycloak_resources"):
             return
-        for resources_name, Resource in self._keycloak_resources:
-            if issubclass(Resource, KeycloakResourceWithIdentifier):
+        for resources_name, resource in self._keycloak_resources:
+            if issubclass(resource, KeycloakResourceWithIdentifier):
                 setattr(
                     self,
                     resources_name,
-                    create_getter(Resource, self._get_connection, self.get_url),
+                    create_getter(resource, self._get_connection, self.get_url),
                 )
             else:
                 setattr(
-                    self, resources_name, Resource(self._get_connection, self.get_url)
+                    self, resources_name, resource(self._get_connection, self.get_url)
                 )
 
 

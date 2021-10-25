@@ -1,7 +1,7 @@
 from keycloak_admin_aio.resources.keycloak_resource import (
     KeycloakResource,
-    KeycloakResourceWithIdentifierGetter,
     KeycloakResourcesType,
+    KeycloakResourceWithIdentifierGetter,
 )
 from keycloak_admin_aio.types import ClientScopeRepresentation
 

@@ -19,9 +19,7 @@ class ClientScopesScopeMappingsRealm(KeycloakResource):
         response = await connection.get(self.get_url())
         return RoleRepresentation.from_list(response.json())
 
-    async def delete(
-        self, role_representations: list[RoleRepresentation]
-    ):
+    async def delete(self, role_representations: list[RoleRepresentation]):
         connection = await self._get_connection()
         await connection.request(
             method="DELETE",

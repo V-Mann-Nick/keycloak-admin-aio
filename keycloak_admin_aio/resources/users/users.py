@@ -54,7 +54,9 @@ class Users(KeycloakResource):
 
     async def create(self, user_representation: UserRepresentation) -> str:
         connection = await self._get_connection()
-        response = await connection.post(self.get_url(), json=user_representation.to_dict())
+        response = await connection.post(
+            self.get_url(), json=user_representation.to_dict()
+        )
         return get_resource_id_in_location_header(response)
 
     async def count(

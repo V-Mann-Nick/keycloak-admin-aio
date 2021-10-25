@@ -1,9 +1,9 @@
-from keycloak_admin_aio.resources.keycloak_resource import (
-    KeycloakResourceWithIdentifierGetter,
-)
 from typing import Optional
 
 from keycloak_admin_aio.lib.utils import remove_none
+from keycloak_admin_aio.resources.keycloak_resource import (
+    KeycloakResourceWithIdentifierGetter,
+)
 from keycloak_admin_aio.types import RoleRepresentation
 
 from .. import KeycloakResource, KeycloakResourcesType

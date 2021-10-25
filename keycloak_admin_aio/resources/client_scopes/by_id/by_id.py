@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
-from ... import KeycloakResourceWithIdentifier, KeycloakResourcesType
+from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
 from .scope_mappings import ClientScopesScopeMappings
 
 

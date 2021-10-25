@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import GroupRepresentation
 
-from ... import KeycloakResourceWithIdentifier, KeycloakResourcesType
+from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
 from .children import GroupsByIdChildren
 from .members import GroupsByIdMembers
 

@@ -1,4 +1,5 @@
 from keycloak_admin_aio.types import RequiredActionProviderRepresentation
+
 from ... import KeycloakResource
 
 
