@@ -1,4 +1,7 @@
-from keycloak_admin_aio.resources import KeycloakResourceWithIdentifier, KeycloakResourcesType
+from keycloak_admin_aio.resources import (
+    KeycloakResourcesType,
+    KeycloakResourceWithIdentifier,
+)
 from keycloak_admin_aio.types import RoleRepresentation
 
 from .composites import RolesByNameComposites
@@ -18,9 +21,7 @@ class RolesByName(KeycloakResourceWithIdentifier):
 
     async def update(self, role_representation: RoleRepresentation):
         connection = await self._get_connection()
-        await connection.put(
-            self.get_url(), json=role_representation.to_dict()
-        )
+        await connection.put(self.get_url(), json=role_representation.to_dict())
 
     async def delete(self):
         connection = await self._get_connection()

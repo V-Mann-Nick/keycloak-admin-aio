@@ -1,6 +1,6 @@
 import uuid
-from typing import Any, Union
 from dataclasses import asdict as _asdict
+from typing import Any, Union
 
 import httpx
 
@@ -26,7 +26,8 @@ def is_uuid(value: str) -> bool:
     except ValueError:
         return False
 
-def get_resource_id_in_location_header( response: httpx.Response) -> str:
+
+def get_resource_id_in_location_header(response: httpx.Response) -> str:
     location_header = response.headers.get("location")
     if not location_header or type(location_header) != str:
         raise Exception("The response headers didn't include location.")

@@ -1,4 +1,5 @@
 from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
+
 from .. import KeycloakResource
 from .required_actions import AuthenticationRequiredActions
 

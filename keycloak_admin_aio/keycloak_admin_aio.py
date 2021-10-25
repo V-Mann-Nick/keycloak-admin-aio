@@ -6,13 +6,13 @@ import httpx
 
 from .lib.utils import remove_none
 from .resources import KeycloakResourcesType
-from .resources.client_scopes import ClientScopes
-from .resources.roles import Roles
-from .resources.users import Users
-from .resources.clients import Clients
 from .resources.admin_events import AdminEvents
 from .resources.authentication import Authentication
+from .resources.client_scopes import ClientScopes
+from .resources.clients import Clients
 from .resources.groups import Groups
+from .resources.roles import Roles
+from .resources.users import Users
 
 
 class KeycloakAdmin:
@@ -142,8 +142,8 @@ class KeycloakAdmin:
         loop.run_until_complete(self.close())
 
     def __set_keycloak_resources(self):
-        for resources_name, Resource in self.__keycloak_resources:
-            setattr(self, resources_name, Resource(self.__get_connection, self.get_url))
+        for resources_name, resource in self.__keycloak_resources:
+            setattr(self, resources_name, resource(self.__get_connection, self.get_url))
 
     async def __aenter__(self):
         return self

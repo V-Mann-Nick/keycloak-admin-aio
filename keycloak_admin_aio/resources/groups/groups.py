@@ -1,12 +1,14 @@
-from .by_id import GroupsById
-from keycloak_admin_aio.resources.keycloak_resource import (
-    KeycloakResourceWithIdentifierGetter,
-    KeycloakResourcesType,
-)
-from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header, remove_none
-from keycloak_admin_aio.types import GroupRepresentation
 from typing import Optional
+
+from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header, remove_none
+from keycloak_admin_aio.resources.keycloak_resource import (
+    KeycloakResourcesType,
+    KeycloakResourceWithIdentifierGetter,
+)
+from keycloak_admin_aio.types import GroupRepresentation
+
 from .. import KeycloakResource
+from .by_id import GroupsById
 
 
 class Groups(KeycloakResource):
@@ -37,7 +39,9 @@ class Groups(KeycloakResource):
 
     async def create(self, group_representation: GroupRepresentation):
         connection = await self._get_connection()
-        response = await connection.post(self.get_url(), json=group_representation.to_dict())
+        response = await connection.post(
+            self.get_url(), json=group_representation.to_dict()
+        )
         return get_resource_id_in_location_header(response)
 
     async def count(

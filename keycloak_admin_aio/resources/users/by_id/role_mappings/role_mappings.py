@@ -1,5 +1,6 @@
 from keycloak_admin_aio.resources.keycloak_resource import KeycloakResourcesType
 from keycloak_admin_aio.types import MappingsRepresentation
+
 from .... import KeycloakResource
 from .realm import UsersByIdRoleMappingsRealm
 
