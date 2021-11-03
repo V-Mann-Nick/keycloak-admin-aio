@@ -1,6 +1,6 @@
 from typing import Optional
 
-from keycloak_admin_aio.lib.utils import remove_none
+from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header, remove_none
 from keycloak_admin_aio.types import ClientRepresentation
 
 from .. import (
@@ -18,9 +18,12 @@ class Clients(KeycloakResource):
     def get_url(self):
         return f"{self._get_parent_url()}/clients"
 
-    async def create(self, client_representation: ClientRepresentation):
+    async def create(self, client_representation: ClientRepresentation) -> str:
         connection = await self._get_connection()
-        await connection.post(self.get_url(), json=client_representation.to_dict())
+        response = await connection.post(
+            self.get_url(), json=client_representation.to_dict()
+        )
+        return get_resource_id_in_location_header(response)
 
     async def get(
         self,
