@@ -1,3 +1,4 @@
+from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
 from .. import (
@@ -15,11 +16,14 @@ class ClientScopes(KeycloakResource):
     def get_url(self):
         return f"{self._get_parent_url()}/client-scopes"
 
-    async def create(self, client_scope_representation: ClientScopeRepresentation):
+    async def create(
+        self, client_scope_representation: ClientScopeRepresentation
+    ) -> str:
         connection = await self._get_connection()
-        await connection.post(
+        response = await connection.post(
             self.get_url(), json=client_scope_representation.to_dict()
         )
+        return get_resource_id_in_location_header(response)
 
     async def get(self):
         connection = await self._get_connection()

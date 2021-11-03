@@ -1,6 +1,6 @@
 from typing import Optional
 
-from keycloak_admin_aio.lib.utils import remove_none
+from keycloak_admin_aio.lib.utils import get_resource_id_in_location_header, remove_none
 from keycloak_admin_aio.resources.keycloak_resource import (
     KeycloakResourceWithIdentifierGetter,
 )
@@ -22,9 +22,13 @@ class Roles(KeycloakResource):
     def get_url(self):
         return f"{self._get_parent_url()}/roles"
 
-    async def create(self, role_representation: RoleRepresentation):
+    async def create(self, role_representation: RoleRepresentation) -> str:
         connection = await self._get_connection()
-        await connection.post(self.get_url(), json=role_representation.to_dict())
+        response = await connection.post(
+            self.get_url(), json=role_representation.to_dict()
+        )
+        role_name = get_resource_id_in_location_header(response, is_no_uuid=True)
+        return role_name
 
     async def get(
         self,
