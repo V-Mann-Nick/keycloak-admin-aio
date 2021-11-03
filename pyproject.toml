@@ -6,7 +6,7 @@ authors = ["Nicklas Sedlock <nicklas@delphai.com>"]
 homepage = "https://github.com/delphai/keycloak-admin-aio"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 httpx = "^0.15.0"
 dacite = "^1.6.0"
 
@@ -17,6 +17,9 @@ pre-commit = "^2.15.0"
 flake8 = "^4.0.1"
 pep8-naming = "^0.12.1"
 poethepoet = "^0.10.0"
+Sphinx = "^4.2.0"
+sphinx-rtd-theme = "^1.0.0"
+ipython = "^7.29.0"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
@@ -31,6 +34,7 @@ tag_format = "$version"
 install_pre_commit = "pre-commit install"
 lint = "flake8 keycloak_admin_aio/"
 format = "black keycloak_admin_aio/"
+docgen = "sphinx-build -b html docs/ docs/_build"
 
 [build-system]
 requires = ["poetry>=0.12"]
@@ -39,3 +43,4 @@ build-backend = "poetry.masonry.api"
 [tool.isort]
 profile = "black"
 multi_line_output = 3
+skip = ["keycloak_admin_aio/_resources/__init__.py"]
