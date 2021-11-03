@@ -4,6 +4,7 @@ from typing import Any, Literal, Optional
 
 import httpx
 
+from .lib.httpx_args import merge_with_default_httpx_args
 from .lib.utils import remove_none
 from .resources import KeycloakResourcesType
 from .resources.admin_events import AdminEvents
@@ -54,12 +55,8 @@ class KeycloakAdmin:
         self._password = password
         self._server_url = server_url
         self._grant_type = grant_type
-
-        async def raise_for_status_hook(response: httpx.Response):
-            response.raise_for_status()
-
         self.__connection = httpx.AsyncClient(
-            event_hooks={"response": [raise_for_status_hook]}, **httpx_args
+            **merge_with_default_httpx_args(httpx_args)
         )
         self.__access_token = None
         self.__refresh_token = None
