@@ -5,7 +5,7 @@ class UsersByIdGroupsById(KeycloakResourceWithIdentifier):
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/{self.identifier}"
 
-    async def add(self):
+    async def create(self):
         connection = await self._get_connection()
         await connection.put(self.get_url())
 

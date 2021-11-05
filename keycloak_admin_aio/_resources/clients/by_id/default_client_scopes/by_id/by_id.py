@@ -16,7 +16,7 @@ class ClientsByIdDefaultClientScopesById(KeycloakResourceWithIdentifier):
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/{self.identifier}"
 
-    async def add(self):
+    async def create(self):
         """Add a client scope by id to a client by id.
 
         .. code:: python
