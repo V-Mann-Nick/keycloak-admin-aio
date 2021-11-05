@@ -1,8 +1,8 @@
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
 from .... import (
+    AttachedResources,
     KeycloakResource,
-    KeycloakResourcesType,
     KeycloakResourceWithIdentifierGetter,
 )
 from .by_id import ClientsByIdDefaultClientScopesById
@@ -19,7 +19,7 @@ class ClientsByIdDefaultClientScopes(KeycloakResource):
         client_uuid: str
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("by_id", ClientsByIdDefaultClientScopesById)
     ]
     by_id: KeycloakResourceWithIdentifierGetter[ClientsByIdDefaultClientScopesById]

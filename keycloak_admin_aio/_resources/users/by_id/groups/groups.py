@@ -4,8 +4,8 @@ from keycloak_admin_aio._lib.utils import remove_none
 from keycloak_admin_aio.types import GroupRepresentation
 
 from .... import (
+    AttachedResources,
     KeycloakResource,
-    KeycloakResourcesType,
     KeycloakResourceWithIdentifierGetter,
 )
 from .by_id import UsersByIdGroupsById
@@ -22,7 +22,7 @@ class UsersByIdGroups(KeycloakResource):
         user_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("by_id", UsersByIdGroupsById)]
+    _keycloak_resources: AttachedResources = [("by_id", UsersByIdGroupsById)]
     by_id: KeycloakResourceWithIdentifierGetter[UsersByIdGroupsById]
 
     def get_url(self) -> str:

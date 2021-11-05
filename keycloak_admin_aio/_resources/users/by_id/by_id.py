@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import UserRepresentation
 
-from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
+from ... import AttachedResources, KeycloakResourceWithIdentifier
 from .execute_actions_email import UsersByIdExecuteActionsEmail
 from .groups import UsersByIdGroups
 from .role_mappings import UsersByIdRoleMappings
@@ -17,7 +17,7 @@ class UsersById(KeycloakResourceWithIdentifier):
         user_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("role_mappings", UsersByIdRoleMappings),
         ("groups", UsersByIdGroups),
         ("execute_actions_email", UsersByIdExecuteActionsEmail),

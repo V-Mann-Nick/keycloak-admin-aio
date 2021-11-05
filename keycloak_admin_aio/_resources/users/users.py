@@ -6,11 +6,7 @@ from keycloak_admin_aio._lib.utils import (
 )
 from keycloak_admin_aio.types import UserRepresentation
 
-from .. import (
-    KeycloakResource,
-    KeycloakResourcesType,
-    KeycloakResourceWithIdentifierGetter,
-)
+from .. import AttachedResources, KeycloakResource, KeycloakResourceWithIdentifierGetter
 from .by_id import UsersById
 
 
@@ -24,7 +20,7 @@ class Users(KeycloakResource):
         kc: KeycloakAdmin  # needs to be instantiated
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("by_id", UsersById)]
+    _keycloak_resources: AttachedResources = [("by_id", UsersById)]
     by_id: KeycloakResourceWithIdentifierGetter[UsersById]
 
     def get_url(self) -> str:

@@ -2,7 +2,7 @@
 
 from .keycloak_resource import (
     KeycloakResource,
-    KeycloakResourcesType,
+    AttachedResources,
     KeycloakResourceWithIdentifier,
     KeycloakResourceWithIdentifierGetter,
 )

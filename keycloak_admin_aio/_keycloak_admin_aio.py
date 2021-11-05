@@ -8,11 +8,11 @@ from ._httpx_args import merge_with_default_httpx_args
 from ._lib.utils import remove_none
 from ._resources import (
     AdminEvents,
+    AttachedResources,
     Authentication,
     Clients,
     ClientScopes,
     Groups,
-    KeycloakResourcesType,
     Roles,
     Users,
 )
@@ -25,7 +25,7 @@ class KeycloakAdmin:
     ``get_access_token`` method or accessing a protected Keycloak resource.
     """
 
-    __keycloak_resources: KeycloakResourcesType = [
+    __keycloak_resources: AttachedResources = [
         ("roles", Roles),
         ("client_scopes", ClientScopes),
         ("users", Users),

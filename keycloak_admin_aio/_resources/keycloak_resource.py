@@ -1,13 +1,18 @@
-import abc
-from typing import Any, Callable, Coroutine, TypeVar
+from __future__ import annotations
 
-from httpx import AsyncClient
+import abc
+from typing import Any, Awaitable, Callable, TypeVar
+
+import httpx
+
+GetConnectionFn = Callable[..., Awaitable[httpx.AsyncClient]]
+GetUrlFn = Callable[..., str]
 
 
 def _create_getter(
     resource: Any,
-    get_connection: Callable[..., Coroutine[Any, Any, AsyncClient]],
-    get_url: Callable[..., str],
+    get_connection: GetConnectionFn,
+    get_url: GetUrlFn,
 ):
     """Creates a getter function for identified resources.
 
@@ -23,12 +28,12 @@ class KeycloakResource:
     It attaches all the child resources in ``_keycloak_resources``
     """
 
-    _keycloak_resources: list
+    _keycloak_resources: AttachedResources
 
     def __init__(
         self,
-        get_connection: Callable[..., Coroutine[Any, Any, AsyncClient]],
-        get_parent_url: Callable[..., str],
+        get_connection: GetConnectionFn,
+        get_parent_url: GetUrlFn,
     ):
         """Initialize keycloak resource."""
         self._get_connection = get_connection
@@ -70,8 +75,8 @@ class KeycloakResourceWithIdentifier(KeycloakResource):
 
     def __init__(
         self,
-        get_connection: Callable[..., Coroutine[Any, Any, AsyncClient]],
-        get_parent_url: Callable[..., str],
+        get_connection: GetConnectionFn,
+        get_parent_url: GetUrlFn,
         identifier: str,
     ):
         """Initializes an identified keycloak resources adding the identifier."""
@@ -79,7 +84,7 @@ class KeycloakResourceWithIdentifier(KeycloakResource):
         self.identifier = identifier
 
 
-KeycloakResourcesType = list[tuple[str, type[KeycloakResource]]]
+AttachedResources = list[tuple[str, type[KeycloakResource]]]
 
 T = TypeVar("T", bound=KeycloakResourceWithIdentifier)
 KeycloakResourceWithIdentifierGetter = Callable[[str], T]

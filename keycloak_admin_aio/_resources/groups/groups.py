@@ -6,11 +6,7 @@ from keycloak_admin_aio._lib.utils import (
 )
 from keycloak_admin_aio.types import GroupRepresentation
 
-from .. import (
-    KeycloakResource,
-    KeycloakResourcesType,
-    KeycloakResourceWithIdentifierGetter,
-)
+from .. import AttachedResources, KeycloakResource, KeycloakResourceWithIdentifierGetter
 from .by_id import GroupsById
 
 
@@ -24,7 +20,7 @@ class Groups(KeycloakResource):
         kc: KeycloakAdmin  # must be instantiated
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("by_id", GroupsById)]
+    _keycloak_resources: AttachedResources = [("by_id", GroupsById)]
     by_id: KeycloakResourceWithIdentifierGetter[GroupsById]
 
     def get_url(self) -> str:
