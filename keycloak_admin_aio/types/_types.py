@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from dataclasses import dataclass
 from typing import Any, Literal, Optional
 
@@ -137,7 +139,7 @@ class GroupRepresentation(DataClass):
     name: Optional[str] = None
     realmRoles: Optional[list[str]] = None
     path: Optional[str] = None
-    subGroups: Optional[list[dict]] = None
+    subGroups: Optional[list[GroupRepresentation]] = None
     clientRoles: Optional[dict[str, Any]] = None
     attributes: Optional[dict[str, list[str]]] = None
     access: Optional[dict[str, bool]] = None
@@ -151,7 +153,8 @@ class ScopeRepresentation(DataClass):
     name: Optional[str] = None
     displayName: Optional[str] = None
     iconUri: Optional[str] = None
-    policies: Optional[list[dict]] = None
+    policies: Optional[list[PolicyRepresentation]] = None
+    resources: Optional[list[ResourceRepresentation]] = None
 
 
 @dataclass
@@ -195,10 +198,13 @@ class ResourceServerRepresentation(DataClass):
     name: Optional[str] = None
     allowRemoteResourceManagement: Optional[bool] = None
     clientId: Optional[str] = None
-    decisionStrategy: Optional[str] = None
-    policyEnforcementMode: Optional[str] = None
+    decisionStrategy: Optional[Literal["AFFIRMATIVE", "UNANIMOUS", "CONSENSUS"]] = None
+    policyEnforcementMode: Optional[
+        Literal["ENFORCING", "PERMISSIVE", "DISABLED"]
+    ] = None
     resources: Optional[list[ResourceRepresentation]] = None
     scopes: Optional[list[ScopeRepresentation]] = None
+    policies: Optional[list[PolicyRepresentation]] = None
 
 
 @dataclass
