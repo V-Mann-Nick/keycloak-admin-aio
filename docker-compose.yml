@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: testing
+      KEYCLOAK_PASSWORD: testing
+    ports:
+      - 8080:8080
