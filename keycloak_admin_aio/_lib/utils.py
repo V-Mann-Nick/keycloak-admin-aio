@@ -1,6 +1,6 @@
 import uuid
 from dataclasses import asdict as _asdict
-from typing import Any, Union
+from typing import Any, Optional, TypeVar, Union
 
 import httpx
 
@@ -38,3 +38,11 @@ def get_resource_id_in_location_header(
     if not is_correct_type:
         raise Exception("Resource id couldn't be found in location header.")
     return resource_id
+
+
+T = TypeVar("T")
+
+
+def cast_non_optional(arg: Optional[T]) -> T:
+    assert arg is not None
+    return arg
