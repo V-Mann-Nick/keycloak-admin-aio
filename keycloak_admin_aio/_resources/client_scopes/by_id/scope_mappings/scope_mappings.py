@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import MappingsRepresentation
 
-from .... import KeycloakResource, KeycloakResourcesType
+from .... import AttachedResources, KeycloakResource
 from .realm import ClientScopesScopeMappingsRealm
 
 
@@ -15,9 +15,7 @@ class ClientScopesScopeMappings(KeycloakResource):
         client_scope_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
-        ("realm", ClientScopesScopeMappingsRealm)
-    ]
+    _keycloak_resources: AttachedResources = [("realm", ClientScopesScopeMappingsRealm)]
     realm: ClientScopesScopeMappingsRealm
 
     def get_url(self) -> str:

@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import MappingsRepresentation
 
-from .... import KeycloakResource, KeycloakResourcesType
+from .... import AttachedResources, KeycloakResource
 from .realm import UsersByIdRoleMappingsRealm
 
 
@@ -15,7 +15,7 @@ class UsersByIdRoleMappings(KeycloakResource):
         user_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("realm", UsersByIdRoleMappingsRealm)]
+    _keycloak_resources: AttachedResources = [("realm", UsersByIdRoleMappingsRealm)]
     realm: UsersByIdRoleMappingsRealm
 
     def get_url(self) -> str:

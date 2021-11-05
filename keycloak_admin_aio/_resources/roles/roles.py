@@ -6,11 +6,7 @@ from keycloak_admin_aio._lib.utils import (
 )
 from keycloak_admin_aio.types import RoleRepresentation
 
-from .. import (
-    KeycloakResource,
-    KeycloakResourcesType,
-    KeycloakResourceWithIdentifierGetter,
-)
+from .. import AttachedResources, KeycloakResource, KeycloakResourceWithIdentifierGetter
 from .by_id import RolesById
 from .by_name import RolesByName
 
@@ -25,7 +21,7 @@ class Roles(KeycloakResource):
         kc: KeycloakAdmin  # needs to be instantiated
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("by_id", RolesById),
         ("by_name", RolesByName),
     ]

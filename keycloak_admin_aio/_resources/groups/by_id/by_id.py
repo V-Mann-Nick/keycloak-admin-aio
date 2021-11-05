@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import GroupRepresentation
 
-from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
+from ... import AttachedResources, KeycloakResourceWithIdentifier
 from .children import GroupsByIdChildren
 from .members import GroupsByIdMembers
 
@@ -16,7 +16,7 @@ class GroupsById(KeycloakResourceWithIdentifier):
         group_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("children", GroupsByIdChildren),
         ("members", GroupsByIdMembers),
     ]

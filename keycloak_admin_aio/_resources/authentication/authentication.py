@@ -1,11 +1,11 @@
-from .. import KeycloakResource, KeycloakResourcesType
+from .. import AttachedResources, KeycloakResource
 from .required_actions import AuthenticationRequiredActions
 
 
 class Authentication(KeycloakResource):
     """Provides the Keycloak authentication management resource."""
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("required_actions", AuthenticationRequiredActions)
     ]
     required_actions: AuthenticationRequiredActions

@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import RoleRepresentation
 
-from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
+from ... import AttachedResources, KeycloakResourceWithIdentifier
 from .composites import RolesByIdComposites
 
 
@@ -15,7 +15,7 @@ class RolesById(KeycloakResourceWithIdentifier):
         role_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("composites", RolesByIdComposites)]
+    _keycloak_resources: AttachedResources = [("composites", RolesByIdComposites)]
     composites: RolesByIdComposites
 
     def get_url(self) -> str:

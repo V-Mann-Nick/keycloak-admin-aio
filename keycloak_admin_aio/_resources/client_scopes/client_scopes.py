@@ -1,11 +1,7 @@
 from keycloak_admin_aio._lib.utils import get_resource_id_in_location_header
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
-from .. import (
-    KeycloakResource,
-    KeycloakResourcesType,
-    KeycloakResourceWithIdentifierGetter,
-)
+from .. import AttachedResources, KeycloakResource, KeycloakResourceWithIdentifierGetter
 from .by_id import ClientScopesById
 
 
@@ -19,7 +15,7 @@ class ClientScopes(KeycloakResource):
         kc: KeycloakAdmin  # must be instantiated
     """
 
-    _keycloak_resources: KeycloakResourcesType = [("by_id", ClientScopesById)]
+    _keycloak_resources: AttachedResources = [("by_id", ClientScopesById)]
     by_id: KeycloakResourceWithIdentifierGetter[ClientScopesById]
 
     def get_url(self) -> str:

@@ -1,6 +1,6 @@
 from keycloak_admin_aio.types import ClientScopeRepresentation
 
-from ... import KeycloakResourcesType, KeycloakResourceWithIdentifier
+from ... import AttachedResources, KeycloakResourceWithIdentifier
 from .scope_mappings import ClientScopesScopeMappings
 
 
@@ -15,7 +15,7 @@ class ClientScopesById(KeycloakResourceWithIdentifier):
         client_scope_id: str  # uuid
     """
 
-    _keycloak_resources: KeycloakResourcesType = [
+    _keycloak_resources: AttachedResources = [
         ("scope_mappings", ClientScopesScopeMappings)
     ]
     scope_mappings: ClientScopesScopeMappings
