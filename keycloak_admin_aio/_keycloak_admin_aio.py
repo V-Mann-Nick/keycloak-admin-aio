@@ -55,6 +55,9 @@ class KeycloakAdmin:
     groups: Groups
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource"""
 
+    leeway: int
+    """A token will be considered as expired seconds before its actual expiry controlled by this value."""
+
     def __init__(
         self,
         server_url: str,
@@ -64,6 +67,7 @@ class KeycloakAdmin:
         client_id: Optional[str] = None,
         client_secret: Optional[str] = None,
         realm: str = "master",
+        leeway: int = 10,
         httpx_args={},
     ):
         """Initialize ``KeycloakAdmin`` with either client or user credentials.
@@ -82,6 +86,7 @@ class KeycloakAdmin:
         self._password = password
         self._server_url = server_url
         self._grant_type = grant_type
+        self.leeway = leeway
         self.__connection = httpx.AsyncClient(
             **merge_with_default_httpx_args(httpx_args)
         )
@@ -96,6 +101,7 @@ class KeycloakAdmin:
         client_id: str,
         client_secret: str,
         realm: str = "master",
+        leeway: int = 10,
         httpx_args={},
     ):
         """Instantiate ``KeycloakAdmin`` with ``client_id`` and ``client_secret``."""
@@ -105,6 +111,7 @@ class KeycloakAdmin:
             client_id=client_id,
             client_secret=client_secret,
             realm=realm,
+            leeway=leeway,
             httpx_args=httpx_args,
         )
 
@@ -116,6 +123,7 @@ class KeycloakAdmin:
         password: Optional[str] = None,
         client_id: Optional[str] = "admin-cli",
         realm: str = "master",
+        leeway: int = 10,
         httpx_args={},
     ):
         """Instantiate ``KeycloakAdmin`` with user credentials (username and password)."""
@@ -126,6 +134,7 @@ class KeycloakAdmin:
             username=username,
             password=password,
             realm=realm,
+            leeway=leeway,
             httpx_args=httpx_args,
         )
 
@@ -197,9 +206,9 @@ class KeycloakAdmin:
             now = datetime.now()
             if now > self.access_token_expire:
                 if now < self.refresh_token_expire:
-                    await self.__token()
-                else:
                     await self.__token_refresh()
+                else:
+                    await self.__token()
         return self.__access_token
 
     def get_token_url(self) -> str:
@@ -210,10 +219,10 @@ class KeycloakAdmin:
         self.__access_token = token_response["access_token"]
         self.__refresh_token = token_response.get("refresh_token")
         self.access_token_expire = datetime.now() + timedelta(
-            seconds=token_response["expires_in"] - 10
+            seconds=token_response["expires_in"] - self.leeway
         )
         self.refresh_token_expire = datetime.now() + timedelta(
-            seconds=token_response.get("refresh_expires_in", 0) - 10
+            seconds=token_response.get("refresh_expires_in", 0) - self.leeway
         )
 
     async def __token_refresh(self):
