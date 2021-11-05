@@ -17,7 +17,7 @@ class GroupsByIdChildren(KeycloakResource):
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/children"
 
-    async def add(self, group_representation: GroupRepresentation):
+    async def create(self, group_representation: GroupRepresentation):
         """Create a parent/child group relationship.
 
         .. code:: python
