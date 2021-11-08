@@ -1,3 +1,9 @@
+## 1.0.2 (2021-11-08)
+
+### Fix
+
+- added readme field to pyproject.toml
+
 ## 1.0.1 (2021-11-08)
 
 ### Fix
