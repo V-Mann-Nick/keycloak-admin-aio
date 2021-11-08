@@ -63,3 +63,11 @@ With client credentials:
             ...
 
     asyncio.run(main())
+
+License
+-------
+
+`Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_
+
+
+© Copyright 2021, delphai by AtomLeap GmbH
