@@ -16,10 +16,11 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
+          persist-credentials: false
       - name: Bump version and create changelog
         uses: commitizen-tools/commitizen-action@master
         with:
-          github_token: ${{ secrets.DEVOPS_TOKEN }}
+          github_token: ${{ secrets.BOT_TOKEN }}
   publish:
     needs: bump-version
     runs-on: ubuntu-latest
