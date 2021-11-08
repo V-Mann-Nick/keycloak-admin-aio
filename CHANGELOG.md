@@ -1,3 +1,9 @@
+## 1.0.1 (2021-11-08)
+
+### Fix
+
+- dummy commit to trigger version bump and pypi release
+
 ## 1.0.0 (2021-11-08)
 
 ### Refactor
