@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keycloak admin aio &mdash; keycloak_admin_aio  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Types" href="types.html" />
+    <link rel="prev" title="Welcome to keycloak_admin_aio’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> keycloak_admin_aio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Keycloak admin aio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Keycloak resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">keycloak_admin_aio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Keycloak admin aio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/keycloak_admin_aio.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-keycloak_admin_aio">
+<span id="keycloak-admin-aio"></span><h1>Keycloak admin aio<a class="headerlink" href="#module-keycloak_admin_aio" title="Permalink to this headline"></a></h1>
+<p>This package provides a asynchronous Keycloak Admin API wrapper.</p>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio.</span></span><span class="sig-name descname"><span class="pre">KeycloakAdmin</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin" title="Permalink to this definition"></a></dt>
+<dd><p>Base class for Keycloak Admin API endpoints.</p>
+<p>It handles the <code class="docutils literal notranslate"><span class="pre">access_token</span></code> and guarantees it being valid when using the
+<code class="docutils literal notranslate"><span class="pre">get_access_token</span></code> method or accessing a protected Keycloak resource.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.roles">
+<span class="sig-name descname"><span class="pre">roles</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/roles.html#keycloak_admin_aio._resources.roles.Roles" title="keycloak_admin_aio._resources.roles.roles.Roles"><span class="pre">keycloak_admin_aio._resources.roles.roles.Roles</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.roles" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.client_scopes">
+<span class="sig-name descname"><span class="pre">client_scopes</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/client_scopes.html#keycloak_admin_aio._resources.client_scopes.ClientScopes" title="keycloak_admin_aio._resources.client_scopes.client_scopes.ClientScopes"><span class="pre">keycloak_admin_aio._resources.client_scopes.client_scopes.ClientScopes</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.client_scopes" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.users">
+<span class="sig-name descname"><span class="pre">users</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/users.html#keycloak_admin_aio._resources.users.Users" title="keycloak_admin_aio._resources.users.users.Users"><span class="pre">keycloak_admin_aio._resources.users.users.Users</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.users" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.clients">
+<span class="sig-name descname"><span class="pre">clients</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/clients.html#keycloak_admin_aio._resources.clients.Clients" title="keycloak_admin_aio._resources.clients.clients.Clients"><span class="pre">keycloak_admin_aio._resources.clients.clients.Clients</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.clients" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clients_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clients_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.admin_events">
+<span class="sig-name descname"><span class="pre">admin_events</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/admin_events.html#keycloak_admin_aio._resources.admin_events.AdminEvents" title="keycloak_admin_aio._resources.admin_events.admin_events.AdminEvents"><span class="pre">keycloak_admin_aio._resources.admin_events.admin_events.AdminEvents</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.admin_events" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_realms_admin_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_realms_admin_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.authentication">
+<span class="sig-name descname"><span class="pre">authentication</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/authentication.html#keycloak_admin_aio._resources.authentication.Authentication" title="keycloak_admin_aio._resources.authentication.authentication.Authentication"><span class="pre">keycloak_admin_aio._resources.authentication.authentication.Authentication</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.authentication" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_authentication_management_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_authentication_management_resource</a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.groups">
+<span class="sig-name descname"><span class="pre">groups</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="resources/groups.html#keycloak_admin_aio._resources.groups.Groups" title="keycloak_admin_aio._resources.groups.groups.Groups"><span class="pre">keycloak_admin_aio._resources.groups.groups.Groups</span></a></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.groups" title="Permalink to this definition"></a></dt>
+<dd><p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grant_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'master'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leeway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpx_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize <code class="docutils literal notranslate"><span class="pre">KeycloakAdmin</span></code> with either client or user credentials.</p>
+<p>Should not be used directly. The usage
+of <code class="docutils literal notranslate"><span class="pre">with_client_credentials</span></code> or <code class="docutils literal notranslate"><span class="pre">with_password</span></code> should be
+preferred.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>grant_type</strong> (<em>Literal</em><em>[</em><em>'client_credentials'</em><em>, </em><em>'password'</em><em>]</em>) – </p></li>
+<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>password</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>client_id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>client_secret</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>realm</strong> (<em>str</em>) – </p></li>
+<li><p><strong>leeway</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.leeway">
+<span class="sig-name descname"><span class="pre">leeway</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.leeway" title="Permalink to this definition"></a></dt>
+<dd><p>A token will be considered as expired seconds before its actual expiry controlled by this value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.with_client_credentials">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">with_client_credentials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'master'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leeway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpx_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.with_client_credentials" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate <code class="docutils literal notranslate"><span class="pre">KeycloakAdmin</span></code> with <code class="docutils literal notranslate"><span class="pre">client_id</span></code> and <code class="docutils literal notranslate"><span class="pre">client_secret</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>client_id</strong> (<em>str</em>) – </p></li>
+<li><p><strong>client_secret</strong> (<em>str</em>) – </p></li>
+<li><p><strong>realm</strong> (<em>str</em>) – </p></li>
+<li><p><strong>leeway</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.with_password">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">with_password</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'admin-cli'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'master'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leeway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpx_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.with_password" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate <code class="docutils literal notranslate"><span class="pre">KeycloakAdmin</span></code> with user credentials (username and password).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>server_url</strong> (<em>str</em>) – </p></li>
+<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>password</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>client_id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>realm</strong> (<em>str</em>) – </p></li>
+<li><p><strong>leeway</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.realm">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">realm</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.realm" title="Permalink to this definition"></a></dt>
+<dd><p>Realm property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.username">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.username" title="Permalink to this definition"></a></dt>
+<dd><p>Username property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.client_id">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">client_id</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.client_id" title="Permalink to this definition"></a></dt>
+<dd><p>Client id property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.client_secret">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">client_secret</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.client_secret" title="Permalink to this definition"></a></dt>
+<dd><p>Client secret property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.password">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.password" title="Permalink to this definition"></a></dt>
+<dd><p>Password property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.server_url">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">server_url</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.server_url" title="Permalink to this definition"></a></dt>
+<dd><p>Server url property.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.grant_type">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">grant_type</span></span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.grant_type" title="Permalink to this definition"></a></dt>
+<dd><p>Token endpoint grant type.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.get_url">
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.get_url" title="Permalink to this definition"></a></dt>
+<dd><p>Get the admin api base url.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.close">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.close" title="Permalink to this definition"></a></dt>
+<dd><p>Closes open httpx connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.close_sync">
+<span class="sig-name descname"><span class="pre">close_sync</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.close_sync" title="Permalink to this definition"></a></dt>
+<dd><p>Synchronously close open httpx connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.get_access_token">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">get_access_token</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.get_access_token" title="Permalink to this definition"></a></dt>
+<dd><p>Get <code class="docutils literal notranslate"><span class="pre">access_token</span></code>. Guaranteed not to be expired.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio.KeycloakAdmin.get_token_url">
+<span class="sig-name descname"><span class="pre">get_token_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.KeycloakAdmin.get_token_url" title="Permalink to this definition"></a></dt>
+<dd><p>Openid connect token endpoint url.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to keycloak_admin_aio’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="types.html" class="btn btn-neutral float-right" title="Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, delphai by AtomLeap GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

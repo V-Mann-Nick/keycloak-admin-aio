@@ -1,0 +1,71 @@
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  bump-version:
+    if: "!startsWith(github.event.head_commit.message, 'bump:')"
+    runs-on: ubuntu-latest
+    name: Bump version and create changelog with commitizen
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bump version and create changelog
+        uses: commitizen-tools/commitizen-action@master
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}
+  publish:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    name: Build and release to pypi
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          fetch-depth: 0
+          ref: master
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.9"
+      - name: Use poetry
+        uses: abatilo/actions-poetry@v2.0.0
+      - name: Publish to pypi
+        run: poetry publish --build --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PYPI_PASSWORD }}
+  documentation:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    name: Build sphinx docs and publish them
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          fetch-depth: 0
+          ref: master
+      - name: Install python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Install requirements for sphinx autodoc
+        run: |
+          pip install poetry && \
+          poetry export -f requirements.txt --output docs/requirements.txt && \
+          pip install sphinx-rtd-theme
+      - name: Build and Commit
+        uses: sphinx-notes/pages@master
+        with:
+          documentation_path: docs
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
