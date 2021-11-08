@@ -9,7 +9,10 @@ The main dependencies are:
 - `httpx <https://github.com/encode/httpx/>`_: asynchronous http client
 - `dacite <https://github.com/konradhalas/dacite>`_: parse nested dictionaries into nested dataclasses
 
-`Check here <https://github.com/delphai/keycloak-admin-aio>`_ for the source code.
+Links:
+
+- `Source code <https://github.com/delphai/keycloak-admin-aio>`_
+- `Documentation <https://delphai.github.io/keycloak-admin-aio/>`_
 
 How to install?
 ---------------
