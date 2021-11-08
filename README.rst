@@ -2,8 +2,21 @@ What is keycloak_admin_aio?
 ---------------------------
 
 This package provides an asynchronous api wrapper for the `keycloak admin api
-<https://www.keycloak.org/docs-api/15.0/rest-api>`_.  It uses `httpx
-<https://github.com/encode/httpx/>`_ as an asynchronous http client.
+<https://www.keycloak.org/docs-api/15.0/rest-api>`_.
+
+The main dependencies are:
+
+- `httpx <https://github.com/encode/httpx/>`_: asynchronous http client
+- `dacite <https://github.com/konradhalas/dacite>`_: parse nested dictionaries into nested dataclasses
+
+`Check here <https://github.com/delphai/keycloak-admin-aio>`_ for the source code.
+
+How to install?
+---------------
+
+.. code:: shell
+
+   poetry add keycloak-admin-aio
 
 How to use it?
 --------------
