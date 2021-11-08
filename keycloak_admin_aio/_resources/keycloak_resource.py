@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import abc
-from typing import Any, Awaitable, Callable, TypeVar
+from typing import Any, Awaitable, Callable, Generic, TypeVar
 
 import httpx
 
@@ -87,4 +87,16 @@ class KeycloakResourceWithIdentifier(KeycloakResource):
 AttachedResources = list[tuple[str, type[KeycloakResource]]]
 
 T = TypeVar("T", bound=KeycloakResourceWithIdentifier)
-KeycloakResourceWithIdentifierGetter = Callable[[str], T]
+
+
+class KeycloakResourceWithIdentifierGetter(Generic[T]):
+    """Function which attaches to Keycloak resources to provide a child resource by identifier.
+
+    Using ``Callable`` does not properly work and although (as far as I
+    understand) it should be fixed: https://github.com/python/mypy/issues/708.
+    Honestly I really don't understand what's going on here, but writing it
+    this way resolved the mypy issue I was having
+    """
+
+    def __call__(self, identifier: str) -> T:
+        ...

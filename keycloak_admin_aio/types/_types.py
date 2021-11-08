@@ -102,7 +102,7 @@ class UserConsentRepresentation(DataClass):
 
 
 @dataclass
-class UserRepresentation(DataClass):
+class UserRepresentation(DataClass):  # type: ignore
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_userrepresentation"""
 
     id: Optional[str] = None

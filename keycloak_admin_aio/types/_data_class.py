@@ -1,19 +1,21 @@
-from typing import TypeVar
+from __future__ import annotations
+
+from typing import Any, TypeVar
 
 from dacite.core import from_dict
 
 from keycloak_admin_aio._lib.utils import asdict
 
-T = TypeVar("T")
-
 
 class DataClass:
-    def to_dict(self):
+    def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
     @staticmethod
-    def to_dict_list(_list: list[T]) -> list[T]:
-        return list(map(lambda t: t.to_dict(), _list))
+    def to_dict_list(representation_list: list[T]) -> list[dict[str, Any]]:
+        return list(
+            map(lambda representation: representation.to_dict(), representation_list)
+        )
 
     @classmethod
     def from_dict(cls, dictionary: dict):
@@ -22,3 +24,6 @@ class DataClass:
     @classmethod
     def from_list(cls, _list: list[dict]):
         return list(map(cls.from_dict, _list))
+
+
+T = TypeVar("T", bound=DataClass)
