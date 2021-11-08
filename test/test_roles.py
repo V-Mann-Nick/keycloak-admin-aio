@@ -1,8 +1,8 @@
 import asyncio
-from test.fixtures import keycloak_admin
 
 import httpx
 import pytest
+from fixtures import keycloak_admin
 
 from keycloak_admin_aio import KeycloakAdmin, RoleRepresentation
 from keycloak_admin_aio._lib.utils import cast_non_optional
