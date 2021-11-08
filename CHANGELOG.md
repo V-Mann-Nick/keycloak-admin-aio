@@ -2,6 +2,7 @@
 
 ### Refactor
 
+
 - all uses off add replaced with create
 - naming for type hints for Keycloak resource types changed
 - moved introduction from index.rst to README.rst
