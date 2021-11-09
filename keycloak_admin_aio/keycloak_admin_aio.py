@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import asyncio
 from datetime import datetime, timedelta
 from typing import Any, Literal, Optional
@@ -103,7 +105,7 @@ class KeycloakAdmin:
         realm: str = "master",
         leeway: int = 10,
         httpx_args={},
-    ):
+    ) -> KeycloakAdmin:
         """Instantiate ``KeycloakAdmin`` with ``client_id`` and ``client_secret``."""
         return cls(
             server_url,
@@ -125,7 +127,7 @@ class KeycloakAdmin:
         realm: str = "master",
         leeway: int = 10,
         httpx_args={},
-    ):
+    ) -> KeycloakAdmin:
         """Instantiate ``KeycloakAdmin`` with user credentials (username and password)."""
         return cls(
             server_url,
