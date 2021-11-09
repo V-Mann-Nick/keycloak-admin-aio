@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "keycloak-admin-aio"
-version = "1.0.2"
+version = "1.0.3"
 description = "async keycloak admin api wrapper"
 authors = ["Nicklas Sedlock <nicklas@delphai.com>"]
 homepage = "https://github.com/delphai/keycloak-admin-aio"
@@ -29,7 +29,7 @@ mypy = "^0.910"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "1.0.2"
+version = "1.0.3"
 version_files = [
     "keycloak_admin_aio/__version__.py",
     "pyproject.toml:version"
