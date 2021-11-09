@@ -13,6 +13,7 @@ Links:
 
 - `Source code <https://github.com/delphai/keycloak-admin-aio>`_
 - `Documentation <https://delphai.github.io/keycloak-admin-aio/>`_
+- `Pypi <https://pypi.org/project/keycloak-admin-aio/>`_
 
 How to install?
 ---------------
@@ -56,6 +57,7 @@ With client credentials:
 .. code:: python
 
     keycloak_admin_args = {
+        "realm": realm,
         "server_url": server_url,
         "client_id": client_id,
         "client_secret": "the_secret",
