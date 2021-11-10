@@ -48,7 +48,15 @@ With administrator username and password:
 
     async def main():
         async with KeycloakAdmin.with_password(**keycloak_admin_args) as kc:
-            ...
+            users = await kc.users.get(email="@google")
+            await asyncio.gather(
+                *[
+                    kc.users.by_id(user.id).execute_actions_email.send_email(
+                        ["UPDATE_PASSWORD"]
+                    )
+                    for user in users
+                ]
+            )
 
     asyncio.run(main())
 
