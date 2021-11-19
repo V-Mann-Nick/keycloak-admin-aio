@@ -2,6 +2,7 @@ from keycloak_admin_aio.types import ClientRepresentation
 
 from ... import AttachedResources, KeycloakResourceWithIdentifier
 from .default_client_scopes import ClientsByIdDefaultClientScopes
+from .user_sessions import ClientsByIdUserSessions
 
 
 class ClientsById(KeycloakResourceWithIdentifier):
@@ -16,9 +17,11 @@ class ClientsById(KeycloakResourceWithIdentifier):
     """
 
     _keycloak_resources: AttachedResources = [
-        ("default_client_scopes", ClientsByIdDefaultClientScopes)
+        ("default_client_scopes", ClientsByIdDefaultClientScopes),
+        ("user_sessions", ClientsByIdUserSessions),
     ]
     default_client_scopes: ClientsByIdDefaultClientScopes
+    user_sessions: ClientsByIdUserSessions
 
     def get_url(self) -> str:
         return f"{self._get_parent_url()}/{self.identifier}"

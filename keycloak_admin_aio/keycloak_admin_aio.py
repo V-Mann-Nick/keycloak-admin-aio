@@ -16,6 +16,7 @@ from ._resources import (
     ClientScopes,
     Groups,
     Roles,
+    Sessions,
     Users,
 )
 
@@ -35,6 +36,7 @@ class KeycloakAdmin:
         ("admin_events", AdminEvents),
         ("authentication", Authentication),
         ("groups", Groups),
+        ("sessions", Sessions),
     ]
     roles: Roles
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource"""
@@ -56,6 +58,8 @@ class KeycloakAdmin:
 
     groups: Groups
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource"""
+
+    sessions: Sessions
 
     leeway: int
     """A token will be considered as expired seconds before its actual expiry controlled by this value."""

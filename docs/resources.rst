@@ -12,3 +12,4 @@ Keycloak resources
    resources/client_scopes
    resources/authentication
    resources/admin_events
+   resources/sessions
