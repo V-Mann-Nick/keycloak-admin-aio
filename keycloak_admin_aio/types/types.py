@@ -264,6 +264,19 @@ class RequiredActionProviderRepresentation(DataClass):
     providerId: Optional[str] = None
 
 
+@dataclass
+class UserSession(DataClass):
+    """This is no default Keycloak representation."""
+
+    clients: Optional[dict[str, str]] = None
+    id: Optional[str] = None
+    ipAddress: Optional[str] = None
+    lastAccess: Optional[int] = None
+    start: Optional[int] = None
+    userId: Optional[str] = None
+    username: Optional[str] = None
+
+
 ResourceType = Literal[
     "REALM",
     "REALM_ROLE",

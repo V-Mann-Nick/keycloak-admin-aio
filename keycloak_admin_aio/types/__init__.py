@@ -79,6 +79,7 @@ __all__ = [
     "ResourceServerRepresentation",
     "ClientRepresentation",
     "RequiredActionProviderRepresentation",
+    "UserSession",
 ]
 
 from .types import *
