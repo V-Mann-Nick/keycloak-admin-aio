@@ -1,3 +1,14 @@
+## 1.1.0 (2021-11-19)
+
+### Fix
+
+- session related fixes
+- linting configuration fixed
+
+### Feat
+
+- user-sessions for clients as well as sessions by id
+
 ## 1.0.3 (2021-11-09)
 
 ### Fix
