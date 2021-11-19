@@ -99,6 +99,7 @@ class KeycloakAdmin:
         self.__access_token = None
         self.__refresh_token = None
         self.__set_keycloak_resources()
+        self.__lock = asyncio.Lock()
 
     @classmethod
     def with_client_credentials(
@@ -194,7 +195,11 @@ class KeycloakAdmin:
 
     def __set_keycloak_resources(self):
         for resources_name, resource in self.__keycloak_resources:
-            setattr(self, resources_name, resource(self.__get_connection, self.get_url))
+            setattr(
+                self,
+                resources_name,
+                resource(self.__get_connection, self.get_url),
+            )
 
     async def __aenter__(self):
         """For entering asynchronous context manger."""
@@ -206,16 +211,17 @@ class KeycloakAdmin:
 
     async def get_access_token(self):
         """Get ``access_token``. Guaranteed not to be expired."""
-        if not self.__access_token:
-            await self.__token()
-        else:
-            now = datetime.now()
-            if now > self.access_token_expire:
-                if now < self.refresh_token_expire:
-                    await self.__token_refresh()
-                else:
-                    await self.__token()
-        return self.__access_token
+        async with self.__lock:
+            if not self.__access_token:
+                await self.__token()
+            else:
+                now = datetime.now()
+                if now > self.access_token_expire:
+                    if now < self.refresh_token_expire:
+                        await self.__token_refresh()
+                    else:
+                        await self.__token()
+            return self.__access_token
 
     def get_token_url(self) -> str:
         """Openid connect token endpoint url."""
@@ -241,10 +247,22 @@ class KeycloakAdmin:
                 "refresh_token": self.__refresh_token,
             }
         )
-        response = await self.__connection.post(
-            self.get_token_url(), data=payload, headers=headers
-        )
-        self.__parse_token_response(response.json())
+        try:
+            response = await self.__connection.post(
+                self.get_token_url(), data=payload, headers=headers
+            )
+            self.__parse_token_response(response.json())
+        except httpx.HTTPStatusError as ex:
+            except_errors = [
+                "Refresh token expired",
+                "Token is not active",
+                "Session not active",
+            ]
+            error_description = ex.response.json().get("error_description", "")
+            if ex.response.status_code == 400 and any(
+                error in error_description for error in except_errors
+            ):
+                await self.__token()
 
     async def __token(self):
         headers = httpx.Headers({"Content-Type": "application/x-www-form-urlencoded"})
