@@ -201,7 +201,7 @@ class KeycloakAdmin:
                 resource(self.__get_connection, self.get_url),
             )
 
-    async def __aenter__(self):
+    async def __aenter__(self) -> KeycloakAdmin:
         """For entering asynchronous context manger."""
         return self
 
