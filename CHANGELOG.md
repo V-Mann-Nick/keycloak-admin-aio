@@ -1,3 +1,9 @@
+## 1.1.1 (2021-11-26)
+
+### Fix
+
+- some typing issues resolved
+
 ## 1.1.0 (2021-11-19)
 
 ### Fix
