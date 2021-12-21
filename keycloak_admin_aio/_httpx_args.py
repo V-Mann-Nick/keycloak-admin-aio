@@ -2,6 +2,8 @@ import httpx
 
 
 async def raise_for_status_hook(response: httpx.Response):
+    if response.status_code >= 400:
+        await response.aread()
     response.raise_for_status()
 
 
