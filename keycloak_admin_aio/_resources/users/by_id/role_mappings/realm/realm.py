@@ -67,3 +67,15 @@ class UsersByIdRoleMappingsRealm(KeycloakResource):
         connection = await self._get_connection()
         response = await connection.get(f"{self.get_url()}/available")
         return RoleRepresentation.from_list(response.json())
+
+    async def composite(self) -> list[RoleRepresentation]:
+        """Get composed realm roles for a user.
+
+        .. code:: python
+
+            roles: list[RoleRepresentation] = await kc.users.by_id(user_id).role_mappings.realm.composite()
+        """
+
+        connection = await self._get_connection()
+        response = await connection.get(f"{self.get_url()}/composite")
+        return RoleRepresentation.from_list(response.json())
