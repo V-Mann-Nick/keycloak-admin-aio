@@ -481,6 +481,20 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.composite">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">composite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.composite" title="Permalink to this definition"></a></dt>
+<dd><p>Get composed realm roles for a user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">composite</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
