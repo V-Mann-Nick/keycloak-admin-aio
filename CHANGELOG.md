@@ -1,3 +1,9 @@
+## 1.2.0 (2021-12-21)
+
+### Feat
+
+- `/users/{user_id}/role-mappings/realm/composite` endpoint
+
 ## 1.1.1 (2021-11-26)
 
 ### Fix
