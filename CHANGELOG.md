@@ -1,3 +1,9 @@
+## 1.2.2 (2022-05-19)
+
+### Fix
+
+- remove unneeded ipython dev dependency
+
 ## 1.2.1 (2021-12-21)
 
 ### Fix
