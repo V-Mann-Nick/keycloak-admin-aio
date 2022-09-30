@@ -18,9 +18,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Bump version and create changelog
-        uses: commitizen-tools/commitizen-action@master
+        uses: commitizen-tools/commitizen-action@0.14.1
         with:
-          github_token: ${{ secrets.BOT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
   publish:
     needs: bump-version
     runs-on: ubuntu-latest
