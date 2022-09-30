@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,9 +49,24 @@
 <li class="toctree-l2"><a class="reference internal" href="groups.html">Groups</a></li>
 <li class="toctree-l2"><a class="reference internal" href="clients.html">Clients</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Client scopes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#client-scopes-by-id">Client scopes by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scope-mappings-for-a-client-scope-by-id">Scope mappings for a client scope by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#realm-scope-mappings-for-a-client-scope-by-id">Realm scope mappings for a client scope by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes"><code class="docutils literal notranslate"><span class="pre">ClientScopes</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get_url"><code class="docutils literal notranslate"><span class="pre">ClientScopes.get_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.create"><code class="docutils literal notranslate"><span class="pre">ClientScopes.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get"><code class="docutils literal notranslate"><span class="pre">ClientScopes.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#client-scopes-by-id">Client scopes by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById"><code class="docutils literal notranslate"><span class="pre">ClientScopesById</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-mappings-for-a-client-scope-by-id">Scope mappings for a client scope by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings"><code class="docutils literal notranslate"><span class="pre">ClientScopesScopeMappings</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#realm-scope-mappings-for-a-client-scope-by-id">Realm scope mappings for a client scope by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm"><code class="docutils literal notranslate"><span class="pre">ClientScopesScopeMappingsRealm</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication management</a></li>
@@ -86,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section id="module-keycloak_admin_aio._resources.client_scopes">
-<span id="client-scopes"></span><h1>Client scopes<a class="headerlink" href="#module-keycloak_admin_aio._resources.client_scopes" title="Permalink to this headline"></a></h1>
+<span id="client-scopes"></span><h1>Client scopes<a class="headerlink" href="#module-keycloak_admin_aio._resources.client_scopes" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.ClientScopes">
@@ -118,7 +135,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>keycloak_admin_aio.types.types.ClientScopeRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -138,7 +155,7 @@
 </dd></dl>
 
 <section id="client-scopes-by-id">
-<h2>Client scopes by id<a class="headerlink" href="#client-scopes-by-id" title="Permalink to this headline"></a></h2>
+<h2>Client scopes by id<a class="headerlink" href="#client-scopes-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientScopesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById" title="Permalink to this definition"></a></dt>
@@ -169,7 +186,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation">keycloak_admin_aio.types.types.ClientScopeRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -184,7 +201,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>keycloak_admin_aio.types.types.ClientScopeRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -202,7 +219,7 @@
 
 </section>
 <section id="scope-mappings-for-a-client-scope-by-id">
-<h2>Scope mappings for a client scope by id<a class="headerlink" href="#scope-mappings-for-a-client-scope-by-id" title="Permalink to this headline"></a></h2>
+<h2>Scope mappings for a client scope by id<a class="headerlink" href="#scope-mappings-for-a-client-scope-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings" title="Permalink to this definition"></a></dt>
@@ -234,7 +251,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.MappingsRepresentation" title="keycloak_admin_aio.types.types.MappingsRepresentation">keycloak_admin_aio.types.types.MappingsRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.MappingsRepresentation" title="keycloak_admin_aio.types.types.MappingsRepresentation"><em>MappingsRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -243,7 +260,7 @@
 
 </section>
 <section id="realm-scope-mappings-for-a-client-scope-by-id">
-<h2>Realm scope mappings for a client scope by id<a class="headerlink" href="#realm-scope-mappings-for-a-client-scope-by-id" title="Permalink to this headline"></a></h2>
+<h2>Realm scope mappings for a client scope by id<a class="headerlink" href="#realm-scope-mappings-for-a-client-scope-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm" title="Permalink to this definition"></a></dt>

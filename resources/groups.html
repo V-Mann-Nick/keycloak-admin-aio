@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -45,9 +47,25 @@
 <li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="roles.html">Roles</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Groups</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#groups-by-id">Groups by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#children-for-a-group-by-id">Children for a group by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#members-for-a-group-by-id">Members for a group by id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.Groups"><code class="docutils literal notranslate"><span class="pre">Groups</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.Groups.get_url"><code class="docutils literal notranslate"><span class="pre">Groups.get_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.Groups.get"><code class="docutils literal notranslate"><span class="pre">Groups.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.Groups.create"><code class="docutils literal notranslate"><span class="pre">Groups.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.Groups.count"><code class="docutils literal notranslate"><span class="pre">Groups.count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#groups-by-id">Groups by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById"><code class="docutils literal notranslate"><span class="pre">GroupsById</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#children-for-a-group-by-id">Children for a group by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren"><code class="docutils literal notranslate"><span class="pre">GroupsByIdChildren</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#members-for-a-group-by-id">Members for a group by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers"><code class="docutils literal notranslate"><span class="pre">GroupsByIdMembers</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="clients.html">Clients</a></li>
@@ -86,7 +104,7 @@
            <div itemprop="articleBody">
              
   <section id="module-keycloak_admin_aio._resources.groups">
-<span id="groups"></span><h1>Groups<a class="headerlink" href="#module-keycloak_admin_aio._resources.groups" title="Permalink to this headline"></a></h1>
+<span id="groups"></span><h1>Groups<a class="headerlink" href="#module-keycloak_admin_aio._resources.groups" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups">
@@ -140,7 +158,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>keycloak_admin_aio.types.types.GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -171,7 +189,7 @@
 </dd></dl>
 
 <section id="groups-by-id">
-<h2>Groups by id<a class="headerlink" href="#groups-by-id" title="Permalink to this headline"></a></h2>
+<h2>Groups by id<a class="headerlink" href="#groups-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.</span></span><span class="sig-name descname"><span class="pre">GroupsById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById" title="Permalink to this definition"></a></dt>
@@ -202,7 +220,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation">keycloak_admin_aio.types.types.GroupRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,7 +235,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>keycloak_admin_aio.types.types.GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -235,7 +253,7 @@
 
 </section>
 <section id="children-for-a-group-by-id">
-<h2>Children for a group by id<a class="headerlink" href="#children-for-a-group-by-id" title="Permalink to this headline"></a></h2>
+<h2>Children for a group by id<a class="headerlink" href="#children-for-a-group-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.children.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdChildren</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren" title="Permalink to this definition"></a></dt>
@@ -267,7 +285,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>keycloak_admin_aio.types.types.GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -276,7 +294,7 @@
 
 </section>
 <section id="members-for-a-group-by-id">
-<h2>Members for a group by id<a class="headerlink" href="#members-for-a-group-by-id" title="Permalink to this headline"></a></h2>
+<h2>Members for a group by id<a class="headerlink" href="#members-for-a-group-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.members.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdMembers</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers" title="Permalink to this definition"></a></dt>

@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,7 +71,7 @@
            <div itemprop="articleBody">
              
   <section id="welcome-to-keycloak-admin-aio-s-documentation">
-<h1>Welcome to keycloak_admin_aio’s documentation!<a class="headerlink" href="#welcome-to-keycloak-admin-aio-s-documentation" title="Permalink to this headline"></a></h1>
+<h1>Welcome to keycloak_admin_aio’s documentation!<a class="headerlink" href="#welcome-to-keycloak-admin-aio-s-documentation" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -81,6 +83,24 @@
 <li class="toctree-l2"><a class="reference internal" href="types.html#instantiate-a-dataclass-with-keyword-arguments">Instantiate a dataclass with keyword arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#instantiate-a-dataclass-with-the-from-dict-class-method">Instantiate a dataclass with the from_dict class method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#instantiate-a-list-of-dataclasses-with-the-from-list-class-method">Instantiate a list of dataclasses with the from_list class method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.RoleRepresentation"><code class="docutils literal notranslate"><span class="pre">RoleRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.RoleRepresentationComposites"><code class="docutils literal notranslate"><span class="pre">RoleRepresentationComposites</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ClientMappingsRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientMappingsRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.MappingsRepresentation"><code class="docutils literal notranslate"><span class="pre">MappingsRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ProtocolMapperRepresentation"><code class="docutils literal notranslate"><span class="pre">ProtocolMapperRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ClientScopeRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientScopeRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.FederatedIdentityRepresentation"><code class="docutils literal notranslate"><span class="pre">FederatedIdentityRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.CredentialRepresentation"><code class="docutils literal notranslate"><span class="pre">CredentialRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.UserConsentRepresentation"><code class="docutils literal notranslate"><span class="pre">UserConsentRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.UserRepresentation"><code class="docutils literal notranslate"><span class="pre">UserRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.GroupRepresentation"><code class="docutils literal notranslate"><span class="pre">GroupRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ScopeRepresentation"><code class="docutils literal notranslate"><span class="pre">ScopeRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ResourceRepresentation"><code class="docutils literal notranslate"><span class="pre">ResourceRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.PolicyRepresentation"><code class="docutils literal notranslate"><span class="pre">PolicyRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ResourceServerRepresentation"><code class="docutils literal notranslate"><span class="pre">ResourceServerRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.ClientRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.RequiredActionProviderRepresentation"><code class="docutils literal notranslate"><span class="pre">RequiredActionProviderRepresentation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#keycloak_admin_aio.types.UserSession"><code class="docutils literal notranslate"><span class="pre">UserSession</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Keycloak resources</a><ul>
@@ -98,7 +118,7 @@
 </ul>
 </div>
 <section id="what-is-keycloak-admin-aio">
-<h2>What is keycloak_admin_aio?<a class="headerlink" href="#what-is-keycloak-admin-aio" title="Permalink to this headline"></a></h2>
+<h2>What is keycloak_admin_aio?<a class="headerlink" href="#what-is-keycloak-admin-aio" title="Permalink to this heading"></a></h2>
 <p>This package provides an asynchronous api wrapper for the <a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api">keycloak admin api</a>.</p>
 <p>The main dependencies are:</p>
 <ul class="simple">
@@ -113,13 +133,13 @@
 </ul>
 </section>
 <section id="how-to-install">
-<h2>How to install?<a class="headerlink" href="#how-to-install" title="Permalink to this headline"></a></h2>
+<h2>How to install?<a class="headerlink" href="#how-to-install" title="Permalink to this heading"></a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>poetry add keycloak-admin-aio
 </pre></div>
 </div>
 </section>
 <section id="how-to-use-it">
-<h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline"></a></h2>
+<h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 <span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span>
 
@@ -169,13 +189,13 @@
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></p>
 <p>© Copyright 2021, delphai by AtomLeap GmbH</p>
 </section>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>

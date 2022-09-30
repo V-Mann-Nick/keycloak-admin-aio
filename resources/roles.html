@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,10 +46,28 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../resources.html">Keycloak resources</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="users.html">Users</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Roles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-keycloak_admin_aio._resources.roles.by_id">Roles by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#composite-roles-for-a-role-by-id">Composite roles for a role by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-keycloak_admin_aio._resources.roles.by_name">Roles by name</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#composite-roles-for-a-role-by-name">Composite roles for a role by name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.Roles"><code class="docutils literal notranslate"><span class="pre">Roles</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.Roles.get_url"><code class="docutils literal notranslate"><span class="pre">Roles.get_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.Roles.create"><code class="docutils literal notranslate"><span class="pre">Roles.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.Roles.get"><code class="docutils literal notranslate"><span class="pre">Roles.get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-keycloak_admin_aio._resources.roles.by_id">Roles by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.by_id.RolesById"><code class="docutils literal notranslate"><span class="pre">RolesById</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#composite-roles-for-a-role-by-id">Composite roles for a role by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites"><code class="docutils literal notranslate"><span class="pre">RolesByIdComposites</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-keycloak_admin_aio._resources.roles.by_name">Roles by name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName"><code class="docutils literal notranslate"><span class="pre">RolesByName</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#composite-roles-for-a-role-by-name">Composite roles for a role by name</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites"><code class="docutils literal notranslate"><span class="pre">RolesByNameComposites</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="groups.html">Groups</a></li>
@@ -87,7 +107,7 @@
            <div itemprop="articleBody">
              
   <section id="module-keycloak_admin_aio._resources.roles">
-<span id="roles"></span><h1>Roles<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles" title="Permalink to this headline"></a></h1>
+<span id="roles"></span><h1>Roles<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles">
@@ -119,7 +139,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -152,7 +172,7 @@
 </dd></dl>
 
 <section id="module-keycloak_admin_aio._resources.roles.by_id">
-<span id="roles-by-id"></span><h2>Roles by id<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_id" title="Permalink to this headline"></a></h2>
+<span id="roles-by-id"></span><h2>Roles by id<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_id" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_by_id_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_by_id_resource</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById">
@@ -184,7 +204,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -199,7 +219,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -217,7 +237,7 @@
 
 </section>
 <section id="composite-roles-for-a-role-by-id">
-<h2>Composite roles for a role by id<a class="headerlink" href="#composite-roles-for-a-role-by-id" title="Permalink to this headline"></a></h2>
+<h2>Composite roles for a role by id<a class="headerlink" href="#composite-roles-for-a-role-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_id.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByIdComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites" title="Permalink to this definition"></a></dt>
@@ -287,7 +307,7 @@
 
 </section>
 <section id="module-keycloak_admin_aio._resources.roles.by_name">
-<span id="roles-by-name"></span><h2>Roles by name<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_name" title="Permalink to this headline"></a></h2>
+<span id="roles-by-name"></span><h2>Roles by name<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_name" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.</span></span><span class="sig-name descname"><span class="pre">RolesByName</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName" title="Permalink to this definition"></a></dt>
@@ -318,7 +338,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -333,7 +353,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -351,7 +371,7 @@
 
 </section>
 <section id="composite-roles-for-a-role-by-name">
-<h2>Composite roles for a role by name<a class="headerlink" href="#composite-roles-for-a-role-by-name" title="Permalink to this headline"></a></h2>
+<h2>Composite roles for a role by name<a class="headerlink" href="#composite-roles-for-a-role-by-name" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByNameComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites" title="Permalink to this definition"></a></dt>

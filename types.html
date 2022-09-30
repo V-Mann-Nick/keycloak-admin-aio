@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -44,6 +46,78 @@
 <li class="toctree-l2"><a class="reference internal" href="#instantiate-a-dataclass-with-keyword-arguments">Instantiate a dataclass with keyword arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instantiate-a-dataclass-with-the-from-dict-class-method">Instantiate a dataclass with the from_dict class method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instantiate-a-list-of-dataclasses-with-the-from-list-class-method">Instantiate a list of dataclasses with the from_list class method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation"><code class="docutils literal notranslate"><span class="pre">RoleRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">RoleRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites"><code class="docutils literal notranslate"><span class="pre">RoleRepresentationComposites</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites.__init__"><code class="docutils literal notranslate"><span class="pre">RoleRepresentationComposites.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ClientMappingsRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientMappingsRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ClientMappingsRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ClientMappingsRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.MappingsRepresentation"><code class="docutils literal notranslate"><span class="pre">MappingsRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.MappingsRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">MappingsRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation"><code class="docutils literal notranslate"><span class="pre">ProtocolMapperRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ProtocolMapperRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ClientScopeRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientScopeRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ClientScopeRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ClientScopeRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.FederatedIdentityRepresentation"><code class="docutils literal notranslate"><span class="pre">FederatedIdentityRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.FederatedIdentityRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">FederatedIdentityRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.CredentialRepresentation"><code class="docutils literal notranslate"><span class="pre">CredentialRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.CredentialRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">CredentialRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.UserConsentRepresentation"><code class="docutils literal notranslate"><span class="pre">UserConsentRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.UserConsentRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">UserConsentRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.UserRepresentation"><code class="docutils literal notranslate"><span class="pre">UserRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.UserRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">UserRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.GroupRepresentation"><code class="docutils literal notranslate"><span class="pre">GroupRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.GroupRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">GroupRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation"><code class="docutils literal notranslate"><span class="pre">ScopeRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ScopeRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation"><code class="docutils literal notranslate"><span class="pre">ResourceRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ResourceRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation"><code class="docutils literal notranslate"><span class="pre">PolicyRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">PolicyRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation"><code class="docutils literal notranslate"><span class="pre">ResourceServerRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ResourceServerRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.ClientRepresentation"><code class="docutils literal notranslate"><span class="pre">ClientRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.ClientRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">ClientRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.RequiredActionProviderRepresentation"><code class="docutils literal notranslate"><span class="pre">RequiredActionProviderRepresentation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.RequiredActionProviderRepresentation.__init__"><code class="docutils literal notranslate"><span class="pre">RequiredActionProviderRepresentation.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keycloak_admin_aio.types.UserSession"><code class="docutils literal notranslate"><span class="pre">UserSession</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio.types.UserSession.__init__"><code class="docutils literal notranslate"><span class="pre">UserSession.__init__()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Keycloak resources</a></li>
@@ -75,12 +149,12 @@
            <div itemprop="articleBody">
              
   <section id="module-keycloak_admin_aio.types">
-<span id="types"></span><h1>Types<a class="headerlink" href="#module-keycloak_admin_aio.types" title="Permalink to this headline"></a></h1>
+<span id="types"></span><h1>Types<a class="headerlink" href="#module-keycloak_admin_aio.types" title="Permalink to this heading"></a></h1>
 <p>This module provides a typed schema of the Keycloak input and outputs.</p>
 <p>There’s a few ways in which you can instantiate a dataclass including some not
 provided by the standard libarary:</p>
 <section id="instantiate-a-dataclass-with-keyword-arguments">
-<h2>Instantiate a dataclass with keyword arguments<a class="headerlink" href="#instantiate-a-dataclass-with-keyword-arguments" title="Permalink to this headline"></a></h2>
+<h2>Instantiate a dataclass with keyword arguments<a class="headerlink" href="#instantiate-a-dataclass-with-keyword-arguments" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">RoleRepresentation</span>
 
 <span class="n">role_representation</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="p">(</span>
@@ -96,7 +170,7 @@ provided by the standard libarary:</p>
 </div>
 </section>
 <section id="instantiate-a-dataclass-with-the-from-dict-class-method">
-<h2>Instantiate a dataclass with the from_dict class method<a class="headerlink" href="#instantiate-a-dataclass-with-the-from-dict-class-method" title="Permalink to this headline"></a></h2>
+<h2>Instantiate a dataclass with the from_dict class method<a class="headerlink" href="#instantiate-a-dataclass-with-the-from-dict-class-method" title="Permalink to this heading"></a></h2>
 <p>The above works well if you have a flat data model. If you have a dataclass
 which uses other dataclasses using <code class="docutils literal notranslate"><span class="pre">**</span></code> with a dict will not work as
 expected.  If you have a nested data structure you should use the <code class="docutils literal notranslate"><span class="pre">from_dict</span></code>
@@ -118,7 +192,7 @@ function.</p>
 </div>
 </section>
 <section id="instantiate-a-list-of-dataclasses-with-the-from-list-class-method">
-<h2>Instantiate a list of dataclasses with the from_list class method<a class="headerlink" href="#instantiate-a-list-of-dataclasses-with-the-from-list-class-method" title="Permalink to this headline"></a></h2>
+<h2>Instantiate a list of dataclasses with the from_list class method<a class="headerlink" href="#instantiate-a-list-of-dataclasses-with-the-from-list-class-method" title="Permalink to this heading"></a></h2>
 <p>If you have a list of dictionaries you want to parse into a list of dataclasses
 you use the <code class="docutils literal notranslate"><span class="pre">from_list</span></code> method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">RoleRepresentation</span>
@@ -127,6 +201,7 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <span class="n">roles</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.RoleRepresentation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio.types.</span></span><span class="sig-name descname"><span class="pre">RoleRepresentation</span></span><a class="headerlink" href="#keycloak_admin_aio.types.RoleRepresentation" title="Permalink to this definition"></a></dt>
@@ -141,7 +216,7 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>containerId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>composites</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites" title="keycloak_admin_aio.types.types.RoleRepresentationComposites"><em>keycloak_admin_aio.types.types.RoleRepresentationComposites</em></a><em>]</em>) – </p></li>
+<li><p><strong>composites</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites" title="keycloak_admin_aio.types.types.RoleRepresentationComposites"><em>RoleRepresentationComposites</em></a><em>]</em>) – </p></li>
 <li><p><strong>composite</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
 <li><p><strong>clientRole</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
 <li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – </p></li>
@@ -554,7 +629,7 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>authenticationFlowBindingOverrides</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>authorizationServicesEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>authorizationSettings</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation" title="keycloak_admin_aio.types.types.ResourceServerRepresentation"><em>keycloak_admin_aio.types.types.ResourceServerRepresentation</em></a><em>]</em>) – </p></li>
+<li><p><strong>authorizationSettings</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation" title="keycloak_admin_aio.types.types.ResourceServerRepresentation"><em>ResourceServerRepresentation</em></a><em>]</em>) – </p></li>
 <li><p><strong>baseUrl</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
 <li><p><strong>bearerOnly</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
 <li><p><strong>clientAuthenticatorType</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
@@ -648,7 +723,6 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 
 </dd></dl>
 
-</section>
 </section>
 
 

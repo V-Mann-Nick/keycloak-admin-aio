@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -80,11 +82,12 @@
            <div itemprop="articleBody">
              
   <section id="keycloak-resources">
-<h1>Keycloak resources<a class="headerlink" href="#keycloak-resources" title="Permalink to this headline"></a></h1>
+<h1>Keycloak resources<a class="headerlink" href="#keycloak-resources" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Keycloak resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources/users.html">Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/users.html#keycloak_admin_aio._resources.users.Users"><code class="docutils literal notranslate"><span class="pre">Users</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/users.html#users-by-id">Users by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/users.html#execute-actions-email">Execute actions email</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/users.html#group-memberships">Group memberships</a></li>
@@ -93,6 +96,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/roles.html">Roles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/roles.html#keycloak_admin_aio._resources.roles.Roles"><code class="docutils literal notranslate"><span class="pre">Roles</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/roles.html#module-keycloak_admin_aio._resources.roles.by_id">Roles by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/roles.html#composite-roles-for-a-role-by-id">Composite roles for a role by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/roles.html#module-keycloak_admin_aio._resources.roles.by_name">Roles by name</a></li>
@@ -100,12 +104,14 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/groups.html">Groups</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/groups.html#keycloak_admin_aio._resources.groups.Groups"><code class="docutils literal notranslate"><span class="pre">Groups</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/groups.html#groups-by-id">Groups by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/groups.html#children-for-a-group-by-id">Children for a group by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/groups.html#members-for-a-group-by-id">Members for a group by id</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/clients.html">Clients</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/clients.html#keycloak_admin_aio._resources.clients.Clients"><code class="docutils literal notranslate"><span class="pre">Clients</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/clients.html#clients-by-id">Clients by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/clients.html#default-client-scopes-for-a-client-by-id">Default client scopes for a client by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/clients.html#default-client-scope-by-id-for-a-client-by-id">Default client scope by id for a client by id</a></li>
@@ -113,17 +119,23 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/client_scopes.html">Client scopes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/client_scopes.html#keycloak_admin_aio._resources.client_scopes.ClientScopes"><code class="docutils literal notranslate"><span class="pre">ClientScopes</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/client_scopes.html#client-scopes-by-id">Client scopes by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/client_scopes.html#scope-mappings-for-a-client-scope-by-id">Scope mappings for a client scope by id</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/client_scopes.html#realm-scope-mappings-for-a-client-scope-by-id">Realm scope mappings for a client scope by id</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/authentication.html">Authentication management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/authentication.html#keycloak_admin_aio._resources.authentication.Authentication"><code class="docutils literal notranslate"><span class="pre">Authentication</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/authentication.html#required-actions">Required actions</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="resources/admin_events.html">Admin events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/admin_events.html">Admin events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/admin_events.html#keycloak_admin_aio._resources.admin_events.AdminEvents"><code class="docutils literal notranslate"><span class="pre">AdminEvents</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="resources/sessions.html">Sessions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/sessions.html#keycloak_admin_aio._resources.sessions.Sessions"><code class="docutils literal notranslate"><span class="pre">Sessions</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/sessions.html#sessions-by-id">Sessions by id</a></li>
 </ul>
 </li>

@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -43,11 +45,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../types.html">Types</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../resources.html">Keycloak resources</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Users</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#users-by-id">Users by id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#execute-actions-email">Execute actions email</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#group-memberships">Group memberships</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#role-mappings">Role mappings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#realm-role-mappings">Realm role mappings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keycloak_admin_aio._resources.users.Users"><code class="docutils literal notranslate"><span class="pre">Users</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.Users.get_url"><code class="docutils literal notranslate"><span class="pre">Users.get_url()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.Users.get"><code class="docutils literal notranslate"><span class="pre">Users.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.Users.create"><code class="docutils literal notranslate"><span class="pre">Users.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.Users.count"><code class="docutils literal notranslate"><span class="pre">Users.count()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#users-by-id">Users by id</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.by_id.UsersById"><code class="docutils literal notranslate"><span class="pre">UsersById</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#execute-actions-email">Execute actions email</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail"><code class="docutils literal notranslate"><span class="pre">UsersByIdExecuteActionsEmail</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#group-memberships">Group memberships</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups"><code class="docutils literal notranslate"><span class="pre">UsersByIdGroups</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#role-mappings">Role mappings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings"><code class="docutils literal notranslate"><span class="pre">UsersByIdRoleMappings</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#realm-role-mappings">Realm role mappings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm"><code class="docutils literal notranslate"><span class="pre">UsersByIdRoleMappingsRealm</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="roles.html">Roles</a></li>
@@ -88,7 +112,7 @@
            <div itemprop="articleBody">
              
   <section id="module-keycloak_admin_aio._resources.users">
-<span id="users"></span><h1>Users<a class="headerlink" href="#module-keycloak_admin_aio._resources.users" title="Permalink to this headline"></a></h1>
+<span id="users"></span><h1>Users<a class="headerlink" href="#module-keycloak_admin_aio._resources.users" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users">
@@ -151,7 +175,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>keycloak_admin_aio.types.types.UserRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>str</p>
@@ -187,7 +211,7 @@
 </dd></dl>
 
 <section id="users-by-id">
-<h2>Users by id<a class="headerlink" href="#users-by-id" title="Permalink to this headline"></a></h2>
+<h2>Users by id<a class="headerlink" href="#users-by-id" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.</span></span><span class="sig-name descname"><span class="pre">UsersById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById" title="Permalink to this definition"></a></dt>
@@ -218,7 +242,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation">keycloak_admin_aio.types.types.UserRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -233,7 +257,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>keycloak_admin_aio.types.types.UserRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -251,7 +275,7 @@
 
 </section>
 <section id="execute-actions-email">
-<h2>Execute actions email<a class="headerlink" href="#execute-actions-email" title="Permalink to this headline"></a></h2>
+<h2>Execute actions email<a class="headerlink" href="#execute-actions-email" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.execute_actions_email.</span></span><span class="sig-name descname"><span class="pre">UsersByIdExecuteActionsEmail</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail" title="Permalink to this definition"></a></dt>
@@ -296,7 +320,7 @@
 
 </section>
 <section id="group-memberships">
-<h2>Group memberships<a class="headerlink" href="#group-memberships" title="Permalink to this headline"></a></h2>
+<h2>Group memberships<a class="headerlink" href="#group-memberships" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.groups.</span></span><span class="sig-name descname"><span class="pre">UsersByIdGroups</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups" title="Permalink to this definition"></a></dt>
@@ -361,7 +385,7 @@
 
 </section>
 <section id="role-mappings">
-<h2>Role mappings<a class="headerlink" href="#role-mappings" title="Permalink to this headline"></a></h2>
+<h2>Role mappings<a class="headerlink" href="#role-mappings" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings" title="Permalink to this definition"></a></dt>
@@ -392,7 +416,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.MappingsRepresentation" title="keycloak_admin_aio.types.types.MappingsRepresentation">keycloak_admin_aio.types.types.MappingsRepresentation</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.MappingsRepresentation" title="keycloak_admin_aio.types.types.MappingsRepresentation"><em>MappingsRepresentation</em></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -401,7 +425,7 @@
 
 </section>
 <section id="realm-role-mappings">
-<h2>Realm role mappings<a class="headerlink" href="#realm-role-mappings" title="Permalink to this headline"></a></h2>
+<h2>Realm role mappings<a class="headerlink" href="#realm-role-mappings" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm" title="Permalink to this definition"></a></dt>
