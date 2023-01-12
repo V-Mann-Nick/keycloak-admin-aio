@@ -1,5 +1,5 @@
+from .. import AttachedResources, KeycloakResource
 from .brute_force import BruteForce
-from .. import KeycloakResource, AttachedResources
 
 
 class AttackDetection(KeycloakResource):

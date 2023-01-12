@@ -1,4 +1,4 @@
-from ... import KeycloakResource, AttachedResources
+from ... import AttachedResources, KeycloakResource
 from .users import Users
 
 

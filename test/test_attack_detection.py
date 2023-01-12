@@ -1,7 +1,7 @@
 import httpx
 import pytest
+from fixtures import event_loop, keycloak_admin
 
-from fixtures import keycloak_admin, event_loop
 from keycloak_admin_aio import KeycloakAdmin, UserRepresentation
 
 

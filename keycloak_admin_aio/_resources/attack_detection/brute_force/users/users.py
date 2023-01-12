@@ -1,4 +1,8 @@
-from .... import KeycloakResource, AttachedResources, KeycloakResourceWithIdentifierGetter
+from .... import (
+    AttachedResources,
+    KeycloakResource,
+    KeycloakResourceWithIdentifierGetter,
+)
 from .by_id import UsersByIdBruteForceDetection
 
 

@@ -11,6 +11,7 @@ from ._lib.utils import remove_none
 from ._resources import (
     AdminEvents,
     AttachedResources,
+    AttackDetection,
     Authentication,
     Clients,
     ClientScopes,
@@ -18,7 +19,6 @@ from ._resources import (
     Roles,
     Sessions,
     Users,
-    AttackDetection,
 )
 
 
