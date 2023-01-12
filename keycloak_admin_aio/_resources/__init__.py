@@ -15,3 +15,4 @@ from .groups import Groups
 from .roles import Roles
 from .users import Users
 from .sessions import Sessions
+from .attack_detection import AttackDetection
