@@ -1,3 +1,9 @@
+## 1.3.0 (2023-01-13)
+
+### Feat
+
+- `/attack-detection` endpoints (#7)
+
 ## 1.2.2 (2022-05-19)
 
 ### Fix
