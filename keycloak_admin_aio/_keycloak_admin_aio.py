@@ -11,6 +11,7 @@ from ._lib.utils import remove_none
 from ._resources import (
     AdminEvents,
     AttachedResources,
+    AttackDetection,
     Authentication,
     Clients,
     ClientScopes,
@@ -37,6 +38,7 @@ class KeycloakAdmin:
         ("authentication", Authentication),
         ("groups", Groups),
         ("sessions", Sessions),
+        ("attack_detection", AttackDetection),
     ]
     roles: Roles
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource"""
@@ -60,6 +62,9 @@ class KeycloakAdmin:
     """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource"""
 
     sessions: Sessions
+
+    attack_detection: AttackDetection
+    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_attack_detection_resource"""
 
     leeway: int
     """A token will be considered as expired seconds before its actual expiry controlled by this value."""
