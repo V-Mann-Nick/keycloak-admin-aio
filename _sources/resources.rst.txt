@@ -13,3 +13,4 @@ Keycloak resources
    resources/authentication
    resources/admin_events
    resources/sessions
+   resources/attack_detection

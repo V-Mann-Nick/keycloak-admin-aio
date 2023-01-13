@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Users &mdash; keycloak_admin_aio  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -81,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="authentication.html">Authentication management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="admin_events.html">Admin events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attack_detection.html">Attack detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
@@ -99,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../resources.html">Keycloak resources</a> &raquo;</li>
-      <li>Users</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../resources.html">Keycloak resources</a></li>
+      <li class="breadcrumb-item active">Users</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/resources/users.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -128,7 +126,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -142,24 +140,24 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>brief_representation</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>first</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>max</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>search</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>email</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>email_verified</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>enabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>first_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>last_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>idp_alias</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>idp_user_id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>idp_alias</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>idp_user_id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation">keycloak_admin_aio.types.types.UserRepresentation</a>]</p>
 </dd>
 </dl>
@@ -174,10 +172,10 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
 </dd>
 </dl>
@@ -191,18 +189,18 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>email</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>email_verified</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>exact</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>first_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>last_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -227,7 +225,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -241,7 +239,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a></p>
 </dd>
 </dl>
@@ -256,7 +254,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
 </dd>
 </dl>
@@ -291,7 +289,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -305,12 +303,12 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>actions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>client_id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>lifespan</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>redirect_uri</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>client_id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>lifespan</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>redirect_uri</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -336,7 +334,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -350,15 +348,15 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>first</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>max</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>search</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 <li><p><strong>brief_representation</strong> (<em>bool</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation">keycloak_admin_aio.types.types.GroupRepresentation</a>]</p>
 </dd>
 </dl>
@@ -372,10 +370,10 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>search</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
 </dd>
 </dl>
@@ -401,7 +399,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -415,7 +413,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="../types.html#keycloak_admin_aio.types.MappingsRepresentation" title="keycloak_admin_aio.types.types.MappingsRepresentation"><em>MappingsRepresentation</em></a></p>
 </dd>
 </dl>
@@ -441,7 +439,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -455,7 +453,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
 </dd>
 </dl>
@@ -470,7 +468,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
 </dd>
 </dl>
@@ -485,7 +483,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
 </dd>
 </dl>
@@ -499,7 +497,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
 </dd>
 </dl>
@@ -513,7 +511,7 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
 </dd>
 </dl>

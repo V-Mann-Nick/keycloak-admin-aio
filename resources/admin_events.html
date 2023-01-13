@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin events &mdash; keycloak_admin_aio  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -59,6 +56,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sessions.html">Sessions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attack_detection.html">Attack detection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../exceptions.html">Exceptions</a></li>
@@ -77,9 +75,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../resources.html">Keycloak resources</a> &raquo;</li>
-      <li>Admin events</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../resources.html">Keycloak resources</a></li>
+      <li class="breadcrumb-item active">Admin events</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/resources/admin_events.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,7 +103,7 @@
 <span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.admin_events.AdminEvents.get_url" title="Permalink to this definition"></a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
@@ -119,22 +117,22 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>auth_client</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>auth_ip_address</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>auth_realm</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>auth_user</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>date_from</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>date_to</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>first</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>max</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>operation_types</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>Literal</em><em>[</em><em>'CREATE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'ACTION'</em><em>, </em><em>'UPDATE'</em><em>]</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>resource_path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>resource_types</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>Literal</em><em>[</em><em>'REALM'</em><em>, </em><em>'REALM_ROLE'</em><em>, </em><em>'REALM_ROLE_MAPPING'</em><em>, </em><em>'REALM_SCOPE_MAPPING'</em><em>, </em><em>'AUTH_FLOW'</em><em>, </em><em>'AUTH_EXECUTION_FLOW'</em><em>, </em><em>'AUTH_EXECUTION'</em><em>, </em><em>'AUTHENTICATOR_CONFIG'</em><em>, </em><em>'REQUIRED_ACTION'</em><em>, </em><em>'IDENTITY_PROVIDER'</em><em>, </em><em>'IDENTITY_PROVIDER_MAPPER'</em><em>, </em><em>'PROTOCOL_MAPPER'</em><em>, </em><em>'USER'</em><em>, </em><em>'USER_LOGIN_FAILURE'</em><em>, </em><em>'USER_SESSION'</em><em>, </em><em>'USER_FEDERATION_PROVIDER'</em><em>, </em><em>'USER_FEDERATION_MAPPER'</em><em>, </em><em>'GROUP'</em><em>, </em><em>'GROUP_MEMBERSHIP'</em><em>, </em><em>'CLIENT'</em><em>, </em><em>'CLIENT_INITIAL_ACCESS_MODEL'</em><em>, </em><em>'CLIENT_ROLE'</em><em>, </em><em>'CLIENT_ROLE_MAPPING'</em><em>, </em><em>'CLIENT_SCOPE'</em><em>, </em><em>'CLIENT_SCOPE_MAPPING'</em><em>, </em><em>'CLIENT_SCOPE_CLIENT_MAPPING'</em><em>, </em><em>'CLUSTER_NODE'</em><em>, </em><em>'COMPONENT'</em><em>, </em><em>'AUTHORIZATION_RESOURCE_SERVER'</em><em>, </em><em>'AUTHORIZATION_RESOURCE'</em><em>, </em><em>'AUTHORIZATION_SCOPE'</em><em>, </em><em>'AUTHORIZATION_POLICY'</em><em>, </em><em>'CUSTOM'</em><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>auth_client</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>auth_ip_address</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>auth_realm</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>auth_user</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>date_from</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>date_to</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>operation_types</strong> (<em>list</em><em>[</em><em>Literal</em><em>[</em><em>'CREATE'</em><em>, </em><em>'DELETE'</em><em>, </em><em>'ACTION'</em><em>, </em><em>'UPDATE'</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>resource_path</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>resource_types</strong> (<em>list</em><em>[</em><em>Literal</em><em>[</em><em>'REALM'</em><em>, </em><em>'REALM_ROLE'</em><em>, </em><em>'REALM_ROLE_MAPPING'</em><em>, </em><em>'REALM_SCOPE_MAPPING'</em><em>, </em><em>'AUTH_FLOW'</em><em>, </em><em>'AUTH_EXECUTION_FLOW'</em><em>, </em><em>'AUTH_EXECUTION'</em><em>, </em><em>'AUTHENTICATOR_CONFIG'</em><em>, </em><em>'REQUIRED_ACTION'</em><em>, </em><em>'IDENTITY_PROVIDER'</em><em>, </em><em>'IDENTITY_PROVIDER_MAPPER'</em><em>, </em><em>'PROTOCOL_MAPPER'</em><em>, </em><em>'USER'</em><em>, </em><em>'USER_LOGIN_FAILURE'</em><em>, </em><em>'USER_SESSION'</em><em>, </em><em>'USER_FEDERATION_PROVIDER'</em><em>, </em><em>'USER_FEDERATION_MAPPER'</em><em>, </em><em>'GROUP'</em><em>, </em><em>'GROUP_MEMBERSHIP'</em><em>, </em><em>'CLIENT'</em><em>, </em><em>'CLIENT_INITIAL_ACCESS_MODEL'</em><em>, </em><em>'CLIENT_ROLE'</em><em>, </em><em>'CLIENT_ROLE_MAPPING'</em><em>, </em><em>'CLIENT_SCOPE'</em><em>, </em><em>'CLIENT_SCOPE_MAPPING'</em><em>, </em><em>'CLIENT_SCOPE_CLIENT_MAPPING'</em><em>, </em><em>'CLUSTER_NODE'</em><em>, </em><em>'COMPONENT'</em><em>, </em><em>'AUTHORIZATION_RESOURCE_SERVER'</em><em>, </em><em>'AUTHORIZATION_RESOURCE'</em><em>, </em><em>'AUTHORIZATION_SCOPE'</em><em>, </em><em>'AUTHORIZATION_POLICY'</em><em>, </em><em>'CUSTOM'</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>list[dict]</p>
 </dd>
 </dl>

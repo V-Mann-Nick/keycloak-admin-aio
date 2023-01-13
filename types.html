@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Types &mdash; keycloak_admin_aio  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -137,8 +134,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Types</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Types</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/types.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -210,19 +207,19 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.RoleRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">containerId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composites</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientRole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.RoleRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>containerId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>composites</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites" title="keycloak_admin_aio.types.types.RoleRepresentationComposites"><em>RoleRepresentationComposites</em></a><em>]</em>) – </p></li>
-<li><p><strong>composite</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>clientRole</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>description</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>containerId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>composites</strong> (<a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentationComposites" title="keycloak_admin_aio.types.types.RoleRepresentationComposites"><em>RoleRepresentationComposites</em></a><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>composite</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>clientRole</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -238,13 +235,13 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.RoleRepresentationComposites.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">realm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.RoleRepresentationComposites.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>realm</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>client</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>realm</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>client</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -260,14 +257,14 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ClientMappingsRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mappings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ClientMappingsRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>client</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>mappings</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>client</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>mappings</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -283,13 +280,13 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.MappingsRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clientMappings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realmMappings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.MappingsRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>clientMappings</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#keycloak_admin_aio.types.ClientMappingsRepresentation" title="keycloak_admin_aio.types.types.ClientMappingsRepresentation"><em>keycloak_admin_aio.types.types.ClientMappingsRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>realmMappings</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>clientMappings</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#keycloak_admin_aio.types.ClientMappingsRepresentation" title="keycloak_admin_aio.types.types.ClientMappingsRepresentation"><em>keycloak_admin_aio.types.types.ClientMappingsRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>realmMappings</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -305,15 +302,15 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ProtocolMapperRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolMapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocolMapper</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocol</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocolMapper</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -329,17 +326,17 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ClientScopeRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolMappers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ClientScopeRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocolMappers</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation" title="keycloak_admin_aio.types.types.ProtocolMapperRepresentation"><em>keycloak_admin_aio.types.types.ProtocolMapperRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>description</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocol</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocolMappers</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation" title="keycloak_admin_aio.types.types.ProtocolMapperRepresentation"><em>keycloak_admin_aio.types.types.ProtocolMapperRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -355,14 +352,14 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.FederatedIdentityRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">userId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identityProvider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.FederatedIdentityRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>userId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>userName</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>identityProvider</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>userId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>userName</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>identityProvider</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -378,20 +375,20 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.CredentialRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">createdDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentialData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secretData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temporary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userLabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.CredentialRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>createdDate</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>credentialData</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>priority</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>secretData</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>temporary</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>type</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>userLabel</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>createdDate</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>credentialData</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>priority</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>secretData</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>temporary</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>type</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>userLabel</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>value</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -407,15 +404,15 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.UserConsentRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clientId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">createdDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grantedClientScopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastUpdatedDate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.UserConsentRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>clientId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>createdDate</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>grantedClientScopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>lastUpdatedDate</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>clientId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>createdDate</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>grantedClientScopes</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>lastUpdatedDate</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -431,35 +428,35 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.UserRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emailVerified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requiredActions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">createdTimestamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">federationLink</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">federatedIdentities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disableableCredentialTypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notBefore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientConsents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">totp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realmRoles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">groups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serviceAccountClientId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientRoles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.UserRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>firstName</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>lastName</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>email</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>emailVerified</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>requiredActions</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>createdTimestamp</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>federationLink</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>federatedIdentities</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.FederatedIdentityRepresentation" title="keycloak_admin_aio.types.types.FederatedIdentityRepresentation"><em>keycloak_admin_aio.types.types.FederatedIdentityRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>enabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>disableableCredentialTypes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>credentials</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.CredentialRepresentation" title="keycloak_admin_aio.types.types.CredentialRepresentation"><em>keycloak_admin_aio.types.types.CredentialRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>notBefore</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>access</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>clientConsents</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.UserConsentRepresentation" title="keycloak_admin_aio.types.types.UserConsentRepresentation"><em>keycloak_admin_aio.types.types.UserConsentRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>totp</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>self</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>origin</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>realmRoles</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>groups</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>serviceAccountClientId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>clientRoles</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>firstName</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>lastName</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>emailVerified</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>requiredActions</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>createdTimestamp</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>federationLink</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>federatedIdentities</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.FederatedIdentityRepresentation" title="keycloak_admin_aio.types.types.FederatedIdentityRepresentation"><em>keycloak_admin_aio.types.types.FederatedIdentityRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>disableableCredentialTypes</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>credentials</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.CredentialRepresentation" title="keycloak_admin_aio.types.types.CredentialRepresentation"><em>keycloak_admin_aio.types.types.CredentialRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>notBefore</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>access</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>clientConsents</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.UserConsentRepresentation" title="keycloak_admin_aio.types.types.UserConsentRepresentation"><em>keycloak_admin_aio.types.types.UserConsentRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>totp</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>self</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>origin</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>realmRoles</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>groups</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>serviceAccountClientId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>clientRoles</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -475,19 +472,19 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.GroupRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realmRoles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subGroups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientRoles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.GroupRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>realmRoles</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>path</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>subGroups</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>keycloak_admin_aio.types.types.GroupRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>clientRoles</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>access</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>realmRoles</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>path</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>subGroups</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>keycloak_admin_aio.types.types.GroupRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>clientRoles</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>access</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -503,17 +500,17 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ScopeRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iconUri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ScopeRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>displayName</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>iconUri</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation" title="keycloak_admin_aio.types.types.PolicyRepresentation"><em>keycloak_admin_aio.types.types.PolicyRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>resources</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>displayName</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>iconUri</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>policies</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation" title="keycloak_admin_aio.types.types.PolicyRepresentation"><em>keycloak_admin_aio.types.types.PolicyRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>resources</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -529,20 +526,20 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ResourceRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displayName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icon_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ownerManagedAccess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uris</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ResourceRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>displayName</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>icon_uri</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>ownerManagedAccess</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>scopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>type</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>uris</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>displayName</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>icon_uri</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>ownerManagedAccess</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>scopes</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>type</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>uris</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -558,23 +555,23 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.PolicyRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resourcesData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopesData</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.PolicyRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>owner</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>logic</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>resources</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>resourcesData</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>scopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>scopesData</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>type</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>description</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>config</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>owner</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>logic</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>policies</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>resources</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>resourcesData</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>scopes</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>scopesData</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>type</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -590,20 +587,20 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ResourceServerRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowRemoteResourceManagement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decisionStrategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policyEnforcementMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ResourceServerRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>allowRemoteResourceManagement</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>clientId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>decisionStrategy</strong> (<em>Optional</em><em>[</em><em>Literal</em><em>[</em><em>'AFFIRMATIVE'</em><em>, </em><em>'UNANIMOUS'</em><em>, </em><em>'CONSENSUS'</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>policyEnforcementMode</strong> (<em>Optional</em><em>[</em><em>Literal</em><em>[</em><em>'ENFORCING'</em><em>, </em><em>'PERMISSIVE'</em><em>, </em><em>'DISABLED'</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>resources</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>scopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation" title="keycloak_admin_aio.types.types.PolicyRepresentation"><em>keycloak_admin_aio.types.types.PolicyRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>allowRemoteResourceManagement</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>clientId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>decisionStrategy</strong> (<em>Literal</em><em>[</em><em>'AFFIRMATIVE'</em><em>, </em><em>'UNANIMOUS'</em><em>, </em><em>'CONSENSUS'</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>policyEnforcementMode</strong> (<em>Literal</em><em>[</em><em>'ENFORCING'</em><em>, </em><em>'PERMISSIVE'</em><em>, </em><em>'DISABLED'</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>resources</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceRepresentation" title="keycloak_admin_aio.types.types.ResourceRepresentation"><em>keycloak_admin_aio.types.types.ResourceRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>scopes</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ScopeRepresentation" title="keycloak_admin_aio.types.types.ScopeRepresentation"><em>keycloak_admin_aio.types.types.ScopeRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>policies</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.PolicyRepresentation" title="keycloak_admin_aio.types.types.PolicyRepresentation"><em>keycloak_admin_aio.types.types.PolicyRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -619,49 +616,49 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.ClientRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">access</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adminUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alwaysDisplayInConsole</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authenticationFlowBindingOverrides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizationServicesEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">authorizationSettings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bearerOnly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientAuthenticatorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clientId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consentRequired</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultClientScopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directAccessGrantsEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontchannelLogout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullScopeAllowed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">implicitFlowEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodeReRegistrationTimeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">notBefore</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oauth2DeviceAuthorizationGrantEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optionalClientScopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">protocolMappers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">publicClient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirectUris</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registeredNodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registrationAccessToken</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rootUrl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secret</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serviceAccountsEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardFlowEnabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surrogateAuthRequired</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">webOrigins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.ClientRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>access</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>adminUrl</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>alwaysDisplayInConsole</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>authenticationFlowBindingOverrides</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>authorizationServicesEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>authorizationSettings</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation" title="keycloak_admin_aio.types.types.ResourceServerRepresentation"><em>ResourceServerRepresentation</em></a><em>]</em>) – </p></li>
-<li><p><strong>baseUrl</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>bearerOnly</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>clientAuthenticatorType</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>clientId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>consentRequired</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>defaultClientScopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>directAccessGrantsEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>enabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>frontchannelLogout</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>fullScopeAllowed</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>implicitFlowEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>nodeReRegistrationTimeout</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>notBefore</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>oauth2DeviceAuthorizationGrantEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>optionalClientScopes</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>origin</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocol</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>protocolMappers</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation" title="keycloak_admin_aio.types.types.ProtocolMapperRepresentation"><em>keycloak_admin_aio.types.types.ProtocolMapperRepresentation</em></a><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>publicClient</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>redirectUris</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>registeredNodes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>registrationAccessToken</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>rootUrl</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>secret</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>serviceAccountsEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>standardFlowEnabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>surrogateAuthRequired</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>webOrigins</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>access</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>bool</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>adminUrl</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>alwaysDisplayInConsole</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>attributes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>authenticationFlowBindingOverrides</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>authorizationServicesEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>authorizationSettings</strong> (<a class="reference internal" href="#keycloak_admin_aio.types.ResourceServerRepresentation" title="keycloak_admin_aio.types.types.ResourceServerRepresentation"><em>ResourceServerRepresentation</em></a><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>baseUrl</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>bearerOnly</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>clientAuthenticatorType</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>clientId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>consentRequired</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>defaultClientScopes</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>description</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>directAccessGrantsEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>frontchannelLogout</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>fullScopeAllowed</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>implicitFlowEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>nodeReRegistrationTimeout</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>notBefore</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>oauth2DeviceAuthorizationGrantEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>optionalClientScopes</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>origin</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocol</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>protocolMappers</strong> (<em>list</em><em>[</em><a class="reference internal" href="#keycloak_admin_aio.types.ProtocolMapperRepresentation" title="keycloak_admin_aio.types.types.ProtocolMapperRepresentation"><em>keycloak_admin_aio.types.types.ProtocolMapperRepresentation</em></a><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>publicClient</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>redirectUris</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>registeredNodes</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>registrationAccessToken</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>rootUrl</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>secret</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>serviceAccountsEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>standardFlowEnabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>surrogateAuthRequired</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>webOrigins</strong> (<em>list</em><em>[</em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -677,18 +674,18 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.RequiredActionProviderRepresentation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultAction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">providerId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.RequiredActionProviderRepresentation.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>alias</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>config</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>defaultAction</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>enabled</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – </p></li>
-<li><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>priority</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>providerId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>alias</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>config</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>defaultAction</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>priority</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>providerId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
@@ -704,18 +701,18 @@ you use the <code class="docutils literal notranslate"><span class="pre">from_li
 <dt class="sig sig-object py" id="keycloak_admin_aio.types.UserSession.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipAddress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastAccess</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userId</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio.types.UserSession.__init__" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>clients</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>id</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>ipAddress</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>lastAccess</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>start</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
-<li><p><strong>userId</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>username</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>clients</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>) – </p></li>
+<li><p><strong>id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>ipAddress</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>lastAccess</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>start</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>userId</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
