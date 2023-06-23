@@ -1,3 +1,9 @@
+## 1.3.3 (2023-06-23)
+
+### Fix
+
+- CI use newer version for setup-python and actions-poetry
+
 ## 1.3.2 (2023-06-23)
 
 ### Fix
