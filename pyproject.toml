@@ -2,8 +2,8 @@
 name = "keycloak-admin-aio"
 version = "1.3.1"
 description = "async keycloak admin api wrapper"
-authors = ["Nicklas Sedlock <nicklas@delphai.com>"]
-homepage = "https://github.com/delphai/keycloak-admin-aio"
+authors = ["Nicklas Sedlock <nicklas.sedlock@posteo.net>"]
+homepage = "https://github.com/V-Mann-Nick/keycloak-admin-aio"
 license = "Apache-2.0"
 readme = "README.rst"
 

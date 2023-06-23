@@ -39,7 +39,7 @@ jobs:
       - name: Use poetry
         uses: abatilo/actions-poetry@v2.0.0
       - name: Publish to pypi
-        run: poetry publish --build --username __token__ --password ${{ secrets.PYPI_DELPHAI_TOKEN }}
+        run: poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
   documentation:
     needs: bump-version
     runs-on: ubuntu-latest
