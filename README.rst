@@ -11,8 +11,8 @@ The main dependencies are:
 
 Links:
 
-- `Source code <https://github.com/delphai/keycloak-admin-aio>`_
-- `Documentation <https://delphai.github.io/keycloak-admin-aio/>`_
+- `Source code <https://github.com/V-Mann-Nick/keycloak-admin-aio>`_
+- `Documentation <https://v-mann-nick.github.io/keycloak-admin-aio/>`_
 - `Pypi <https://pypi.org/project/keycloak-admin-aio/>`_
 
 How to install?
@@ -83,4 +83,4 @@ License
 `Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_
 
 
-© Copyright 2021, delphai by AtomLeap GmbH
+© Copyright 2023, Nicklas Sedlock

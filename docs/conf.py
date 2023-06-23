@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "keycloak_admin_aio"
-copyright = "2021, delphai by AtomLeap GmbH"
+copyright = "2023, Nicklas Sedlock"
 author = "Nicklas Sedlock"
 
 
