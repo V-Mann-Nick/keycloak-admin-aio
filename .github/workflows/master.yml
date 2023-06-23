@@ -33,11 +33,11 @@ jobs:
           fetch-depth: 0
           ref: master
       - name: Set up Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
           python-version: "3.9"
       - name: Use poetry
-        uses: abatilo/actions-poetry@v2.0.0
+        uses: abatilo/actions-poetry@v2
       - name: Publish to pypi
         run: poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
   documentation:
