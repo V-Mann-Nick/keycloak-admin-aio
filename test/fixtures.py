@@ -13,6 +13,6 @@ def event_loop():
 @pytest.fixture(scope="session")
 async def keycloak_admin():
     async with KeycloakAdmin.with_password(
-        server_url="http://localhost:8080/auth", username="testing", password="testing"
+        server_url="http://localhost:8080", username="testing", password="testing"
     ) as kc:
         yield kc
