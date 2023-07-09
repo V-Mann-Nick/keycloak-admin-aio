@@ -12,52 +12,43 @@ jobs:
     name: Bump version and create changelog with commitizen
     steps:
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
-          persist-credentials: false
       - name: Bump version and create changelog
         uses: commitizen-tools/commitizen-action@0.18.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
   publish:
     needs: bump-version
+    if: "startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     name: Build and release to pypi
     steps:
       - name: Check out
-        uses: actions/checkout@v2
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          fetch-depth: 0
-          ref: main
+        uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
       - name: Use poetry
-        uses: abatilo/actions-poetry@v2
+        uses: ./.github/actions/poetry
       - name: Publish to pypi
-        run: poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+        run: poetry publish --dry-run --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
   documentation:
     needs: bump-version
+    if: "startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     name: Build sphinx docs and publish them
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
-          ref: main
-      - name: Install python 3.9
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.9"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+      - name: Use poetry
+        uses: ./.github/actions/poetry
       - name: Install requirements for sphinx autodoc
         run: |
-          pip install poetry && \
           poetry export -f requirements.txt --output docs/requirements.txt && \
           pip install sphinx-rtd-theme
       - name: Build and Commit
@@ -69,3 +60,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
+      - name: Back to original branch
+        run: git checkout $GITHUB_REF
