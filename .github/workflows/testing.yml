@@ -1,0 +1,60 @@
+name: testing
+
+on:
+  push:
+
+jobs:
+  testing:
+    name: Test against Keycloak
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - name: Load cached Poetry installation
+        id: cached-poetry
+        uses: actions/cache@v3
+        with:
+          path: ~/.local
+          key: poetry-0
+      - name: Install Poetry
+        if: steps.cached-poetry.outputs.cache-hit != 'true'
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction
+      - name: Cache Docker layers
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: docker-layer-cache-{hash}
+      - name: Start Keycloak
+        run: |
+          docker run \
+          -d \
+          --env KEYCLOAK_ADMIN=testing \
+          --env KEYCLOAK_ADMIN_PASSWORD=testing \
+          --env KC_HEALTH_ENABLED=true \
+          -p 8080:8080 \
+          docker.io/keycloak/keycloak:21.1 \
+          start-dev
+      - name: Wait for Keycloak
+        uses: iFaxity/wait-on-action@v1
+        with:
+          resource: http://localhost:8080/health
+          timeout: 60000
+      - name: Run tests
+        run: poetry run poe test

@@ -48,7 +48,7 @@ async def test_only_one_session(keycloak_admin: KeycloakAdmin):
     sessions = await get_all_admin_cli_sessions(keycloak_admin)
     sessions_count_before = len(sessions)
     async with KeycloakAdmin.with_password(
-        server_url="http://localhost:8080/auth", username="testing", password="testing"
+        server_url="http://localhost:8080", username="testing", password="testing"
     ) as kc:
         await asyncio.gather(
             kc.roles.by_name("create-realm").get(),
