@@ -1,9 +1,9 @@
-name: master
+name: main
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   bump-version:
@@ -31,7 +31,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
-          ref: master
+          ref: main
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -50,7 +50,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
-          ref: master
+          ref: main
       - name: Install python 3.9
         uses: actions/setup-python@v2
         with:
