@@ -30,20 +30,5 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
-      - name: Start Keycloak
-        run: |
-          docker run \
-          -d \
-          --env KEYCLOAK_ADMIN=testing \
-          --env KEYCLOAK_ADMIN_PASSWORD=testing \
-          --env KC_HEALTH_ENABLED=true \
-          -p 8080:8080 \
-          quay.io/keycloak/keycloak:${{ matrix.keycloak-version }} \
-          start-dev
-      - name: Wait for Keycloak
-        uses: iFaxity/wait-on-action@v1
-        with:
-          resource: http://localhost:8080/health
-          timeout: 60000
       - name: Run tests
-        run: poetry run poe test
+        run: poetry run poe test -v ${{ matrix.keycloak-version }}
