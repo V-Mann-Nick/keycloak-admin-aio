@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+version=latest
+while getopts ":v:" opt; do
+  case $opt in
+    v) version="$OPTARG"
+    ;;
+  esac
+done
+
 if command -v podman >/dev/null 2>&1; then
   container=podman
 fi 
@@ -19,14 +27,15 @@ if ! command -v curl >/dev/null 2>&1; then
 fi
 
 # Start keycloak detached
-echo -e '🚀 Starting Keycloak'
+echo -e "🚀 Starting Keycloak ${version}"
 container_id=$($container run \
 -d \
+--rm \
 --env KEYCLOAK_ADMIN=testing \
 --env KEYCLOAK_ADMIN_PASSWORD=testing \
 --env KC_HEALTH_ENABLED=true \
 -p 8080:8080 \
-quay.io/keycloak/keycloak:latest \
+quay.io/keycloak/keycloak:${version} \
 start-dev
 )
 
