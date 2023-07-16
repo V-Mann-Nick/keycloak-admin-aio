@@ -43,9 +43,8 @@ version_files = [
 tag_format = "$version"
 
 [tool.poe.tasks]
-install_pre_commit = "pre-commit install"
-lint = "flake8 keycloak_admin_aio/"
-format = "black keycloak_admin_aio/"
+install_pre_commit = "pre-commit install -t commit-msg -t pre-commit --install-hooks"
+uninstall_pre_commit = "pre-commit uninstall -t commit-msg -t pre-commit --install-hooks"
 docgen = "sphinx-build -b html docs/ docs/_build/html"
 pytest = "pytest test"
 test = "./test.sh"
