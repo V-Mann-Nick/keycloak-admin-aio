@@ -27,38 +27,24 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-      - name: Use poetry
-        uses: ./.github/actions/poetry
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          install-dependencies: 'false'
       - name: Publish to pypi
-        run: poetry publish --dry-run --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
+        run: poetry publish --build --username __token__ --password ${{ secrets.PYPI_TOKEN }}
   documentation:
-    needs: bump-version
-    if: "startsWith(github.event.head_commit.message, 'bump:')"
     runs-on: ubuntu-latest
     name: Build sphinx docs and publish them
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set up Python
-        uses: actions/setup-python@v4
-      - name: Use poetry
-        uses: ./.github/actions/poetry
-      - name: Install requirements for sphinx autodoc
-        run: |
-          poetry export -f requirements.txt --output docs/requirements.txt && \
-          pip install sphinx-rtd-theme
-      - name: Build and Commit
-        uses: sphinx-notes/pages@master
-        with:
-          documentation_path: docs
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Build docs
+        run: poetry run poe docgen
+      - name: Deploy with github pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-      - name: Back to original branch
-        run: git checkout $GITHUB_REF
+          publish_dir: ./docs/_build/html
