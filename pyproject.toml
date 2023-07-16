@@ -13,18 +13,25 @@ httpx = "^0.23.3"
 dacite = "^1.6.0"
 
 [tool.poetry.dev-dependencies]
-black = "^21.9b0"
-commitizen = "^2.20.0"
-pre-commit = "^2.15.0"
-flake8 = "^4.0.1"
-pep8-naming = "^0.12.1"
-poethepoet = "^0.10.0"
 Sphinx = "^4.2.0"
 sphinx-rtd-theme = "^1.0.0"
-pytest = "^6.2.5"
-pytest-asyncio = "^0.16.0"
+
+[tool.poetry.group.linting.dependencies]
+black = "^23.7.0"
+pre-commit = "^3.3.3"
+flake8 = "^6.0.0"
+pep8-naming = "^0.13.3"
+isort = "^5.12.0"
+
+[tool.poetry.group.testing.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.1"
 pytest-dependency = "^0.5.1"
-mypy = "^0.910"
+pytest-sugar = "^0.9.7"
+
+[tool.poetry.group.other.dependencies]
+commitizen = "^3.5.2"
+poethepoet = "^0.21.1"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
@@ -42,17 +49,17 @@ format = "black keycloak_admin_aio/"
 docgen = "sphinx-build -b html docs/ docs/_build/html"
 pytest = "pytest test"
 test = "./test.sh"
-check_types = "mypy --namespace-packages"
 check = "pre-commit run --all-files"
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
 skip = ["keycloak_admin_aio/_resources/__init__.py"]
 
-[tool.mypy]
-files = "**/*.py"
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
