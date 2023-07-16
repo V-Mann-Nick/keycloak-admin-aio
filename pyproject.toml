@@ -12,10 +12,6 @@ python = "^3.9"
 httpx = "^0.23.3"
 dacite = "^1.6.0"
 
-[tool.poetry.dev-dependencies]
-Sphinx = "^4.2.0"
-sphinx-rtd-theme = "^1.0.0"
-
 [tool.poetry.group.linting.dependencies]
 black = "^23.7.0"
 pre-commit = "^3.3.3"
@@ -32,6 +28,10 @@ pytest-sugar = "^0.9.7"
 [tool.poetry.group.other.dependencies]
 commitizen = "^3.5.2"
 poethepoet = "^0.21.1"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.0.1"
+sphinx-press-theme = "^0.8.0"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
