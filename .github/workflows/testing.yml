@@ -4,6 +4,22 @@ on:
   push:
 
 jobs:
+  linting:
+    name: Run pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+      - name: Setup
+        id: setup
+        uses: ./.github/actions/setup
+      - name: Load cached pre-commit environment
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pre-commit
+          key: pre-commit-${{ steps.setup.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+      - name: Run pre-commit
+        run: poetry run pre-commit run --all-files
   testing:
     name: Test against Keycloak
     runs-on: ubuntu-latest
@@ -15,32 +31,9 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
-      - name: Set up python
-        id: setup-python
-        uses: actions/setup-python@v4
+      - name: Setup
+        uses: ./.github/actions/setup
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Load cached Poetry installation
-        id: cached-poetry
-        uses: actions/cache@v3
-        with:
-          path: ~/.local
-          key: poetry-0-${{ steps.setup-python.outputs.python-version }}
-      - name: Install Poetry
-        if: steps.cached-poetry.outputs.cache-hit != 'true'
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
-          installer-parallel: true
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v3
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
-      - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction
       - name: Run tests
         run: KEYCLOAK_VERSION=${{ matrix.keycloak-version }} poetry run poe test -v
