@@ -1,11 +1,11 @@
 import httpx
 import pytest
-from fixtures import event_loop, keycloak_admin
+import pytest_asyncio
 
 from keycloak_admin_aio import KeycloakAdmin, UserRepresentation
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def user_id(keycloak_admin: KeycloakAdmin):
     user_id = await keycloak_admin.users.create(
         UserRepresentation(email="test@test.com", username="test")

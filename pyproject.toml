@@ -46,8 +46,7 @@ tag_format = "$version"
 install_pre_commit = "pre-commit install -t commit-msg -t pre-commit --install-hooks"
 uninstall_pre_commit = "pre-commit uninstall -t commit-msg -t pre-commit --install-hooks"
 docgen = "sphinx-build -b html docs/ docs/_build/html"
-pytest = "pytest test"
-test = "./test.sh"
+test = "pytest test"
 check = "pre-commit run --all-files"
 
 [tool.isort]
