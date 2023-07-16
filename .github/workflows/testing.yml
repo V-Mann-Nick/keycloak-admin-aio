@@ -43,4 +43,4 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction
       - name: Run tests
-        run: poetry run poe test -v ${{ matrix.keycloak-version }}
+        run: KEYCLOAK_VERSION=${{ matrix.keycloak-version }} poetry run poe test -v

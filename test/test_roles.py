@@ -2,7 +2,7 @@ import asyncio
 
 import httpx
 import pytest
-from fixtures import event_loop, keycloak_admin
+import pytest_asyncio
 
 from keycloak_admin_aio import KeycloakAdmin, RoleRepresentation
 from keycloak_admin_aio._lib.utils import cast_non_optional
@@ -18,7 +18,7 @@ def role_representation2():
     return RoleRepresentation(name="test-role-2")
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def test_role(
     keycloak_admin: KeycloakAdmin, role_representation: RoleRepresentation
 ):
@@ -74,7 +74,7 @@ async def test_roles_by_id(
         await keycloak_admin.roles.by_id(role_id).get()
 
 
-@pytest.fixture
+@pytest_asyncio.fixture
 async def test_roles(
     keycloak_admin: KeycloakAdmin,
     role_representation: RoleRepresentation,

@@ -3,7 +3,6 @@ from datetime import datetime
 
 import httpx
 import pytest
-from fixtures import event_loop, keycloak_admin
 
 from keycloak_admin_aio import KeycloakAdmin
 from keycloak_admin_aio._lib.utils import cast_non_optional
