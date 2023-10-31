@@ -21,7 +21,7 @@ class ClientsByIdDefaultClientScopesById(KeycloakResourceWithIdentifier):
 
         .. code:: python
 
-            await kc.clients.by_id(client_uuid).default_client_scopes.by_id(client_scope_id).add()
+            await kc.clients.by_id(client_uuid).default_client_scopes.by_id(client_scope_id).create()
         """
         connection = await self._get_connection()
         await connection.put(self.get_url())
