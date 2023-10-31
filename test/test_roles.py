@@ -52,7 +52,7 @@ async def test_roles_by_name(
     inserted_role = await keycloak_admin.roles.by_name(role_name).get()
     assert inserted_role.description == updated_role.description
     await keycloak_admin.roles.by_name(role_name).delete()
-    with pytest.raises(httpx.HTTPStatusError):
+    with pytest.raises(httpx.HTTPStatusError, match="404 Not Found"):
         await keycloak_admin.roles.by_name(role_name).get()
 
 
@@ -70,7 +70,7 @@ async def test_roles_by_id(
     inserted_role = await keycloak_admin.roles.by_id(role_id).get()
     assert inserted_role.description == updated_role.description
     await keycloak_admin.roles.by_id(role_id).delete()
-    with pytest.raises(httpx.HTTPStatusError):
+    with pytest.raises(httpx.HTTPStatusError, match="404 Not Found"):
         await keycloak_admin.roles.by_id(role_id).get()
 
 
