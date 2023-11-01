@@ -32,12 +32,12 @@ class Roles(KeycloakResource):
         return f"{self._get_parent_url()}/roles"
 
     async def create(self, role_representation: RoleRepresentation) -> str:
-        """Create a role.
+        """Create a role. Returns the role name.
 
         .. code:: python
 
             role_representation = RoleRepresentation(name="some-role")
-            role_id: str = await kc.roles.create(role_representation)
+            role_name: str = await kc.roles.create(role_representation)
         """
         connection = await self._get_connection()
         response = await connection.post(
