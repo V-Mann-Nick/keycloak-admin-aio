@@ -65,5 +65,5 @@ class UsersByIdGroups(KeycloakResource):
         """
         connection = await self._get_connection()
         params = remove_none({"search": search})
-        response = await connection.get(self.get_url(), params=params)
+        response = await connection.get(f"{self.get_url()}/count", params=params)
         return int(response.json()["count"])
