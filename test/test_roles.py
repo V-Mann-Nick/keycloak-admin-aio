@@ -1,137 +1,192 @@
 import asyncio
+from typing import Literal, Union
 
-import httpx
 import pytest
 import pytest_asyncio
+from pytest_dependency import depends
+from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin, RoleRepresentation
 from keycloak_admin_aio._lib.utils import cast_non_optional
-
-
-@pytest.fixture
-def role_representation():
-    return RoleRepresentation(name="test-role")
-
-
-@pytest.fixture
-def role_representation2():
-    return RoleRepresentation(name="test-role-2")
-
-
-@pytest_asyncio.fixture
-async def test_role(
-    keycloak_admin: KeycloakAdmin, role_representation: RoleRepresentation
-):
-    yield role_representation
-    await keycloak_admin.roles.by_name(
-        cast_non_optional(role_representation.name)
-    ).delete()
+from keycloak_admin_aio._resources.roles.by_id.composites.composites import (
+    RolesByIdComposites,
+)
+from keycloak_admin_aio._resources.roles.by_name.composites.composites import (
+    RolesByNameComposites,
+)
 
 
 @pytest.mark.asyncio
-@pytest.mark.dependency()
-async def test_create(keycloak_admin: KeycloakAdmin, test_role: RoleRepresentation):
-    role_name = await keycloak_admin.roles.create(test_role)
-    assert test_role.name == role_name
-
-
-@pytest.mark.asyncio
+@assert_not_raises("Could not get roles")
 async def test_get(keycloak_admin: KeycloakAdmin):
-    assert await keycloak_admin.roles.get()
+    """Test keycloak_admin.roles.get"""
+    await keycloak_admin.roles.get()
 
 
-@pytest.mark.asyncio
-@pytest.mark.dependency(depends=["test_create"])
-async def test_roles_by_name(
-    keycloak_admin: KeycloakAdmin, role_representation: RoleRepresentation
-):
-    role_name = cast_non_optional(role_representation.name)
-    assert await keycloak_admin.roles.create(role_representation)
-    updated_role = RoleRepresentation(name=role_name, description="Description")
-    await keycloak_admin.roles.by_name(role_name).update(updated_role)
-    inserted_role = await keycloak_admin.roles.by_name(role_name).get()
-    assert inserted_role.description == updated_role.description
-    await keycloak_admin.roles.by_name(role_name).delete()
-    with pytest.raises(httpx.HTTPStatusError, match="404 Not Found"):
-        await keycloak_admin.roles.by_name(role_name).get()
+class TestRoleByNameLifeCycle(ResourceLifeCycleTest):
+    """Test keycloak_admin.roles & keycloak_admin.roles.by_name"""
+
+    @pytest.fixture(scope="class")
+    def create(self, keycloak_admin: KeycloakAdmin):
+        async def create():
+            return await keycloak_admin.roles.create(RoleRepresentation(name="test"))
+
+        return create
+
+    @pytest.fixture(scope="class")
+    def get(self, keycloak_admin: KeycloakAdmin):
+        async def get(role_name: str):
+            return await keycloak_admin.roles.by_name(role_name).get()
+
+        return get
+
+    @pytest.fixture(scope="class")
+    def update(self, keycloak_admin: KeycloakAdmin):
+        async def update(role_name: str):
+            await keycloak_admin.roles.by_name(role_name).update(
+                RoleRepresentation(name="test", description="test")
+            )
+
+        return update
+
+    @pytest.fixture(scope="class")
+    def delete(self, keycloak_admin: KeycloakAdmin):
+        async def delete(role_name: str):
+            await keycloak_admin.roles.by_name(role_name).delete()
+
+        return delete
 
 
-@pytest.mark.asyncio
-@pytest.mark.dependency(depends=["test_create"])
-async def test_roles_by_id(
-    keycloak_admin: KeycloakAdmin, role_representation: RoleRepresentation
-):
-    role_name = cast_non_optional(role_representation.name)
-    assert await keycloak_admin.roles.create(role_representation)
-    full_representation = await keycloak_admin.roles.by_name(role_name).get()
-    role_id = cast_non_optional(full_representation.id)
-    updated_role = RoleRepresentation(name=role_name, description="Description")
-    await keycloak_admin.roles.by_id(role_id).update(updated_role)
-    inserted_role = await keycloak_admin.roles.by_id(role_id).get()
-    assert inserted_role.description == updated_role.description
-    await keycloak_admin.roles.by_id(role_id).delete()
-    with pytest.raises(httpx.HTTPStatusError, match="404 Not Found"):
-        await keycloak_admin.roles.by_id(role_id).get()
+class TestRoleByIdLifeCycle(ResourceLifeCycleTest):
+    """Test keycloak_admin.roles & keycloak_admin.roles.by_id"""
+
+    EXTRA_DEPENDENCIES = [
+        TestRoleByNameLifeCycle.dependency_name("get"),
+    ]
+
+    @pytest.fixture(scope="class")
+    def create(self, keycloak_admin: KeycloakAdmin):
+        async def create():
+            role_name = await keycloak_admin.roles.create(
+                RoleRepresentation(name="test")
+            )
+            role = await keycloak_admin.roles.by_name(role_name).get()
+            return cast_non_optional(role.id)
+
+        return create
+
+    @pytest.fixture(scope="class")
+    def get(self, keycloak_admin: KeycloakAdmin):
+        async def get(role_id: str):
+            return await keycloak_admin.roles.by_id(role_id).get()
+
+        return get
+
+    @pytest.fixture(scope="class")
+    def update(self, keycloak_admin: KeycloakAdmin):
+        async def update(role_id: str):
+            await keycloak_admin.roles.by_id(role_id).update(
+                RoleRepresentation(name="test", description="test")
+            )
+
+        return update
+
+    @pytest.fixture(scope="class")
+    def delete(self, keycloak_admin: KeycloakAdmin):
+        async def delete(role_id: str):
+            await keycloak_admin.roles.by_id(role_id).delete()
+
+        return delete
 
 
-@pytest_asyncio.fixture
-async def test_roles(
-    keycloak_admin: KeycloakAdmin,
-    role_representation: RoleRepresentation,
-    role_representation2: RoleRepresentation,
-):
-    await asyncio.gather(
-        keycloak_admin.roles.create(role_representation),
-        keycloak_admin.roles.create(role_representation2),
-    )
-    full_representation1, full_representation2 = await asyncio.gather(
-        keycloak_admin.roles.by_name(cast_non_optional(role_representation.name)).get(),
-        keycloak_admin.roles.by_name(
-            cast_non_optional(role_representation2.name)
-        ).get(),
-    )
-    yield full_representation1, full_representation2
-    await asyncio.gather(
-        keycloak_admin.roles.by_name(
-            cast_non_optional(role_representation.name)
-        ).delete(),
-        keycloak_admin.roles.by_name(
-            cast_non_optional(role_representation2.name)
-        ).delete(),
-    )
+class TestRoleComposite:
+    """Test keycloak_admin.roles.by_name.composites & keycloak_admin.roles.by_id.composites"""
 
+    DEPENDENCIES = [
+        TestRoleByNameLifeCycle.dependency_name("create"),
+        TestRoleByNameLifeCycle.dependency_name("get"),
+        TestRoleByNameLifeCycle.dependency_name("delete"),
+    ]
 
-@pytest.mark.asyncio
-@pytest.mark.dependency(depends=["test_roles_by_name"])
-async def test_composite_roles_by_name(
-    keycloak_admin: KeycloakAdmin,
-    test_roles: tuple[RoleRepresentation, RoleRepresentation],
-):
-    role_representation1, role_representation2 = test_roles
-    role_name = cast_non_optional(role_representation1.name)
-    await keycloak_admin.roles.by_name(role_name).composites.create(
-        [role_representation2]
-    )
-    composites = await keycloak_admin.roles.by_name(role_name).composites.get()
-    assert len(composites) == 1 and composites[0].name == role_representation2.name
-    await keycloak_admin.roles.by_name(role_name).composites.delete(
-        [role_representation2]
-    )
-    composites = await keycloak_admin.roles.by_name(role_name).composites.get()
-    assert len(composites) == 0
+    @pytest_asyncio.fixture(scope="class")
+    async def roles(self, keycloak_admin: KeycloakAdmin):
+        role_name, role_name_2 = "test", "test2"
+        await asyncio.gather(
+            keycloak_admin.roles.create(RoleRepresentation(name=role_name)),
+            keycloak_admin.roles.create(RoleRepresentation(name=role_name_2)),
+        )
+        role, role_2 = await asyncio.gather(
+            keycloak_admin.roles.by_name(role_name).get(),
+            keycloak_admin.roles.by_name(role_name_2).get(),
+        )
+        yield role, role_2
+        await asyncio.gather(
+            keycloak_admin.roles.by_name(role_name).delete(),
+            keycloak_admin.roles.by_name(role_name_2).delete(),
+        )
 
+    @pytest_asyncio.fixture(scope="class", params=["by_name", "by_id"])
+    async def composite_class(self, request):
+        yield request.param
 
-@pytest.mark.asyncio
-@pytest.mark.dependency(depends=["test_roles_by_id"])
-async def test_composite_roles_by_id(
-    keycloak_admin: KeycloakAdmin,
-    test_roles: tuple[RoleRepresentation, RoleRepresentation],
-):
-    role_representation1, role_representation2 = test_roles
-    role_id = cast_non_optional(role_representation1.id)
-    await keycloak_admin.roles.by_id(role_id).composites.create([role_representation2])
-    composites = await keycloak_admin.roles.by_id(role_id).composites.get()
-    assert len(composites) == 1 and composites[0].name == role_representation2.name
-    await keycloak_admin.roles.by_id(role_id).composites.delete([role_representation2])
-    composites = await keycloak_admin.roles.by_id(role_id).composites.get()
-    assert len(composites) == 0
+    def get_composite_class(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        composite_class: Literal["by_name", "by_id"],
+        role: RoleRepresentation,
+    ) -> Union[RolesByIdComposites, RolesByNameComposites]:
+        identifier = cast_non_optional(
+            role.id if composite_class == "by_id" else role.name
+        )
+        return getattr(keycloak_admin.roles, composite_class)(identifier).composites
+
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(depends=DEPENDENCIES)
+    @assert_not_raises("Could not create composite roles")
+    async def test_create(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        roles: tuple[RoleRepresentation, RoleRepresentation],
+        composite_class: Literal["by_name", "by_id"],
+    ):
+        role, role_2 = roles
+        await self.get_composite_class(keycloak_admin, composite_class, role).create(
+            [role_2]
+        )
+
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(depends=DEPENDENCIES)
+    @assert_not_raises("Could not get composite roles")
+    async def test_get(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        roles: tuple[RoleRepresentation, RoleRepresentation],
+        composite_class: Literal["by_name", "by_id"],
+        request: pytest.FixtureRequest,
+    ):
+        depends(request, [f"test_create[{composite_class}]"], scope="class")
+        role, role_2 = roles
+        composites = await self.get_composite_class(
+            keycloak_admin, composite_class, role
+        ).get()
+        assert len(composites) == 1 and composites[0].name == role_2.name
+
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(depends=DEPENDENCIES)
+    @assert_not_raises("Could not delete composite roles")
+    async def test_delete(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        roles: tuple[RoleRepresentation, RoleRepresentation],
+        composite_class: Literal["by_name", "by_id"],
+        request: pytest.FixtureRequest,
+    ):
+        depends(request, [f"test_get[{composite_class}]"], scope="class")
+        role, role_2 = roles
+        await self.get_composite_class(keycloak_admin, composite_class, role).delete(
+            [role_2]
+        )
+        composites = await self.get_composite_class(
+            keycloak_admin, composite_class, role
+        ).get()
+        assert len(composites) == 0
