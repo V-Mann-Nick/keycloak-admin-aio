@@ -17,13 +17,14 @@ from keycloak_admin_aio._resources.roles.by_name.composites.composites import (
 
 
 @pytest.mark.asyncio
-@assert_not_raises("Could not get roles")
+@pytest.mark.dependency()
+@assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.roles.get"""
     await keycloak_admin.roles.get()
 
 
-class TestRoleByNameLifeCycle(ResourceLifeCycleTest):
+class TestByNameLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.roles & keycloak_admin.roles.by_name"""
 
     @pytest.fixture(scope="class")
@@ -57,11 +58,11 @@ class TestRoleByNameLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-class TestRoleByIdLifeCycle(ResourceLifeCycleTest):
+class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.roles & keycloak_admin.roles.by_id"""
 
     EXTRA_DEPENDENCIES = [
-        TestRoleByNameLifeCycle.dependency_name("get"),
+        TestByNameLifeCycle.dependency_name("get"),
     ]
 
     @pytest.fixture(scope="class")
@@ -99,13 +100,13 @@ class TestRoleByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-class TestRoleComposite:
+class TestRoleComposites:
     """Test keycloak_admin.roles.by_name.composites & keycloak_admin.roles.by_id.composites"""
 
     DEPENDENCIES = [
-        TestRoleByNameLifeCycle.dependency_name("create"),
-        TestRoleByNameLifeCycle.dependency_name("get"),
-        TestRoleByNameLifeCycle.dependency_name("delete"),
+        TestByNameLifeCycle.dependency_name("create"),
+        TestByNameLifeCycle.dependency_name("get"),
+        TestByNameLifeCycle.dependency_name("delete"),
     ]
 
     @pytest_asyncio.fixture(scope="class")
@@ -142,7 +143,7 @@ class TestRoleComposite:
 
     @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
-    @assert_not_raises("Could not create composite roles")
+    @assert_not_raises
     async def test_create(
         self,
         keycloak_admin: KeycloakAdmin,
@@ -156,7 +157,7 @@ class TestRoleComposite:
 
     @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
-    @assert_not_raises("Could not get composite roles")
+    @assert_not_raises
     async def test_get(
         self,
         keycloak_admin: KeycloakAdmin,
@@ -173,7 +174,7 @@ class TestRoleComposite:
 
     @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
-    @assert_not_raises("Could not delete composite roles")
+    @assert_not_raises
     async def test_delete(
         self,
         keycloak_admin: KeycloakAdmin,

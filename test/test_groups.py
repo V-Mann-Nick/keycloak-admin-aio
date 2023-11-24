@@ -1,5 +1,5 @@
 import pytest
-from utils import ResourceLifeCycleTest
+from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin
 from keycloak_admin_aio.types.types import GroupRepresentation
@@ -7,18 +7,21 @@ from keycloak_admin_aio.types.types import GroupRepresentation
 
 @pytest.mark.asyncio
 @pytest.mark.dependency()
+@assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.groups.get"""
     await keycloak_admin.groups.get()
 
 
 @pytest.mark.asyncio
+@pytest.mark.dependency()
+@assert_not_raises
 async def test_count(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.groups.count"""
     await keycloak_admin.groups.count()
 
 
-class TestGroupByIdLifeCycle(ResourceLifeCycleTest):
+class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.groups & keycloak_admin.groups.by_id"""
 
     @pytest.fixture(scope="class")
