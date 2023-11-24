@@ -1,5 +1,4 @@
 import pytest
-import pytest_asyncio
 import test_users
 from utils import assert_not_raises
 
@@ -12,7 +11,7 @@ class TestBruteForce:
         test_users.TestByIdLifeCycle.dependency_name("delete", scope="session"),
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def user_id(self, keycloak_admin: KeycloakAdmin):
         user_id = await keycloak_admin.users.create(
             UserRepresentation(email="test@test.com", username="test")
@@ -20,7 +19,6 @@ class TestBruteForce:
         yield user_id
         await keycloak_admin.users.by_id(user_id).delete()
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, user_id: str):
@@ -30,13 +28,11 @@ class TestBruteForce:
         assert status is not None
         assert type(status) is dict
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_delete_all(self, keycloak_admin: KeycloakAdmin):
         await keycloak_admin.attack_detection.brute_force.users.delete()
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_delete_by_id(self, keycloak_admin: KeycloakAdmin, user_id: str):

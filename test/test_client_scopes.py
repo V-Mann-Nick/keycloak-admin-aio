@@ -1,6 +1,4 @@
 import pytest
-import pytest_asyncio
-import test_roles
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import (
@@ -10,7 +8,6 @@ from keycloak_admin_aio import (
 )
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
@@ -62,7 +59,7 @@ class WithClientScopeId:
         TestByIdLifeCycle.dependency_name("delete"),
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def client_scope_id(self, keycloak_admin: KeycloakAdmin):
         client_scope_id = await keycloak_admin.client_scopes.create(
             ClientScopeRepresentation(
@@ -74,7 +71,6 @@ class WithClientScopeId:
 
 
 class TestScopeMappings(WithClientScopeId):
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=WithClientScopeId.DEPENDENCIES)
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, client_scope_id: str):
@@ -87,7 +83,7 @@ class TestScopeMappingsRealmLifeCycle(ResourceLifeCycleTest, WithClientScopeId):
         *WithClientScopeId.DEPENDENCIES,
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def role(self, keycloak_admin: KeycloakAdmin):
         role_name = await keycloak_admin.roles.create(
             RoleRepresentation(name="test_role")

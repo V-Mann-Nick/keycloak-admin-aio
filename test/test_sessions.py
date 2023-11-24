@@ -20,7 +20,6 @@ async def get_all_admin_cli_sessions(keycloak_admin: KeycloakAdmin):
 class TestById:
     """Test keycloak_admin_aio.sessions.by_id"""
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(
         depends=[
             test_roles.TestByNameLifeCycle.dependency_name("get", scope="session"),

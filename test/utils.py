@@ -16,7 +16,6 @@ from typing import (
 
 import httpx
 import pytest
-import pytest_asyncio
 from pytest_dependency import depends
 
 TFunction = TypeVar("TFunction", bound=Callable[..., Awaitable])
@@ -169,7 +168,7 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
     def delete(self) -> ResourceDelete:
         """Returns a function that deletes a resource."""
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def identifier(self, delete: ResourceDelete):
         """Fixture to store the identifier of the resource accross the lifecycle.
 
@@ -200,7 +199,6 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             )
             raise ex
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency()
     @assert_not_raises
     async def test_create(
@@ -210,7 +208,6 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
         self.check_dependencies(request, "create")
         identifier.set(await create())
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency()
     @assert_not_raises
     async def test_get(
@@ -221,7 +218,6 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
         depends(request, ["test_create"], scope="class")
         await get(identifier.get())
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency()
     @assert_not_raises
     async def test_update(
@@ -237,7 +233,6 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             pytest.skip(f"Update not implemented in {self.__class__.__name__}")
         await update(identifier.get())
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency()
     @assert_not_raises
     async def test_delete(
