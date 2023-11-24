@@ -1,8 +1,13 @@
 import pytest
+import pytest_asyncio
+import test_roles
 from utils import ResourceLifeCycleTest, assert_not_raises
 
-from keycloak_admin_aio import KeycloakAdmin
-from keycloak_admin_aio.types.types import ClientScopeRepresentation
+from keycloak_admin_aio import (
+    ClientScopeRepresentation,
+    KeycloakAdmin,
+    RoleRepresentation,
+)
 
 
 @pytest.mark.asyncio
@@ -51,4 +56,83 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-# TODO: Missing scope_mappings
+class WithClientScopeId:
+    DEPENDENCIES = [
+        TestByIdLifeCycle.dependency_name("create"),
+        TestByIdLifeCycle.dependency_name("delete"),
+    ]
+
+    @pytest_asyncio.fixture(scope="class")
+    async def client_scope_id(self, keycloak_admin: KeycloakAdmin):
+        client_scope_id = await keycloak_admin.client_scopes.create(
+            ClientScopeRepresentation(
+                name="test_client_scope", protocol="openid-connect"
+            )
+        )
+        yield client_scope_id
+        await keycloak_admin.client_scopes.by_id(client_scope_id).delete()
+
+
+class TestScopeMappings(WithClientScopeId):
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(depends=WithClientScopeId.DEPENDENCIES)
+    @assert_not_raises
+    async def test_get(self, keycloak_admin: KeycloakAdmin, client_scope_id: str):
+        await keycloak_admin.client_scopes.by_id(client_scope_id).scope_mappings.get()
+
+
+class TestScopeMappingsRealmLifeCycle(ResourceLifeCycleTest, WithClientScopeId):
+    # FIXME: Implicit dependency on test_roles.py
+    EXTRA_DEPENDENCIES = [
+        *WithClientScopeId.DEPENDENCIES,
+    ]
+
+    @pytest_asyncio.fixture(scope="class")
+    async def role(self, keycloak_admin: KeycloakAdmin):
+        role_name = await keycloak_admin.roles.create(
+            RoleRepresentation(name="test_role")
+        )
+        role = await keycloak_admin.roles.by_name(role_name).get()
+        yield role
+        await keycloak_admin.roles.by_name(role_name).delete()
+
+    @pytest.fixture(scope="class")
+    def create(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        client_scope_id: str,
+        role: RoleRepresentation,
+    ):
+        async def create():
+            await keycloak_admin.client_scopes.by_id(
+                client_scope_id
+            ).scope_mappings.realm.create([role])
+
+        return create
+
+    @pytest.fixture(scope="class")
+    def get(self, keycloak_admin: KeycloakAdmin, client_scope_id: str):
+        async def get(_):
+            await keycloak_admin.client_scopes.by_id(
+                client_scope_id
+            ).scope_mappings.realm.get()
+
+        return get
+
+    @pytest.fixture(scope="class")
+    def update(self):
+        return None
+
+    @pytest.fixture(scope="class")
+    def delete(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        client_scope_id: str,
+        role: RoleRepresentation,
+    ):
+        async def delete(_):
+            await keycloak_admin.client_scopes.by_id(
+                client_scope_id
+            ).scope_mappings.realm.delete([role])
+
+        return delete
