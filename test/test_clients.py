@@ -11,13 +11,13 @@ from keycloak_admin_aio.types.types import ClientScopeRepresentation
 
 @pytest.mark.asyncio
 @pytest.mark.dependency()
-@assert_not_raises("Could not get clients")
+@assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.clients.get"""
     await keycloak_admin.clients.get()
 
 
-class TestClientByIdLifeCycle(ResourceLifeCycleTest):
+class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.clients.by_id."""
 
     @pytest.fixture(scope="class")
@@ -53,16 +53,13 @@ class TestClientByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-class TestClientByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
+class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
     """Test keycloak_admin.clients.by_id.default_client_scopes."""
 
     EXTRA_DEPENDENCIES = [
-        (
-            test_client_scopes.TestClientScopeByIdLifeCycle.dependency_name(
-                "create", scope="session"
-            ),
-            "session",
-        )
+        test_client_scopes.TestByIdLifeCycle.dependency_name(
+            "create", scope="session", as_dep=True
+        ),
     ]
 
     @pytest_asyncio.fixture(scope="class")

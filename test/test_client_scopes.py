@@ -7,13 +7,13 @@ from keycloak_admin_aio.types.types import ClientScopeRepresentation
 
 @pytest.mark.asyncio
 @pytest.mark.dependency()
-@assert_not_raises("Could not get client scopes")
+@assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.client_scopes.get"""
     await keycloak_admin.client_scopes.get()
 
 
-class TestClientScopeByIdLifeCycle(ResourceLifeCycleTest):
+class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.client_scopes.by_id."""
 
     @pytest.fixture(scope="class")

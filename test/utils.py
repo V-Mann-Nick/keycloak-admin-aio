@@ -2,7 +2,17 @@ import functools
 import warnings
 from abc import ABC, abstractmethod
 from textwrap import dedent
-from typing import Awaitable, Callable, Generic, Literal, Optional, TypeVar, Union
+from typing import (
+    Any,
+    Awaitable,
+    Callable,
+    Generic,
+    Literal,
+    Optional,
+    TypeVar,
+    Union,
+    overload,
+)
 
 import httpx
 import pytest
@@ -12,37 +22,27 @@ from pytest_dependency import depends
 TFunction = TypeVar("TFunction", bound=Callable[..., Awaitable])
 
 
-def assert_not_raises(message: str) -> Callable[[TFunction], TFunction]:
+def assert_not_raises(func: TFunction) -> TFunction:
     """Decorator to assert that a test does not raise a HTTPError exception."""
 
-    def inner(func: TFunction) -> TFunction:
-        @functools.wraps(func)
-        async def new_func(*args, **kwargs):
-            try:
-                return await func(*args, **kwargs)
-            except httpx.HTTPError as e:
-                assert False, f"{message}: {e}"
+    def get_module_name(args: tuple[Any, ...]):
+        maybe_self = args[0] if len(args) else None
+        if hasattr(maybe_self, "__class__") and hasattr(
+            maybe_self.__class__, "__module__"
+        ):
+            return maybe_self.__class__.__module__
+        return func.__module__
 
-        return new_func  # type: ignore
+    @functools.wraps(func)
+    async def new_func(*args, **kwargs):
+        try:
+            return await func(*args, **kwargs)
+        except httpx.HTTPError as e:
+            assert (
+                False
+            ), f"{get_module_name(args)}::{func.__name__} unexpectadly raised an httpx.HTTPError: {e}"
 
-    return inner
-
-
-def assert_not_raises_with_class_name(
-    message: Callable[[str], str]
-) -> Callable[[TFunction], TFunction]:
-    """Sames as `assert_not_raises` but it extracts the class_name when inherited."""
-
-    def inner(func: TFunction) -> TFunction:
-        @functools.wraps(func)
-        async def new_func(self, *args, **kwargs):
-            return await assert_not_raises(message(self.__class__.__name__))(func)(
-                self, *args, **kwargs
-            )
-
-        return new_func  # type: ignore
-
-    return inner
+    return new_func  # type: ignore
 
 
 LifeCycleTestType = Literal["create", "get", "update", "delete"]
@@ -56,6 +56,10 @@ ResourceGet = Callable[[Optional[str]], Awaitable[TResourceRepresentation]]
 ResourceUpdate = Optional[Callable[[Optional[str]], Awaitable[None]]]
 ResourceDelete = Callable[[Optional[str]], Awaitable[None]]
 
+DependencyScope = Literal["session", "module", "class"]
+ScopedExtraDependency = tuple[str, DependencyScope]
+ExtraDependency = Union[str, ScopedExtraDependency]
+
 
 class Value:
     """Helper class to store a value in a pytest fixture."""
@@ -67,10 +71,6 @@ class Value:
 
     def set(self, value: Union[str, None]):
         self.value = value
-
-
-DependencyScope = Literal["session", "module", "class"]
-ExtraDependency = Union[str, tuple[str, DependencyScope]]
 
 
 class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
@@ -111,10 +111,32 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
                 name, scope = dependency
                 depends(request, [name], scope=scope)
 
+    @overload
     @classmethod
     def dependency_name(
-        cls, test_type: LifeCycleTestType, scope: DependencyScope = "module"
+        cls,
+        test_type: LifeCycleTestType,
+        scope: DependencyScope = "module",
     ) -> str:
+        ...
+
+    @overload
+    @classmethod
+    def dependency_name(
+        cls,
+        test_type: LifeCycleTestType,
+        scope: DependencyScope = "module",
+        as_dep: Literal[True] = True,
+    ) -> ScopedExtraDependency:
+        ...
+
+    @classmethod
+    def dependency_name(
+        cls,
+        test_type: LifeCycleTestType,
+        scope: DependencyScope = "module",
+        as_dep=False,
+    ) -> Union[str, ScopedExtraDependency]:
         """Returns the dependency name for the given test type and scope."""
         test_name = f"test_{test_type}"
         name_by_scope = {
@@ -122,7 +144,10 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             "module": f"{cls.__name__}::{test_name}",
             "class": test_name,
         }
-        return name_by_scope[scope]
+        name = name_by_scope[scope]
+        if as_dep:
+            return name, scope
+        return name
 
     @abstractmethod
     @pytest.fixture(scope="class")
@@ -166,17 +191,18 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
                 return
             warnings.warn(
                 dedent(
-                    f"""Could not cleanup resource with id '{id}' in {self.__class__.__name__}.
-                    This could cause issues with other tests."""
+                    f"""
+                    Could not cleanup resource with id '{id}'
+                    in {self.__class__.__module__}::{self.__class__.__name__}.
+                    This could cause issues with other tests.
+                """
                 ).replace("\n", " ")
             )
             raise ex
 
     @pytest.mark.asyncio
     @pytest.mark.dependency()
-    @assert_not_raises_with_class_name(
-        lambda class_name: f"Could not create in {class_name}"
-    )
+    @assert_not_raises
     async def test_create(
         self, create: ResourceCreate, identifier: Value, request: pytest.FixtureRequest
     ):
@@ -186,9 +212,7 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
 
     @pytest.mark.asyncio
     @pytest.mark.dependency()
-    @assert_not_raises_with_class_name(
-        lambda class_name: f"Could not get in {class_name}"
-    )
+    @assert_not_raises
     async def test_get(
         self, get: ResourceGet, identifier: Value, request: pytest.FixtureRequest
     ):
@@ -199,9 +223,7 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
 
     @pytest.mark.asyncio
     @pytest.mark.dependency()
-    @assert_not_raises_with_class_name(
-        lambda class_name: f"Could not update in {class_name}"
-    )
+    @assert_not_raises
     async def test_update(
         self,
         update: Optional[ResourceUpdate],
@@ -217,9 +239,7 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
 
     @pytest.mark.asyncio
     @pytest.mark.dependency()
-    @assert_not_raises_with_class_name(
-        lambda class_name: f"Could not delete in {class_name}"
-    )
+    @assert_not_raises
     async def test_delete(
         self,
         delete: ResourceDelete,

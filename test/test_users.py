@@ -9,20 +9,20 @@ from keycloak_admin_aio.types.types import GroupRepresentation, UserRepresentati
 
 @pytest.mark.asyncio
 @pytest.mark.dependency()
-@assert_not_raises("Could not get users")
+@assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
-    """Test keycloak_admin.users.get""" ""
+    """Test keycloak_admin.users.get"""
     await keycloak_admin.users.get()
 
 
 @pytest.mark.asyncio
-@assert_not_raises("Could not count users")
+@assert_not_raises
 async def test_count(keycloak_admin: KeycloakAdmin):
-    """Test keycloak_admin.users.count""" ""
+    """Test keycloak_admin.users.count"""
     await keycloak_admin.users.count()
 
 
-class TestUserByIdLifeCycle(ResourceLifeCycleTest):
+class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.users & keycloak_admin.users.by_id"""
 
     @pytest.fixture(scope="class")
@@ -58,24 +58,18 @@ class TestUserByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-class TestUserByIdGroupsLifeCycle(ResourceLifeCycleTest):
+class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.users.by_id.groups & keycloak_admin.users.by_id.groups.by_id"""
 
     EXTRA_DEPENDENCIES = [
-        (
-            test_groups.TestGroupByIdLifeCycle.dependency_name(
-                "create", scope="session"
-            ),
-            "session",
+        test_groups.TestByIdLifeCycle.dependency_name(
+            "create", scope="session", as_dep=True
         ),
-        (
-            test_groups.TestGroupByIdLifeCycle.dependency_name(
-                "delete", scope="session"
-            ),
-            "session",
+        test_groups.TestByIdLifeCycle.dependency_name(
+            "delete", scope="session", as_dep=True
         ),
-        TestUserByIdLifeCycle.dependency_name("create"),
-        TestUserByIdLifeCycle.dependency_name("delete"),
+        TestByIdLifeCycle.dependency_name("create"),
+        TestByIdLifeCycle.dependency_name("delete"),
     ]
 
     @pytest_asyncio.fixture(scope="class")
@@ -112,7 +106,7 @@ class TestUserByIdGroupsLifeCycle(ResourceLifeCycleTest):
     @pytest.mark.asyncio
     @pytest.mark.order(before="test_delete")
     @pytest.mark.dependency()
-    @assert_not_raises("Could not count groups")
+    @assert_not_raises
     async def test_count(self, keycloak_admin: KeycloakAdmin, user_id: str):
         await keycloak_admin.users.by_id(user_id).groups.count()
 
@@ -142,8 +136,8 @@ async def user_id(keycloak_admin: KeycloakAdmin):
 @pytest.mark.asyncio
 @pytest.mark.dependency(
     depends=[
-        TestUserByIdLifeCycle.dependency_name("create"),
-        TestUserByIdLifeCycle.dependency_name("delete"),
+        TestByIdLifeCycle.dependency_name("create"),
+        TestByIdLifeCycle.dependency_name("delete"),
     ]
 )
 async def test_role_mappings(keycloak_admin: KeycloakAdmin, user_id: str):
