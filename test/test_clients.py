@@ -130,9 +130,6 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         return delete
 
 
-# == keycloak_admin.clients.by_id.user_sessions ==
-
-
 @pytest.mark.asyncio
 @pytest.mark.dependency(depends=["test_get"])
 async def test_get_user_sessions(keycloak_admin: KeycloakAdmin):

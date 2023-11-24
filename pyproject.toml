@@ -59,7 +59,7 @@ venvPath = "."
 venv = ".venv"
 
 [tool.pytest.ini_options]
-addopts = "--order-dependencies"
+addopts = "--order-dependencies --order-group-scope=module"
 
 [build-system]
 requires = ["poetry-core"]
