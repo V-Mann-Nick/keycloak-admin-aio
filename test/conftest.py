@@ -5,7 +5,6 @@ from typing import Literal
 
 import httpx
 import pytest
-import pytest_asyncio
 
 from keycloak_admin_aio import KeycloakAdmin
 
@@ -55,7 +54,7 @@ async def wait_for_server_to_start():
             await asyncio.sleep(1)
 
 
-@pytest_asyncio.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 async def run_keycloak(request: pytest.FixtureRequest):
     """Run Keycloak in a container."""
     container_runtime = determine_container_runtime()
@@ -90,7 +89,7 @@ def pytest_report_header():
     return f"Keycloak version: {KEYCLOAK_VERSION}"
 
 
-@pytest_asyncio.fixture(scope="session")
+@pytest.fixture(scope="session")
 def event_loop():
     """Create event loop for session scope.
 
@@ -102,7 +101,7 @@ def event_loop():
     loop.close()
 
 
-@pytest_asyncio.fixture(scope="session")
+@pytest.fixture(scope="session")
 async def keycloak_admin():
     """Instantiate the KeycloakAdmin client."""
     async with KeycloakAdmin.with_password(

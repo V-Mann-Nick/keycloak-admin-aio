@@ -7,7 +7,6 @@ from test_sessions import get_all_admin_cli_sessions
 from keycloak_admin_aio import KeycloakAdmin
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency(
     depends=[
         test_roles.TestByNameLifeCycle.dependency_name("get", scope="session"),

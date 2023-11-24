@@ -1,12 +1,10 @@
 import pytest
-import pytest_asyncio
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin
 from keycloak_admin_aio.types.types import GroupRepresentation
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
@@ -14,7 +12,6 @@ async def test_get(keycloak_admin: KeycloakAdmin):
     await keycloak_admin.groups.get()
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency()
 @assert_not_raises
 async def test_count(keycloak_admin: KeycloakAdmin):
@@ -64,7 +61,7 @@ class WithGroupIdFixture:
         TestByIdLifeCycle.dependency_name("delete"),
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def group_id(self, keycloak_admin: KeycloakAdmin):
         group_id = await keycloak_admin.groups.create(
             GroupRepresentation(name="test_group")
@@ -76,7 +73,6 @@ class WithGroupIdFixture:
 class TestMembers(WithGroupIdFixture):
     """Test keycloak_admin.groups.by_id.members"""
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=WithGroupIdFixture.DEPENDENCIES)
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, group_id: str):
@@ -87,7 +83,7 @@ class TestMembers(WithGroupIdFixture):
 class TestChildren(WithGroupIdFixture):
     """Test keycloak_admin.groups.by_id.children"""
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def other_group(self, keycloak_admin: KeycloakAdmin):
         group_id = await keycloak_admin.groups.create(
             GroupRepresentation(name="test_group_2")
@@ -96,7 +92,6 @@ class TestChildren(WithGroupIdFixture):
         yield group
         await keycloak_admin.groups.by_id(group_id).delete()
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(
         depends=[
             *WithGroupIdFixture.DEPENDENCIES,

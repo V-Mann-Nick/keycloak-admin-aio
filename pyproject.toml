@@ -60,6 +60,7 @@ venv = ".venv"
 
 [tool.pytest.ini_options]
 addopts = "--order-dependencies --order-group-scope=module"
+asyncio_mode = "auto"
 
 [build-system]
 requires = ["poetry-core"]

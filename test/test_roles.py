@@ -2,7 +2,6 @@ import asyncio
 from typing import Literal, Union
 
 import pytest
-import pytest_asyncio
 from pytest_dependency import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
@@ -16,7 +15,6 @@ from keycloak_admin_aio._resources.roles.by_name.composites.composites import (
 )
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
@@ -109,7 +107,7 @@ class TestRoleComposites:
         TestByNameLifeCycle.dependency_name("delete"),
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def roles(self, keycloak_admin: KeycloakAdmin):
         role_name, role_name_2 = "test", "test2"
         await asyncio.gather(
@@ -126,7 +124,7 @@ class TestRoleComposites:
             keycloak_admin.roles.by_name(role_name_2).delete(),
         )
 
-    @pytest_asyncio.fixture(scope="class", params=["by_name", "by_id"])
+    @pytest.fixture(scope="class", params=["by_name", "by_id"])
     async def composite_class(self, request):
         yield request.param
 
@@ -141,7 +139,6 @@ class TestRoleComposites:
         )
         return getattr(keycloak_admin.roles, composite_class)(identifier).composites
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
     @assert_not_raises
     async def test_create(
@@ -155,7 +152,6 @@ class TestRoleComposites:
             [role_2]
         )
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
     @assert_not_raises
     async def test_get(
@@ -172,7 +168,6 @@ class TestRoleComposites:
         ).get()
         assert len(composites) == 1 and composites[0].name == role_2.name
 
-    @pytest.mark.asyncio
     @pytest.mark.dependency(depends=DEPENDENCIES)
     @assert_not_raises
     async def test_delete(

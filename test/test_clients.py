@@ -1,5 +1,4 @@
 import pytest
-import pytest_asyncio
 import test_client_scopes
 from conftest import KEYCLOAK_ADMIN
 from utils import ResourceLifeCycleTest, assert_not_raises
@@ -9,7 +8,6 @@ from keycloak_admin_aio._lib.utils import cast_non_optional
 from keycloak_admin_aio.types.types import ClientScopeRepresentation
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
@@ -62,7 +60,7 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         ),
     ]
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def a_default_client(self, keycloak_admin: KeycloakAdmin):
         clients = await keycloak_admin.clients.get()
         return clients[0]
@@ -71,7 +69,7 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
     def a_default_client_uuid(self, a_default_client: ClientRepresentation):
         return cast_non_optional(a_default_client.id)
 
-    @pytest_asyncio.fixture(scope="class")
+    @pytest.fixture(scope="class")
     async def client_scope_id(self, keycloak_admin: KeycloakAdmin):
         client_scope_id = await keycloak_admin.client_scopes.create(
             ClientScopeRepresentation(
@@ -130,7 +128,6 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         return delete
 
 
-@pytest.mark.asyncio
 @pytest.mark.dependency(depends=["test_get"])
 async def test_get_user_sessions(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.clients.by_id.user_sessions.get
