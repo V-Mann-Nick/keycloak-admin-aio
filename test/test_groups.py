@@ -1,4 +1,5 @@
 import pytest
+import pytest_asyncio
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin
@@ -57,4 +58,58 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-# TODO: more tests missing
+class WithGroupIdFixture:
+    DEPENDENCIES = [
+        TestByIdLifeCycle.dependency_name("create"),
+        TestByIdLifeCycle.dependency_name("delete"),
+    ]
+
+    @pytest_asyncio.fixture(scope="class")
+    async def group_id(self, keycloak_admin: KeycloakAdmin):
+        group_id = await keycloak_admin.groups.create(
+            GroupRepresentation(name="test_group")
+        )
+        yield group_id
+        await keycloak_admin.groups.by_id(group_id).delete()
+
+
+class TestMembers(WithGroupIdFixture):
+    """Test keycloak_admin.groups.by_id.members"""
+
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(depends=WithGroupIdFixture.DEPENDENCIES)
+    @assert_not_raises
+    async def test_get(self, keycloak_admin: KeycloakAdmin, group_id: str):
+        """Test keycloak_admin.groups.by_id.members.get"""
+        await keycloak_admin.groups.by_id(group_id).members.get()
+
+
+class TestChildren(WithGroupIdFixture):
+    """Test keycloak_admin.groups.by_id.children"""
+
+    @pytest_asyncio.fixture(scope="class")
+    async def other_group(self, keycloak_admin: KeycloakAdmin):
+        group_id = await keycloak_admin.groups.create(
+            GroupRepresentation(name="test_group_2")
+        )
+        group = await keycloak_admin.groups.by_id(group_id).get()
+        yield group
+        await keycloak_admin.groups.by_id(group_id).delete()
+
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(
+        depends=[
+            *WithGroupIdFixture.DEPENDENCIES,
+            TestByIdLifeCycle.dependency_name("create"),
+            TestByIdLifeCycle.dependency_name("get"),
+            TestByIdLifeCycle.dependency_name("delete"),
+        ]
+    )
+    @assert_not_raises
+    async def test_create(
+        self,
+        keycloak_admin: KeycloakAdmin,
+        group_id: str,
+        other_group: GroupRepresentation,
+    ):
+        await keycloak_admin.groups.by_id(group_id).children.create(other_group)
