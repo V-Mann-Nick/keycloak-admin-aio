@@ -1,10 +1,15 @@
 import pytest
 import pytest_asyncio
 import test_groups
+import test_roles
 from utils import ResourceLifeCycleTest, assert_not_raises
 
-from keycloak_admin_aio import KeycloakAdmin
-from keycloak_admin_aio.types.types import GroupRepresentation, UserRepresentation
+from keycloak_admin_aio import (
+    GroupRepresentation,
+    KeycloakAdmin,
+    RoleRepresentation,
+    UserRepresentation,
+)
 
 
 @pytest.mark.asyncio
@@ -58,7 +63,22 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest):
+class WithUserIdFixture:
+    DEPENDENCIES = [
+        TestByIdLifeCycle.dependency_name("create"),
+        TestByIdLifeCycle.dependency_name("delete"),
+    ]
+
+    @pytest_asyncio.fixture(scope="class")
+    async def user_id(self, keycloak_admin: KeycloakAdmin):
+        user_id = await keycloak_admin.users.create(
+            UserRepresentation(username="test_user")
+        )
+        yield user_id
+        await keycloak_admin.users.by_id(user_id).delete()
+
+
+class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
     """Test keycloak_admin.users.by_id.groups & keycloak_admin.users.by_id.groups.by_id"""
 
     EXTRA_DEPENDENCIES = [
@@ -68,8 +88,7 @@ class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest):
         test_groups.TestByIdLifeCycle.dependency_name(
             "delete", scope="session", as_dep=True
         ),
-        TestByIdLifeCycle.dependency_name("create"),
-        TestByIdLifeCycle.dependency_name("delete"),
+        *WithUserIdFixture.DEPENDENCIES,
     ]
 
     @pytest_asyncio.fixture(scope="class")
@@ -79,15 +98,6 @@ class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest):
         )
         yield group_id
         await keycloak_admin.groups.by_id(group_id).delete()
-
-    @pytest_asyncio.fixture(scope="class")
-    async def user_id(self, keycloak_admin: KeycloakAdmin, group_id: str):
-        user_id = await keycloak_admin.users.create(
-            UserRepresentation(username="test_user_2")
-        )
-        await keycloak_admin.users.by_id(user_id).groups.by_id(group_id).create()
-        yield user_id
-        await keycloak_admin.users.by_id(user_id).delete()
 
     @pytest.fixture(scope="class")
     def create(self, keycloak_admin: KeycloakAdmin, group_id: str, user_id: str):
@@ -124,30 +134,77 @@ class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-@pytest_asyncio.fixture(scope="class")
-async def user_id(keycloak_admin: KeycloakAdmin):
-    user_id = await keycloak_admin.users.create(
-        UserRepresentation(username="test_user_3")
+class TestRoleMappings(WithUserIdFixture):
+    @pytest.mark.asyncio
+    @pytest.mark.dependency(
+        depends=WithUserIdFixture.DEPENDENCIES,
     )
-    yield user_id
-    await keycloak_admin.users.by_id(user_id).delete()
-
-
-@pytest.mark.asyncio
-@pytest.mark.dependency(
-    depends=[
-        TestByIdLifeCycle.dependency_name("create"),
-        TestByIdLifeCycle.dependency_name("delete"),
-    ]
-)
-async def test_role_mappings(keycloak_admin: KeycloakAdmin, user_id: str):
-    """Test keycloak_admin.users.by_id.role_mappings.get"""
-    try:
+    @assert_not_raises
+    async def test_get(self, keycloak_admin: KeycloakAdmin, user_id: str):
+        """Test keycloak_admin.users.by_id.role_mappings.get"""
         await keycloak_admin.users.by_id(user_id).role_mappings.get()
-    except Exception as e:
-        assert False, f"Failed to get role mappings: {e}"
 
 
-# == keycloak_admin.users.by_id.role_mappings.realm ==
+class TestRoleMappingsRealmLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
+    """Test keycloak_admin.users.by_id.role_mappings.realm"""
 
-# TODO
+    EXTRA_DEPENDENCIES = [
+        test_roles.TestByNameLifeCycle.dependency_name(
+            "create", scope="session", as_dep=True
+        ),
+        test_roles.TestByNameLifeCycle.dependency_name(
+            "get", scope="session", as_dep=True
+        ),
+        test_roles.TestByNameLifeCycle.dependency_name(
+            "delete", scope="session", as_dep=True
+        ),
+        *WithUserIdFixture.DEPENDENCIES,
+    ]
+
+    @pytest_asyncio.fixture(scope="class")
+    async def role(self, keycloak_admin: KeycloakAdmin):
+        role_name = await keycloak_admin.roles.create(
+            RoleRepresentation(name="test_role")
+        )
+        role = await keycloak_admin.roles.by_name(role_name).get()
+        yield role
+        await keycloak_admin.roles.by_name(role_name).delete()
+
+    @pytest.fixture(scope="class")
+    def create(
+        self, keycloak_admin: KeycloakAdmin, user_id: str, role: RoleRepresentation
+    ):
+        async def create():
+            await keycloak_admin.users.by_id(user_id).role_mappings.realm.create([role])
+
+        return create
+
+    @pytest.fixture(scope="class")
+    def get(self, keycloak_admin: KeycloakAdmin, user_id: str):
+        async def get(_):
+            await keycloak_admin.users.by_id(user_id).role_mappings.realm.get()
+
+        return get
+
+    @pytest.fixture(scope="class")
+    def update(self):
+        return None
+
+    @pytest.fixture(scope="class")
+    def delete(
+        self, keycloak_admin: KeycloakAdmin, user_id: str, role: RoleRepresentation
+    ):
+        async def delete(_):
+            await keycloak_admin.users.by_id(user_id).role_mappings.realm.delete([role])
+
+        return delete
+
+    @pytest.mark.asyncio
+    async def test_available(self, keycloak_admin: KeycloakAdmin, user_id: str):
+        """Test keycloak_admin.users.by_id.role_mappings.realm.available"""
+        await keycloak_admin.users.by_id(user_id).role_mappings.realm.available()
+
+    @pytest.mark.asyncio
+    async def test_composite(self, keycloak_admin: KeycloakAdmin, user_id: str):
+        """Test keycloak_admin.users.by_id.role_mappings.realm.composite"""
+        await keycloak_admin.users.by_id(user_id).role_mappings.realm.composite()
