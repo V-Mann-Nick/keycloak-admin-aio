@@ -51,14 +51,14 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
+@pytest.mark.dependency(
+    depends=[
+        test_client_scopes.TestByIdLifeCycle.dependency_name("create", scope="session")
+    ],
+    scope="session",
+)
 class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
     """Test keycloak_admin.clients.by_id.default_client_scopes."""
-
-    EXTRA_DEPENDENCIES = [
-        test_client_scopes.TestByIdLifeCycle.dependency_name(
-            "create", scope="session", as_dep=True
-        ),
-    ]
 
     @pytest.fixture(scope="class")
     async def a_default_client(self, keycloak_admin: KeycloakAdmin):

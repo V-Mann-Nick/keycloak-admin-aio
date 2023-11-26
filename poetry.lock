@@ -586,6 +586,24 @@ files = [
 ]
 
 [[package]]
+name = "networkx"
+version = "3.2.1"
+description = "Python package for creating and manipulating graphs and networks"
+optional = false
+python-versions = ">=3.9"
+files = [
+    {file = "networkx-3.2.1-py3-none-any.whl", hash = "sha256:f18c69adc97877c42332c170849c96cefa91881c99a7cb3e95b7c659ebdc1ec2"},
+    {file = "networkx-3.2.1.tar.gz", hash = "sha256:9f1bb5cf3409bf324e0a722c20bdb4c20ee39bf1c30ce8ae499c8502b0b5e0c6"},
+]
+
+[package.extras]
+default = ["matplotlib (>=3.5)", "numpy (>=1.22)", "pandas (>=1.4)", "scipy (>=1.9,!=1.11.0,!=1.11.1)"]
+developer = ["changelist (==0.4)", "mypy (>=1.1)", "pre-commit (>=3.2)", "rtoml"]
+doc = ["nb2plots (>=0.7)", "nbconvert (<7.9)", "numpydoc (>=1.6)", "pillow (>=9.4)", "pydata-sphinx-theme (>=0.14)", "sphinx (>=7)", "sphinx-gallery (>=0.14)", "texext (>=0.6.7)"]
+extra = ["lxml (>=4.6)", "pydot (>=1.4.2)", "pygraphviz (>=1.11)", "sympy (>=1.10)"]
+test = ["pytest (>=7.2)", "pytest-cov (>=4.0)"]
+
+[[package]]
 name = "nodeenv"
 version = "1.8.0"
 description = "Node.js virtual environment builder"
@@ -801,36 +819,6 @@ pytest = ">=7.0.0"
 [package.extras]
 docs = ["sphinx (>=5.3)", "sphinx-rtd-theme (>=1.0)"]
 testing = ["coverage (>=6.2)", "flaky (>=3.5.0)", "hypothesis (>=5.7.1)", "mypy (>=0.931)", "pytest-trio (>=0.7.0)"]
-
-[[package]]
-name = "pytest-dependency"
-version = "0.5.1"
-description = "Manage dependencies of tests"
-optional = false
-python-versions = "*"
-files = [
-    {file = "pytest-dependency-0.5.1.tar.gz", hash = "sha256:c2a892906192663f85030a6ab91304e508e546cddfe557d692d61ec57a1d946b"},
-]
-
-[package.dependencies]
-pytest = ">=3.6.0"
-
-[[package]]
-name = "pytest-order"
-version = "1.2.0"
-description = "pytest plugin to run your tests in a specific order"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "pytest-order-1.2.0.tar.gz", hash = "sha256:944f86b6d441aa7b1da80f801c6ab65b84bbeba472d0a7a12eb43ba26650101a"},
-    {file = "pytest_order-1.2.0-py3-none-any.whl", hash = "sha256:9d65c3b6dc6d6ee984d6ae2c6c4aa4f1331e5b915116219075c888c8bcbb93b8"},
-]
-
-[package.dependencies]
-pytest = [
-    {version = ">=5.0", markers = "python_version < \"3.10\""},
-    {version = ">=6.2.4", markers = "python_version >= \"3.10\""},
-]
 
 [[package]]
 name = "pyyaml"
@@ -1225,4 +1213,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "60fc47d1b807bf9bf56f53d93680da959edb885cc26854b902a7bf9f1bd74c3c"
+content-hash = "fe9f7fb60ebaa8ae6ca584460b2ce304572eb40b450598c945d869cd235f5246"
