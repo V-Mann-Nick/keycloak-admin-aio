@@ -1,3 +1,9 @@
+## 1.3.4 (2023-11-26)
+
+### Fix
+
+- use correct path for count of user's groups
+
 ## 1.3.3 (2023-06-23)
 
 ### Fix
