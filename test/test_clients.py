@@ -52,9 +52,7 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
 
 
 @depends(
-    on=[
-        test_client_scopes.TestByIdLifeCycle.dependency_name("create", scope="session")
-    ],
+    on=test_client_scopes.TestByIdLifeCycle.dependency_name("create", scope="session"),
     scope="session",
 )
 class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):

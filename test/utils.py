@@ -11,12 +11,12 @@ from typing import (
     Optional,
     TypeVar,
     Union,
-    overload,
+    cast,
 )
 
 import httpx
 import pytest
-from dependencies_plugin import depends
+from dependencies_plugin import Scope, depends
 
 TFunction = TypeVar("TFunction", bound=Callable[..., Awaitable])
 
@@ -41,23 +41,7 @@ def assert_not_raises(func: TFunction) -> TFunction:
                 False
             ), f"{get_module_name(args)}::{func.__name__} unexpectadly raised an httpx.HTTPError: {e}"
 
-    return new_func  # type: ignore
-
-
-LifeCycleTestType = Literal["create", "get", "update", "delete"]
-
-
-TResourceRepresentation = TypeVar("TResourceRepresentation")
-
-
-ResourceCreate = Callable[[], Awaitable[Optional[str]]]
-ResourceGet = Callable[[Optional[str]], Awaitable[TResourceRepresentation]]
-ResourceUpdate = Optional[Callable[[Optional[str]], Awaitable[None]]]
-ResourceDelete = Callable[[Optional[str]], Awaitable[None]]
-
-DependencyScope = Literal["session", "module", "class"]
-ScopedExtraDependency = tuple[str, DependencyScope]
-ExtraDependency = Union[str, ScopedExtraDependency]
+    return cast(TFunction, new_func)
 
 
 class Value:
@@ -72,33 +56,36 @@ class Value:
         self.value = value
 
 
+TResourceRepresentation = TypeVar("TResourceRepresentation")
+ResourceCreate = Callable[[], Awaitable[Optional[str]]]
+ResourceGet = Callable[[Optional[str]], Awaitable[TResourceRepresentation]]
+ResourceUpdate = Optional[Callable[[Optional[str]], Awaitable[None]]]
+ResourceDelete = Callable[[Optional[str]], Awaitable[None]]
+
+
 class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
-    """Base class for testing the lifecycle of a keycloak resource."""
+    """Base class for testing the lifecycle of a keycloak resource.
 
-    @overload
+    It tests the lifecycle of a keycloak resource by calling the create, get,
+    update and delete methods and passing the identifier accross the lifecycle.
+
+    The identifier may be ommited in which case its only use is to setup the
+    dependency chain between tests.
+
+    Test classes which inherit from this class must implement the following
+    class scoped fixtures (methods decorated with @pytest.fixture(scope="class")):
+    - create: returns a function that creates a resource and returns its identifier.
+    - get: returns a function that gets a resource.
+    - update: returns a function that updates a resource. May return None if not applicable.
+    - delete: returns a function that deletes a resource.
+    """
+
     @classmethod
     def dependency_name(
-        cls, test_type: LifeCycleTestType, scope: DependencyScope = "module"
+        cls,
+        test_type: Literal["create", "get", "update", "delete"],
+        scope: Scope = "module",
     ) -> str:
-        ...
-
-    @overload
-    @classmethod
-    def dependency_name(
-        cls,
-        test_type: LifeCycleTestType,
-        scope: DependencyScope = "module",
-        as_dep: Literal[True] = True,
-    ) -> ScopedExtraDependency:
-        ...
-
-    @classmethod
-    def dependency_name(
-        cls,
-        test_type: LifeCycleTestType,
-        scope: DependencyScope = "module",
-        as_dep=False,
-    ) -> Union[str, ScopedExtraDependency]:
         """Returns the dependency name for the given test type and scope."""
         test_name = f"test_{test_type}"
         name_by_scope = {
@@ -106,10 +93,7 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             "module": f"{cls.__name__}::{test_name}",
             "class": test_name,
         }
-        name = name_by_scope[scope]
-        if as_dep:
-            return name, scope
-        return name
+        return name_by_scope[scope]
 
     @abstractmethod
     @pytest.fixture(scope="class")
@@ -165,16 +149,15 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
     @assert_not_raises
     async def test_create(self, create: ResourceCreate, identifier: Value):
         """Test the create method."""
-        # self.check_dependencies(request, "create")
         identifier.set(await create())
 
-    @depends(on=["test_create"], scope="class")
+    @depends(on="test_create", scope="class")
     @assert_not_raises
     async def test_get(self, get: ResourceGet, identifier: Value):
         """Test the get method."""
         await get(identifier.get())
 
-    @depends(on=["test_get"], scope="class")
+    @depends(on="test_get", scope="class")
     @assert_not_raises
     async def test_update(self, update: Optional[ResourceUpdate], identifier: Value):
         """Test the update method."""
@@ -182,8 +165,8 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             pytest.skip(f"Update not implemented in {self.__class__.__name__}")
         await update(identifier.get())
 
-    @depends(on=["test_get"], scope="class")
-    @depends(on=["test_update"], scope="class", allow_skipped=True)
+    @depends(on="test_get", scope="class")
+    @depends(on="test_update", scope="class", allow_skipped=True)
     @assert_not_raises
     async def test_delete(self, delete: ResourceDelete, identifier: Value):
         """Test the delete method."""

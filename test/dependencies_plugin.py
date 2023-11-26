@@ -12,13 +12,16 @@ import pytest
 def depends(
     on: typing.Union[str, list[str]], scope: Scope = "module", allow_skipped=False
 ):
+    """Mark a test to be dependent on other tests."""
     return pytest.mark.depends(on=on, scope=scope, allow_skipped=allow_skipped)
 
 
 def sort_items(items: list[pytest.Item]):
     root = build_tree(items)
     items.clear()
-    items.extend(node.pytest_node for node in root.sorted_children())  # type: ignore
+    items.extend(
+        typing.cast(pytest.Item, node.pytest_node) for node in root.sorted_children()
+    )
 
 
 nodes_by_nodeid: dict[str, Node] = {}
@@ -29,7 +32,14 @@ def build_tree(items: list[pytest.Item]):
     for item in items:
         for predecessor in item.listchain():
             if predecessor.nodeid not in nodes_by_nodeid:
-                nodes_by_nodeid[predecessor.nodeid] = Node(pytest_node=predecessor)  # type: ignore
+                nodes_by_nodeid[predecessor.nodeid] = Node(
+                    pytest_node=typing.cast(
+                        typing.Union[
+                            pytest.Module, pytest.Class, pytest.Item, pytest.Session
+                        ],
+                        predecessor,
+                    )
+                )
             if predecessor.parent:
                 nodes_by_nodeid[predecessor.parent.nodeid].children[
                     predecessor.nodeid
@@ -106,7 +116,6 @@ class Node:
                 dependencies.extend(child.dependencies())
         return dependencies
 
-    # FIXME: test for cycles
     def build_graph(self):
         graph = networkx.DiGraph()
         for child in self.children.values():
@@ -119,6 +128,11 @@ class Node:
                     and dependency_nodeid != child.nodeid
                 ):
                     graph.add_edge(child.nodeid, dependency_nodeid)
+        try:
+            networkx.find_cycle(graph)
+            raise ValueError("The dependency graph contains a cycle.")
+        except networkx.NetworkXNoCycle:
+            ...
         return graph
 
     def topological_sort(self):

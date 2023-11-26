@@ -55,7 +55,7 @@ class TestByNameLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-@depends(on=[TestByNameLifeCycle.dependency_name("get")])
+@depends(on=TestByNameLifeCycle.dependency_name("get"))
 class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.roles & keycloak_admin.roles.by_id"""
 
