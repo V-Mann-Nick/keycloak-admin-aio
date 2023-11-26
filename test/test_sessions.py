@@ -4,6 +4,7 @@ from datetime import datetime
 import httpx
 import pytest
 import test_roles
+from dependencies_plugin import depends
 
 from keycloak_admin_aio import KeycloakAdmin
 from keycloak_admin_aio._lib.utils import cast_non_optional
@@ -20,8 +21,8 @@ async def get_all_admin_cli_sessions(keycloak_admin: KeycloakAdmin):
 class TestById:
     """Test keycloak_admin_aio.sessions.by_id"""
 
-    @pytest.mark.dependency(
-        depends=[
+    @depends(
+        on=[
             test_roles.TestByNameLifeCycle.dependency_name("get", scope="session"),
             "test/test_clients.py::test_get",
             "test/test_clients.py::test_get_user_sessions",

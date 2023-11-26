@@ -1,6 +1,7 @@
 import pytest
 import test_groups
 import test_roles
+from dependencies_plugin import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import (
@@ -11,7 +12,6 @@ from keycloak_admin_aio import (
 )
 
 
-@pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.users.get"""
@@ -75,14 +75,14 @@ class WithUserIdFixture:
         await keycloak_admin.users.by_id(user_id).delete()
 
 
-@pytest.mark.dependency(
-    depends=[
+@depends(
+    on=[
         test_groups.TestByIdLifeCycle.dependency_name("create", scope="session"),
         test_groups.TestByIdLifeCycle.dependency_name("delete", scope="session"),
     ],
     scope="session",
 )
-@pytest.mark.dependency(depends=WithUserIdFixture.DEPENDENCIES)
+@depends(on=WithUserIdFixture.DEPENDENCIES)
 class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
     """Test keycloak_admin.users.by_id.groups & keycloak_admin.users.by_id.groups.by_id"""
 
@@ -109,7 +109,6 @@ class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
         return get
 
     # FIXME: dependency
-    @pytest.mark.dependency()
     @assert_not_raises
     async def test_count(self, keycloak_admin: KeycloakAdmin, user_id: str):
         await keycloak_admin.users.by_id(user_id).groups.count()
@@ -127,24 +126,22 @@ class TestByIdGroupsByIdLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
 
 
 class TestRoleMappings(WithUserIdFixture):
-    @pytest.mark.dependency(
-        depends=WithUserIdFixture.DEPENDENCIES,
-    )
+    @depends(on=WithUserIdFixture.DEPENDENCIES)
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, user_id: str):
         """Test keycloak_admin.users.by_id.role_mappings.get"""
         await keycloak_admin.users.by_id(user_id).role_mappings.get()
 
 
-@pytest.mark.dependency(
-    depends=[
+@depends(
+    on=[
         test_roles.TestByNameLifeCycle.dependency_name("create", scope="session"),
         test_roles.TestByNameLifeCycle.dependency_name("get", scope="session"),
         test_roles.TestByNameLifeCycle.dependency_name("delete", scope="session"),
     ],
     scope="session",
 )
-@pytest.mark.dependency(depends=WithUserIdFixture.DEPENDENCIES)
+@depends(on=WithUserIdFixture.DEPENDENCIES)
 class TestRoleMappingsRealmLifeCycle(ResourceLifeCycleTest, WithUserIdFixture):
     """Test keycloak_admin.users.by_id.role_mappings.realm"""
 

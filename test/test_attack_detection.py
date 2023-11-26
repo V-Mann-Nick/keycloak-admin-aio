@@ -1,5 +1,6 @@
 import pytest
 import test_users
+from dependencies_plugin import depends
 from utils import assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin, UserRepresentation
@@ -19,7 +20,7 @@ class TestBruteForce:
         yield user_id
         await keycloak_admin.users.by_id(user_id).delete()
 
-    @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
+    @depends(on=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, user_id: str):
         status = await keycloak_admin.attack_detection.brute_force.users.by_id(
@@ -28,12 +29,12 @@ class TestBruteForce:
         assert status is not None
         assert type(status) is dict
 
-    @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
+    @depends(on=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_delete_all(self, keycloak_admin: KeycloakAdmin):
         await keycloak_admin.attack_detection.brute_force.users.delete()
 
-    @pytest.mark.dependency(depends=DEPENDENCIES, scope="session")
+    @depends(on=DEPENDENCIES, scope="session")
     @assert_not_raises
     async def test_delete_by_id(self, keycloak_admin: KeycloakAdmin, user_id: str):
         await keycloak_admin.attack_detection.brute_force.users.by_id(user_id).delete()

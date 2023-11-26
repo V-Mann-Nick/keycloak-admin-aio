@@ -2,13 +2,14 @@ import asyncio
 
 import pytest
 import test_roles
+from dependencies_plugin import depends
 from test_sessions import get_all_admin_cli_sessions
 
 from keycloak_admin_aio import KeycloakAdmin
 
 
-@pytest.mark.dependency(
-    depends=[
+@depends(
+    on=[
         test_roles.TestByNameLifeCycle.dependency_name("get", scope="session"),
         "test/test_clients.py::test_get",
         "test/test_clients.py::test_get_user_sessions",
