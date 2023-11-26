@@ -1,3 +1,9 @@
+## 1.3.5 (2023-11-26)
+
+### Fix
+
+- use PAT for commitizen push
+
 ## 1.3.4 (2023-11-26)
 
 ### Fix
