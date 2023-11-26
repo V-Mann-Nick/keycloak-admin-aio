@@ -83,4 +83,5 @@ License
 `Apache License, Version 2.0 <https://www.apache.org/licenses/LICENSE-2.0>`_
 
 
-© Copyright 2023, Nicklas Sedlock
+- © Copyright 2023, Nicklas Sedlock
+- © Copyright 2021, delphai by AtomLeap GmbH
