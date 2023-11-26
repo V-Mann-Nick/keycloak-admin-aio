@@ -1,18 +1,17 @@
 import pytest
+from dependencies_plugin import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin
 from keycloak_admin_aio.types.types import GroupRepresentation
 
 
-@pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.groups.get"""
     await keycloak_admin.groups.get()
 
 
-@pytest.mark.dependency()
 @assert_not_raises
 async def test_count(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.groups.count"""
@@ -73,7 +72,7 @@ class WithGroupIdFixture:
 class TestMembers(WithGroupIdFixture):
     """Test keycloak_admin.groups.by_id.members"""
 
-    @pytest.mark.dependency(depends=WithGroupIdFixture.DEPENDENCIES)
+    @depends(on=WithGroupIdFixture.DEPENDENCIES)
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, group_id: str):
         """Test keycloak_admin.groups.by_id.members.get"""
@@ -92,8 +91,8 @@ class TestChildren(WithGroupIdFixture):
         yield group
         await keycloak_admin.groups.by_id(group_id).delete()
 
-    @pytest.mark.dependency(
-        depends=[
+    @depends(
+        on=[
             *WithGroupIdFixture.DEPENDENCIES,
             TestByIdLifeCycle.dependency_name("create"),
             TestByIdLifeCycle.dependency_name("get"),

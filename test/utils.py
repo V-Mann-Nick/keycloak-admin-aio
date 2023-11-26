@@ -16,6 +16,7 @@ from typing import (
 
 import httpx
 import pytest
+from dependencies_plugin import depends
 
 TFunction = TypeVar("TFunction", bound=Callable[..., Awaitable])
 
@@ -161,20 +162,19 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             )
             raise ex
 
-    @pytest.mark.dependency()
     @assert_not_raises
     async def test_create(self, create: ResourceCreate, identifier: Value):
         """Test the create method."""
         # self.check_dependencies(request, "create")
         identifier.set(await create())
 
-    @pytest.mark.dependency(depends=["test_create"], scope="class")
+    @depends(on=["test_create"], scope="class")
     @assert_not_raises
     async def test_get(self, get: ResourceGet, identifier: Value):
         """Test the get method."""
         await get(identifier.get())
 
-    @pytest.mark.dependency(depends=["test_get"], scope="class")
+    @depends(on=["test_get"], scope="class")
     @assert_not_raises
     async def test_update(self, update: Optional[ResourceUpdate], identifier: Value):
         """Test the update method."""
@@ -182,7 +182,8 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
             pytest.skip(f"Update not implemented in {self.__class__.__name__}")
         await update(identifier.get())
 
-    @pytest.mark.dependency(depends=["test_update"], scope="class")
+    @depends(on=["test_get"], scope="class")
+    @depends(on=["test_update"], scope="class", allow_skipped=True)
     @assert_not_raises
     async def test_delete(self, delete: ResourceDelete, identifier: Value):
         """Test the delete method."""

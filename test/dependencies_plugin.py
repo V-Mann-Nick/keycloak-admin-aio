@@ -9,6 +9,12 @@ import pluggy
 import pytest
 
 
+def depends(
+    on: typing.Union[str, list[str]], scope: Scope = "module", allow_skipped=False
+):
+    return pytest.mark.depends(on=on, scope=scope, allow_skipped=allow_skipped)
+
+
 def sort_items(items: list[pytest.Item]):
     root = build_tree(items)
     items.clear()
@@ -35,23 +41,36 @@ def build_tree(items: list[pytest.Item]):
 NodeType = typing.Literal["module", "class", "item", "session"]
 
 
+OutcomeType = typing.Literal["passed", "failed", "skipped"]
+
+
 @dataclasses.dataclass
 class Outcome:
-    setup: bool = dataclasses.field(default=False)
-    call: bool = dataclasses.field(default=False)
-    teardown: bool = dataclasses.field(default=False)
+    setup: typing.Optional[OutcomeType] = None
+    call: typing.Optional[OutcomeType] = None
+    teardown: typing.Optional[OutcomeType] = None
 
     def set(self, when: str, outcome: str):
-        if when == "setup":
-            self.setup = outcome == "passed"
-        elif when == "call":
-            self.call = outcome == "passed"
-        elif when == "teardown":
-            self.teardown = outcome == "passed"
+        is_expected_outcome = outcome in {"passed", "failed", "skipped"}
+        if when == "setup" and is_expected_outcome:
+            self.setup = typing.cast(OutcomeType, outcome)
+        elif when == "call" and is_expected_outcome:
+            self.call = typing.cast(OutcomeType, outcome)
+        elif when == "teardown" and is_expected_outcome:
+            self.teardown = typing.cast(OutcomeType, outcome)
         # TODO: warn if when is not one of "setup", "call", "teardown"
 
     def is_success(self) -> bool:
-        return self.setup and self.call and self.teardown
+        return all(
+            phase == "passed" for phase in [self.setup, self.call, self.teardown]
+        )
+
+    def is_skipped(self) -> bool:
+        return (
+            self.setup == "passed"
+            and self.call == "skipped"
+            and self.teardown == "passed"
+        )
 
 
 @dataclasses.dataclass
@@ -80,13 +99,14 @@ class Node:
     def dependencies(self):
         dependencies: list[Dependency] = []
         if isinstance(self.pytest_node, pytest.Item):
-            for marker in self.pytest_node.iter_markers(name="dependency"):
+            for marker in self.pytest_node.iter_markers(name="depends"):
                 dependencies.extend(create_dependencies(marker, self.pytest_node))
         else:
             for child in self.children.values():
                 dependencies.extend(child.dependencies())
         return dependencies
 
+    # FIXME: test for cycles
     def build_graph(self):
         graph = networkx.DiGraph()
         for child in self.children.values():
@@ -129,18 +149,25 @@ class Node:
             )
         )
 
-    def is_success(self) -> bool:
+    def is_success(self, allow_skipped=False) -> bool:
         if not self.children:
-            return self.outcome.is_success()
-        return all(child.is_success() for child in self.children.values())
+            return self.outcome.is_success() or (
+                allow_skipped and self.outcome.is_skipped()
+            )
+        return all(
+            child.is_success(allow_skipped=allow_skipped)
+            for child in self.children.values()
+        )
 
 
 Scope = typing.Literal["session", "module", "class"]
 
 
 def create_dependencies(mark: pytest.Mark, item: pytest.Item):
-    depends_list: list[str] = mark.kwargs.get("depends", [])
+    on: typing.Union[str, typing.Iterable[str], None] = mark.kwargs.get("on")
+    depends_list = on if isinstance(on, list) else [on] if isinstance(on, str) else []
     scope: Scope = mark.kwargs.get("scope", "module")
+    allow_skipped: bool = mark.kwargs.get("allow_skipped", False)
     dependencies: list[Dependency] = []
     for dependency in depends_list:
         node_type_by_scope = {
@@ -157,7 +184,9 @@ def create_dependencies(mark: pytest.Mark, item: pytest.Item):
         if not dependency_node:
             raise ValueError(f"Unknown node id: {dependency_nodeid}")
         node_type = dependency_node.node_type
-        dependencies.append(Dependency.from_node_id(dependency_nodeid, node_type))
+        dependencies.append(
+            Dependency.from_node_id(dependency_nodeid, node_type, allow_skipped)
+        )
     return dependencies
 
 
@@ -167,23 +196,39 @@ class Dependency:
     module_id: str
     class_id: typing.Optional[str]
     item_id: typing.Optional[str]
+    allow_skipped: bool
 
+    # TODO: Refactor
     @classmethod
-    def from_node_id(cls, nodeid: str, node_type: NodeType) -> Dependency:
+    def from_node_id(
+        cls, nodeid: str, node_type: NodeType, allow_skipped: bool
+    ) -> Dependency:
         parts = nodeid.split("::")
         if len(parts) == 1:
             if node_type == "module":
                 return cls(
-                    module_id=parts[0], class_id=None, item_id=None, nodeid=nodeid
+                    module_id=parts[0],
+                    class_id=None,
+                    item_id=None,
+                    nodeid=nodeid,
+                    allow_skipped=allow_skipped,
                 )
         elif len(parts) == 2:
             if node_type == "class":
                 return cls(
-                    module_id=parts[0], class_id=parts[1], item_id=None, nodeid=nodeid
+                    module_id=parts[0],
+                    class_id=parts[1],
+                    item_id=None,
+                    nodeid=nodeid,
+                    allow_skipped=allow_skipped,
                 )
             elif node_type == "item":
                 return cls(
-                    module_id=parts[0], class_id=None, item_id=parts[1], nodeid=nodeid
+                    module_id=parts[0],
+                    class_id=None,
+                    item_id=parts[1],
+                    nodeid=nodeid,
+                    allow_skipped=allow_skipped,
                 )
         elif len(parts) == 3:
             if node_type == "item":
@@ -192,6 +237,7 @@ class Dependency:
                     class_id=parts[1],
                     item_id=parts[2],
                     nodeid=nodeid,
+                    allow_skipped=allow_skipped,
                 )
         raise ValueError(f"Invalid node id: {nodeid}")
 
@@ -211,6 +257,13 @@ def pytest_collection_modifyitems(
     sort_items(items)
 
 
+def pytest_configure(config: pytest.Config):
+    config.addinivalue_line(
+        "markers",
+        "depends(on, scope='module', allow_skipped=False): Mark a test to be dependent on other tests.",
+    )
+
+
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item: pytest.Item, call: pytest.CallInfo):
     outcome: pluggy._result._Result = yield
@@ -224,5 +277,5 @@ def pytest_runtest_setup(item: pytest.Item):
     node = nodes_by_nodeid[item.nodeid]
     for dependency in node.dependencies():
         dependency_node = nodes_by_nodeid[dependency.nodeid]
-        if not dependency_node.is_success():
+        if not dependency_node.is_success(allow_skipped=dependency.allow_skipped):
             pytest.skip(f"Dependency failed: {dependency.nodeid}")

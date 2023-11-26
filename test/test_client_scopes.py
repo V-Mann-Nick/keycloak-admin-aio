@@ -1,5 +1,6 @@
 import pytest
 import test_roles
+from dependencies_plugin import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import (
@@ -9,7 +10,6 @@ from keycloak_admin_aio import (
 )
 
 
-@pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.client_scopes.get"""
@@ -72,15 +72,15 @@ class WithClientScopeId:
 
 
 class TestScopeMappings(WithClientScopeId):
-    @pytest.mark.dependency(depends=WithClientScopeId.DEPENDENCIES)
+    @depends(on=WithClientScopeId.DEPENDENCIES)
     @assert_not_raises
     async def test_get(self, keycloak_admin: KeycloakAdmin, client_scope_id: str):
         await keycloak_admin.client_scopes.by_id(client_scope_id).scope_mappings.get()
 
 
-@pytest.mark.dependency(depends=WithClientScopeId.DEPENDENCIES)
-@pytest.mark.dependency(
-    depends=[
+@depends(on=WithClientScopeId.DEPENDENCIES)
+@depends(
+    on=[
         test_roles.TestByIdLifeCycle.dependency_name("create", scope="session"),
         test_roles.TestByIdLifeCycle.dependency_name("get", scope="session"),
         test_roles.TestByIdLifeCycle.dependency_name("delete", scope="session"),

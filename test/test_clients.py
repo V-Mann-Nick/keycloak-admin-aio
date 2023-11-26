@@ -1,6 +1,7 @@
 import pytest
 import test_client_scopes
 from conftest import KEYCLOAK_ADMIN
+from dependencies_plugin import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import ClientRepresentation, KeycloakAdmin
@@ -8,7 +9,6 @@ from keycloak_admin_aio._lib.utils import cast_non_optional
 from keycloak_admin_aio.types.types import ClientScopeRepresentation
 
 
-@pytest.mark.dependency()
 @assert_not_raises
 async def test_get(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.clients.get"""
@@ -51,8 +51,8 @@ class TestByIdLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
-@pytest.mark.dependency(
-    depends=[
+@depends(
+    on=[
         test_client_scopes.TestByIdLifeCycle.dependency_name("create", scope="session")
     ],
     scope="session",
@@ -128,7 +128,7 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         return delete
 
 
-@pytest.mark.dependency(depends=["test_get"])
+@depends(on=["test_get"])
 async def test_get_user_sessions(keycloak_admin: KeycloakAdmin):
     """Test keycloak_admin.clients.by_id.user_sessions.get
 
