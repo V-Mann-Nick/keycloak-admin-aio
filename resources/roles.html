@@ -168,9 +168,9 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles.create">
 <em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.create" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a role.</p>
+<dd><p>Create a role. Returns the role name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representation</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;some-role&quot;</span><span class="p">)</span>
-<span class="n">role_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_representation</span><span class="p">)</span>
+<span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_representation</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
