@@ -1,4 +1,5 @@
 import pytest
+import test_roles
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import (
@@ -77,12 +78,16 @@ class TestScopeMappings(WithClientScopeId):
         await keycloak_admin.client_scopes.by_id(client_scope_id).scope_mappings.get()
 
 
+@pytest.mark.dependency(depends=WithClientScopeId.DEPENDENCIES)
+@pytest.mark.dependency(
+    depends=[
+        test_roles.TestByIdLifeCycle.dependency_name("create", scope="session"),
+        test_roles.TestByIdLifeCycle.dependency_name("get", scope="session"),
+        test_roles.TestByIdLifeCycle.dependency_name("delete", scope="session"),
+    ],
+    scope="session",
+)
 class TestScopeMappingsRealmLifeCycle(ResourceLifeCycleTest, WithClientScopeId):
-    # FIXME: Implicit dependency on test_roles.py
-    EXTRA_DEPENDENCIES = [
-        *WithClientScopeId.DEPENDENCIES,
-    ]
-
     @pytest.fixture(scope="class")
     async def role(self, keycloak_admin: KeycloakAdmin):
         role_name = await keycloak_admin.roles.create(

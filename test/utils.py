@@ -16,7 +16,6 @@ from typing import (
 
 import httpx
 import pytest
-from pytest_dependency import depends
 
 TFunction = TypeVar("TFunction", bound=Callable[..., Awaitable])
 
@@ -75,47 +74,10 @@ class Value:
 class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
     """Base class for testing the lifecycle of a keycloak resource."""
 
-    """Extra dependencies to add to each test."""
-    EXTRA_DEPENDENCIES: list[ExtraDependency] = []
-
-    """Extra dependencies to add to the create test."""
-    EXTRA_DEPENDENCIES_CREATE: list[ExtraDependency] = []
-
-    """Extra dependencies to add to the get test."""
-    EXTRA_DEPENDENCIES_GET: list[ExtraDependency] = []
-
-    """Extra dependencies to add to the update test."""
-    EXTRA_DEPENDENCIES_UPDATE: list[ExtraDependency] = []
-
-    """Extra dependencies to add to the delete test."""
-    EXTRA_DEPENDENCIES_DELETE: list[ExtraDependency] = []
-
-    def check_dependencies(
-        self, request: pytest.FixtureRequest, test_type: LifeCycleTestType
-    ):
-        extra_dependencies_by_type = {
-            "create": self.EXTRA_DEPENDENCIES_CREATE,
-            "get": self.EXTRA_DEPENDENCIES_GET,
-            "update": self.EXTRA_DEPENDENCIES_UPDATE,
-            "delete": self.EXTRA_DEPENDENCIES_DELETE,
-        }
-        dependencies = [
-            *self.EXTRA_DEPENDENCIES,
-            *extra_dependencies_by_type[test_type],
-        ]
-        for dependency in dependencies:
-            if isinstance(dependency, str):
-                depends(request, [dependency], scope="module")
-            else:
-                name, scope = dependency
-                depends(request, [name], scope=scope)
-
     @overload
     @classmethod
     def dependency_name(
-        cls,
-        test_type: LifeCycleTestType,
-        scope: DependencyScope = "module",
+        cls, test_type: LifeCycleTestType, scope: DependencyScope = "module"
     ) -> str:
         ...
 
@@ -201,51 +163,27 @@ class ResourceLifeCycleTest(ABC, Generic[TResourceRepresentation]):
 
     @pytest.mark.dependency()
     @assert_not_raises
-    async def test_create(
-        self, create: ResourceCreate, identifier: Value, request: pytest.FixtureRequest
-    ):
+    async def test_create(self, create: ResourceCreate, identifier: Value):
         """Test the create method."""
-        self.check_dependencies(request, "create")
+        # self.check_dependencies(request, "create")
         identifier.set(await create())
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(depends=["test_create"], scope="class")
     @assert_not_raises
-    async def test_get(
-        self, get: ResourceGet, identifier: Value, request: pytest.FixtureRequest
-    ):
+    async def test_get(self, get: ResourceGet, identifier: Value):
         """Test the get method."""
-        self.check_dependencies(request, "get")
-        depends(request, ["test_create"], scope="class")
         await get(identifier.get())
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(depends=["test_get"], scope="class")
     @assert_not_raises
-    async def test_update(
-        self,
-        update: Optional[ResourceUpdate],
-        identifier: Value,
-        request: pytest.FixtureRequest,
-    ):
+    async def test_update(self, update: Optional[ResourceUpdate], identifier: Value):
         """Test the update method."""
-        self.check_dependencies(request, "update")
-        depends(request, ["test_get"], scope="class")
         if not update:
             pytest.skip(f"Update not implemented in {self.__class__.__name__}")
         await update(identifier.get())
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(depends=["test_update"], scope="class")
     @assert_not_raises
-    async def test_delete(
-        self,
-        delete: ResourceDelete,
-        update: Optional[ResourceUpdate],
-        identifier: Value,
-        request: pytest.FixtureRequest,
-    ):
+    async def test_delete(self, delete: ResourceDelete, identifier: Value):
         """Test the delete method."""
-        self.check_dependencies(request, "delete")
-        if update:
-            depends(request, ["test_update"], scope="class")
-        else:
-            depends(request, ["test_get"], scope="class")
         await delete(identifier.get())

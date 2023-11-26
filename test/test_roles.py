@@ -2,7 +2,6 @@ import asyncio
 from typing import Literal, Union
 
 import pytest
-from pytest_dependency import depends
 from utils import ResourceLifeCycleTest, assert_not_raises
 
 from keycloak_admin_aio import KeycloakAdmin, RoleRepresentation
@@ -56,12 +55,9 @@ class TestByNameLifeCycle(ResourceLifeCycleTest):
         return delete
 
 
+@pytest.mark.dependency(depends=[TestByNameLifeCycle.dependency_name("get")])
 class TestByIdLifeCycle(ResourceLifeCycleTest):
     """Test keycloak_admin.roles & keycloak_admin.roles.by_id"""
-
-    EXTRA_DEPENDENCIES = [
-        TestByNameLifeCycle.dependency_name("get"),
-    ]
 
     @pytest.fixture(scope="class")
     def create(self, keycloak_admin: KeycloakAdmin):
@@ -159,9 +155,9 @@ class TestRoleComposites:
         keycloak_admin: KeycloakAdmin,
         roles: tuple[RoleRepresentation, RoleRepresentation],
         composite_class: Literal["by_name", "by_id"],
-        request: pytest.FixtureRequest,
     ):
-        depends(request, [f"test_create[{composite_class}]"], scope="class")
+        # FIXME
+        # depends(request, [f"test_create[{composite_class}]"], scope="class")
         role, role_2 = roles
         composites = await self.get_composite_class(
             keycloak_admin, composite_class, role
@@ -175,9 +171,9 @@ class TestRoleComposites:
         keycloak_admin: KeycloakAdmin,
         roles: tuple[RoleRepresentation, RoleRepresentation],
         composite_class: Literal["by_name", "by_id"],
-        request: pytest.FixtureRequest,
     ):
-        depends(request, [f"test_get[{composite_class}]"], scope="class")
+        # FIXME
+        # depends(request, [f"test_get[{composite_class}]"], scope="class")
         role, role_2 = roles
         await self.get_composite_class(keycloak_admin, composite_class, role).delete(
             [role_2]

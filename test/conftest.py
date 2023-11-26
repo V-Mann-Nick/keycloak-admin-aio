@@ -5,6 +5,7 @@ from typing import Literal
 
 import httpx
 import pytest
+from dependencies import sort_items
 
 from keycloak_admin_aio import KeycloakAdmin
 
@@ -108,3 +109,9 @@ async def keycloak_admin():
         server_url=KEYCLOAK_URL, username=KEYCLOAK_ADMIN, password=KEYCLOAK_PASSWORD
     ) as kc:
         yield kc
+
+
+def pytest_collection_modifyitems(
+    session: pytest.Session, config: pytest.Config, items: list[pytest.Item]
+):
+    sort_items(items)
