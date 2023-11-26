@@ -5,6 +5,7 @@ import itertools
 import typing
 
 import networkx
+import pluggy
 import pytest
 
 
@@ -35,9 +36,29 @@ NodeType = typing.Literal["module", "class", "item", "session"]
 
 
 @dataclasses.dataclass
+class Outcome:
+    setup: bool = dataclasses.field(default=False)
+    call: bool = dataclasses.field(default=False)
+    teardown: bool = dataclasses.field(default=False)
+
+    def set(self, when: str, outcome: str):
+        if when == "setup":
+            self.setup = outcome == "passed"
+        elif when == "call":
+            self.call = outcome == "passed"
+        elif when == "teardown":
+            self.teardown = outcome == "passed"
+        # TODO: warn if when is not one of "setup", "call", "teardown"
+
+    def is_success(self) -> bool:
+        return self.setup and self.call and self.teardown
+
+
+@dataclasses.dataclass
 class Node:
     pytest_node: typing.Union[pytest.Module, pytest.Class, pytest.Item, pytest.Session]
     children: dict[str, Node] = dataclasses.field(default_factory=dict)
+    outcome: Outcome = dataclasses.field(default_factory=Outcome)
 
     def __repr__(self) -> str:
         return f"Node(pytest_node={self.pytest_node})"
@@ -60,7 +81,7 @@ class Node:
         dependencies: list[Dependency] = []
         if isinstance(self.pytest_node, pytest.Item):
             for marker in self.pytest_node.iter_markers(name="dependency"):
-                dependencies.extend(create_dependencies(marker, self))
+                dependencies.extend(create_dependencies(marker, self.pytest_node))
         else:
             for child in self.children.values():
                 dependencies.extend(child.dependencies())
@@ -108,30 +129,35 @@ class Node:
             )
         )
 
+    def is_success(self) -> bool:
+        if not self.children:
+            return self.outcome.is_success()
+        return all(child.is_success() for child in self.children.values())
+
 
 Scope = typing.Literal["session", "module", "class"]
 
 
-def create_dependencies(mark: pytest.Mark, node: Node):
+def create_dependencies(mark: pytest.Mark, item: pytest.Item):
     depends_list: list[str] = mark.kwargs.get("depends", [])
     scope: Scope = mark.kwargs.get("scope", "module")
     dependencies: list[Dependency] = []
-    for depends in depends_list:
+    for dependency in depends_list:
         node_type_by_scope = {
             "session": pytest.Session,
             "module": pytest.Module,
             "class": pytest.Class,
         }
-        scope_node = node.pytest_node.session
-        for predecessor in node.pytest_node.listchain():
+        scope_node = item.session
+        for predecessor in item.listchain():
             if isinstance(predecessor, node_type_by_scope[scope]):
                 scope_node = predecessor
-        depends_node_id = f"{scope_node.nodeid}::{depends}".strip("::")
-        node = nodes_by_nodeid[depends_node_id]
-        if not node:
-            raise ValueError(f"Unknown node id: {depends_node_id}")
-        node_type = node.node_type
-        dependencies.append(Dependency.from_node_id(depends_node_id, node_type))
+        dependency_nodeid = f"{scope_node.nodeid}::{dependency}".strip("::")
+        dependency_node = nodes_by_nodeid[dependency_nodeid]
+        if not dependency_node:
+            raise ValueError(f"Unknown node id: {dependency_nodeid}")
+        node_type = dependency_node.node_type
+        dependencies.append(Dependency.from_node_id(dependency_nodeid, node_type))
     return dependencies
 
 
@@ -141,9 +167,6 @@ class Dependency:
     module_id: str
     class_id: typing.Optional[str]
     item_id: typing.Optional[str]
-
-    def is_in_scope(self, scope_nodeid: str) -> bool:
-        return self.nodeid.startswith(scope_nodeid)
 
     @classmethod
     def from_node_id(cls, nodeid: str, node_type: NodeType) -> Dependency:
@@ -180,3 +203,26 @@ class Dependency:
                 return f"{self.module_id}::{self.class_id}"
             return f"{self.module_id}::{self.item_id}"
         return self.nodeid
+
+
+def pytest_collection_modifyitems(
+    session: pytest.Session, config: pytest.Config, items: list[pytest.Item]
+):
+    sort_items(items)
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item: pytest.Item, call: pytest.CallInfo):
+    outcome: pluggy._result._Result = yield
+    report: pytest.TestReport = outcome.get_result()
+    node = nodes_by_nodeid[item.nodeid]
+    if report.when:
+        node.outcome.set(report.when, report.outcome)
+
+
+def pytest_runtest_setup(item: pytest.Item):
+    node = nodes_by_nodeid[item.nodeid]
+    for dependency in node.dependencies():
+        dependency_node = nodes_by_nodeid[dependency.nodeid]
+        if not dependency_node.is_success():
+            pytest.skip(f"Dependency failed: {dependency.nodeid}")
