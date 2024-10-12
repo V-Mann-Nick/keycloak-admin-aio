@@ -1,3 +1,9 @@
+## 1.3.5 (2024-10-12)
+
+### Fix
+
+- update lockfile for httpx
+
 ## 1.3.4 (2023-11-26)
 
 ### Fix
