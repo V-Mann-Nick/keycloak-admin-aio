@@ -1,3 +1,10 @@
+## 1.3.6 (2024-10-20)
+
+### Fix
+
+- finish updating keycloak documentation links
+- update keycloak documentation links
+
 ## 1.3.5 (2024-10-12)
 
 ### Fix
