@@ -10,9 +10,9 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -143,11 +143,11 @@
           <div class="content" role="main" v-pre>
             
   <section id="module-keycloak_admin_aio._resources.groups">
-<span id="groups"></span><h1>Groups<a class="headerlink" href="#module-keycloak_admin_aio._resources.groups" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource</a></p>
+<span id="groups"></span><h1>Groups<a class="headerlink" href="#module-keycloak_admin_aio._resources.groups" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_groups">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_groups</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.</span></span><span class="sig-name descname"><span class="pre">Groups</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.</span></span><span class="sig-name descname"><span class="pre">Groups</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak group resource</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">GroupRepresentation</span>
 
@@ -156,7 +156,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -167,7 +167,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get groups.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">GroupRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -175,21 +175,21 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation">keycloak_admin_aio.types.types.GroupRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create a group.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_representation</span> <span class="o">=</span> <span class="n">GroupRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;group-name&quot;</span><span class="p">)</span>
 <span class="n">group_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">group_representation</span><span class="p">)</span>
@@ -197,7 +197,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -207,7 +207,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.Groups.count">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.count" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.Groups.count" title="Link to this definition">¶</a></dt>
 <dd><p>Get group count.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
@@ -215,8 +215,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>top</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>top</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -228,10 +228,10 @@
 </dd></dl>
 
 <section id="groups-by-id">
-<h2>Groups by id<a class="headerlink" href="#groups-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Groups by id<a class="headerlink" href="#groups-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.</span></span><span class="sig-name descname"><span class="pre">GroupsById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.</span></span><span class="sig-name descname"><span class="pre">GroupsById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById" title="Link to this definition">¶</a></dt>
 <dd><p>Groups by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">GroupRepresentation</span>
 
@@ -241,7 +241,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -252,7 +252,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get a group by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group</span><span class="p">:</span> <span class="n">GroupRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -266,7 +266,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update a group by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_representation</span> <span class="o">=</span> <span class="n">GroupRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;group-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">group_representation</span><span class="p">)</span>
@@ -274,14 +274,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.GroupsById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.GroupsById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete a group by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -292,10 +292,10 @@
 
 </section>
 <section id="children-for-a-group-by-id">
-<h2>Children for a group by id<a class="headerlink" href="#children-for-a-group-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Children for a group by id<a class="headerlink" href="#children-for-a-group-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.children.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdChildren</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.children.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdChildren</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren" title="Link to this definition">¶</a></dt>
 <dd><p>Get children of a group by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">GroupRepresentation</span>
 
@@ -305,7 +305,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -316,7 +316,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.children.GroupsByIdChildren.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create a parent/child group relationship.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">group_representation</span> <span class="o">=</span> <span class="n">GroupRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;child-group-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">goups</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">children</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">group_representation</span><span class="p">)</span>
@@ -324,7 +324,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>group_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -333,10 +333,10 @@
 
 </section>
 <section id="members-for-a-group-by-id">
-<h2>Members for a group by id<a class="headerlink" href="#members-for-a-group-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Members for a group by id<a class="headerlink" href="#members-for-a-group-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.members.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdMembers</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.groups.by_id.members.</span></span><span class="sig-name descname"><span class="pre">GroupsByIdMembers</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers" title="Link to this definition">¶</a></dt>
 <dd><p>Members of groups by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">UserRepresentation</span>
 
@@ -346,7 +346,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -357,7 +357,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.groups.by_id.members.GroupsByIdMembers.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get members of a group by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">members</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -365,13 +365,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation">keycloak_admin_aio.types.types.UserRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -396,7 +396,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2023, Nicklas Sedlock.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.0.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

@@ -10,9 +10,9 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -143,14 +143,14 @@
           <div class="content" role="main" v-pre>
             
   <section id="module-keycloak_admin_aio._resources.clients">
-<span id="clients"></span><h1>Clients<a class="headerlink" href="#module-keycloak_admin_aio._resources.clients" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clients_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clients_resource</a></p>
+<span id="clients"></span><h1>Clients<a class="headerlink" href="#module-keycloak_admin_aio._resources.clients" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_clients">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_clients</a></p>
 <p>One should not be confused between <code class="docutils literal notranslate"><span class="pre">client_id</span></code> and the UUID a <code class="docutils literal notranslate"><span class="pre">client</span></code> has.
 Therefor this section will refer to variable names containing the UUID of a
 client as <code class="docutils literal notranslate"><span class="pre">client_uuid</span></code>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.Clients">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.</span></span><span class="sig-name descname"><span class="pre">Clients</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.</span></span><span class="sig-name descname"><span class="pre">Clients</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak clients resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">ClientRepresentation</span>
 
@@ -159,7 +159,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.Clients.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -170,7 +170,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.Clients.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create a client.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_representation</span> <span class="o">=</span> <span class="n">ClientRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;client-name&quot;</span><span class="p">)</span>
 <span class="n">client_uuid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">client_representation</span><span class="p">)</span>
@@ -178,7 +178,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>client_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation"><em>ClientRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation"><em>ClientRepresentation</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -188,7 +188,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.Clients.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewable_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">viewable_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.Clients.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get clients.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ClientRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -196,16 +196,16 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>client_id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>q</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>search</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>viewable_only</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>client_id</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>q</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>search</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>viewable_only</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation">keycloak_admin_aio.types.types.ClientRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation"><em>ClientRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -213,10 +213,10 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </dd></dl>
 
 <section id="clients-by-id">
-<h2>Clients by id<a class="headerlink" href="#clients-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Clients by id<a class="headerlink" href="#clients-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.ClientsById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientsById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientsById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById" title="Link to this definition">¶</a></dt>
 <dd><p>Clients by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">ClientRepresentation</span>
 
@@ -226,7 +226,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.ClientsById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -237,7 +237,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.ClientsById.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get a client by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_representation</span><span class="p">:</span> <span class="n">ClientRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -251,7 +251,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.ClientsById.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update a client by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_representation</span> <span class="o">=</span> <span class="n">ClientRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;client-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">client_representation</span><span class="p">)</span>
@@ -259,14 +259,14 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>client_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation"><em>ClientRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientRepresentation" title="keycloak_admin_aio.types.types.ClientRepresentation"><em>ClientRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.ClientsById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.ClientsById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete a client by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -277,10 +277,10 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 </section>
 <section id="default-client-scopes-for-a-client-by-id">
-<h2>Default client scopes for a client by id<a class="headerlink" href="#default-client-scopes-for-a-client-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Default client scopes for a client by id<a class="headerlink" href="#default-client-scopes-for-a-client-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.default_client_scopes.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdDefaultClientScopes</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.default_client_scopes.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdDefaultClientScopes</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes" title="Link to this definition">¶</a></dt>
 <dd><p>Default client scopes for clients by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">ClientScopeRepresentation</span>
 
@@ -290,7 +290,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -301,7 +301,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.ClientsByIdDefaultClientScopes.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get default clients scopes for a client by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope_resource</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span>
 <span class="n">client_scope_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span>
@@ -311,7 +311,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation">keycloak_admin_aio.types.types.ClientScopeRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -320,10 +320,10 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 </section>
 <section id="default-client-scope-by-id-for-a-client-by-id">
-<h2>Default client scope by id for a client by id<a class="headerlink" href="#default-client-scope-by-id-for-a-client-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Default client scope by id for a client by id<a class="headerlink" href="#default-client-scope-by-id-for-a-client-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdDefaultClientScopesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdDefaultClientScopesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById" title="Link to this definition">¶</a></dt>
 <dd><p>Client scopes by id for a client by UUID.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span>
 
@@ -334,7 +334,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -345,7 +345,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.create" title="Link to this definition">¶</a></dt>
 <dd><p>Add a client scope by id to a client by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">default_client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 </pre></div>
@@ -354,7 +354,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.default_client_scopes.by_id.ClientsByIdDefaultClientScopesById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Remove a client scope by id from a client by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">default_client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -365,10 +365,10 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 </section>
 <section id="user-sessions-for-client-by-id">
-<h2>User sessions for client by id<a class="headerlink" href="#user-sessions-for-client-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>User sessions for client by id<a class="headerlink" href="#user-sessions-for-client-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.user_sessions.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdUserSessions</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.clients.by_id.user_sessions.</span></span><span class="sig-name descname"><span class="pre">ClientsByIdUserSessions</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions" title="Link to this definition">¶</a></dt>
 <dd><p>User sessions for clients by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">UserSession</span>
 
@@ -378,7 +378,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -389,7 +389,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.clients.by_id.user_sessions.ClientsByIdUserSessions.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get user sessions for a client.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_sessions</span><span class="p">:</span> <span class="n">lists</span><span class="p">[</span><span class="n">UserSession</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_uuid</span><span class="p">)</span><span class="o">.</span><span class="n">user_sessions</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -397,12 +397,12 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserSession" title="keycloak_admin_aio.types.types.UserSession">keycloak_admin_aio.types.types.UserSession</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserSession" title="keycloak_admin_aio.types.types.UserSession"><em>UserSession</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -427,7 +427,7 @@ client as <code class="docutils literal notranslate"><span class="pre">client_uu
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2023, Nicklas Sedlock.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.0.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

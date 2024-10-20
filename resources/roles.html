@@ -10,9 +10,9 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -143,11 +143,11 @@
           <div class="content" role="main" v-pre>
             
   <section id="module-keycloak_admin_aio._resources.roles">
-<span id="roles"></span><h1>Roles<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource</a></p>
+<span id="roles"></span><h1>Roles<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_roles">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_roles</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.</span></span><span class="sig-name descname"><span class="pre">Roles</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.</span></span><span class="sig-name descname"><span class="pre">Roles</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak role resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">UserRepresentation</span>
 
@@ -156,7 +156,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -167,7 +167,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create a role. Returns the role name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representation</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;some-role&quot;</span><span class="p">)</span>
 <span class="n">role_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_representation</span><span class="p">)</span>
@@ -175,7 +175,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -185,7 +185,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.Roles.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.Roles.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get roles.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -193,14 +193,14 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,11 +208,11 @@
 </dd></dl>
 
 <section id="module-keycloak_admin_aio._resources.roles.by_id">
-<span id="roles-by-id"></span><h2>Roles by id<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_id" title="Permalink to this heading">¶</a></h2>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_by_id_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_by_id_resource</a></p>
+<span id="roles-by-id"></span><h2>Roles by id<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_id" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_roles_by_id">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_roles_by_id</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_id.</span></span><span class="sig-name descname"><span class="pre">RolesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_id.</span></span><span class="sig-name descname"><span class="pre">RolesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById" title="Link to this definition">¶</a></dt>
 <dd><p>Provides roles by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -222,7 +222,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -233,7 +233,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role</span><span class="p">:</span> <span class="n">RoleRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -247,7 +247,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representation</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;role-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">role_representation</span><span class="p">)</span>
@@ -255,14 +255,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.RolesById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.RolesById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -273,10 +273,10 @@
 
 </section>
 <section id="composite-roles-for-a-role-by-id">
-<h2>Composite roles for a role by id<a class="headerlink" href="#composite-roles-for-a-role-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Composite roles for a role by id<a class="headerlink" href="#composite-roles-for-a-role-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_id.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByIdComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_id.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByIdComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites" title="Link to this definition">¶</a></dt>
 <dd><p>Get composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -286,7 +286,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -297,7 +297,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_representations</span><span class="p">)</span>
@@ -305,28 +305,28 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">composites</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_id.composites.RolesByIdComposites.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">role_id</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">role_representations</span><span class="p">)</span>
@@ -334,7 +334,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -343,10 +343,10 @@
 
 </section>
 <section id="module-keycloak_admin_aio._resources.roles.by_name">
-<span id="roles-by-name"></span><h2>Roles by name<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_name" title="Permalink to this heading">¶</a></h2>
+<span id="roles-by-name"></span><h2>Roles by name<a class="headerlink" href="#module-keycloak_admin_aio._resources.roles.by_name" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.</span></span><span class="sig-name descname"><span class="pre">RolesByName</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.</span></span><span class="sig-name descname"><span class="pre">RolesByName</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName" title="Link to this definition">¶</a></dt>
 <dd><p>Provides roles by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -356,7 +356,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -367,7 +367,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get role by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role</span><span class="p">:</span> <span class="n">RoleRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -381,7 +381,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update role by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representation</span> <span class="o">=</span> <span class="n">RoleRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;role-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">role_representation</span><span class="p">)</span>
@@ -389,14 +389,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>role_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.RolesByName.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.RolesByName.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete role by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -407,10 +407,10 @@
 
 </section>
 <section id="composite-roles-for-a-role-by-name">
-<h2>Composite roles for a role by name<a class="headerlink" href="#composite-roles-for-a-role-by-name" title="Permalink to this heading">¶</a></h2>
+<h2>Composite roles for a role by name<a class="headerlink" href="#composite-roles-for-a-role-by-name" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByNameComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.roles.by_name.composites.</span></span><span class="sig-name descname"><span class="pre">RolesByNameComposites</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites" title="Link to this definition">¶</a></dt>
 <dd><p>Get composites for a role by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -420,7 +420,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -431,7 +431,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create composites for a role by name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_representations</span><span class="p">)</span>
@@ -439,28 +439,28 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">composites</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_roles</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.roles.by_name.composites.RolesByNameComposites.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete composites for a role by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">roles</span><span class="o">.</span><span class="n">by_name</span><span class="p">(</span><span class="n">role_name</span><span class="p">)</span><span class="o">.</span><span class="n">composites</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">role_representations</span><span class="p">)</span>
@@ -468,7 +468,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>composite_roles</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -493,7 +493,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2023, Nicklas Sedlock.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.0.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

@@ -10,9 +10,9 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -143,11 +143,11 @@
           <div class="content" role="main" v-pre>
             
   <section id="module-keycloak_admin_aio._resources.users">
-<span id="users"></span><h1>Users<a class="headerlink" href="#module-keycloak_admin_aio._resources.users" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource</a></p>
+<span id="users"></span><h1>Users<a class="headerlink" href="#module-keycloak_admin_aio._resources.users" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_users">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_users</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.</span></span><span class="sig-name descname"><span class="pre">Users</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.</span></span><span class="sig-name descname"><span class="pre">Users</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak user resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">UserRepresentation</span>
 
@@ -156,7 +156,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -167,7 +167,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_verified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idp_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idp_user_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_verified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idp_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idp_user_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get users.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">users</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -175,30 +175,30 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>idp_alias</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>idp_user_id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>enabled</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>idp_alias</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>idp_user_id</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation">keycloak_admin_aio.types.types.UserRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_representation</span> <span class="o">=</span> <span class="n">UserRepresentation</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@domain.com&quot;</span><span class="p">)</span>
 <span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">user_representation</span><span class="p">)</span>
@@ -206,7 +206,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -216,7 +216,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.Users.count">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_verified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.count" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_verified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.Users.count" title="Link to this definition">¶</a></dt>
 <dd><p>User count.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
@@ -224,13 +224,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>email</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>email_verified</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>exact</strong> (<em>bool</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>first_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>last_name</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>username</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -242,10 +242,10 @@
 </dd></dl>
 
 <section id="users-by-id">
-<h2>Users by id<a class="headerlink" href="#users-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Users by id<a class="headerlink" href="#users-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.</span></span><span class="sig-name descname"><span class="pre">UsersById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.</span></span><span class="sig-name descname"><span class="pre">UsersById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak users by id resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">UserRepresentation</span>
 
@@ -255,7 +255,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -266,7 +266,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get user by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user</span><span class="p">:</span> <span class="n">UserRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -280,7 +280,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update user by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_representation</span> <span class="o">=</span> <span class="n">UserRepresentation</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;New name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">user_representation</span><span class="p">)</span>
@@ -288,14 +288,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>user_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.UserRepresentation" title="keycloak_admin_aio.types.types.UserRepresentation"><em>UserRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.UsersById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.UsersById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete user by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -306,10 +306,10 @@
 
 </section>
 <section id="execute-actions-email">
-<h2>Execute actions email<a class="headerlink" href="#execute-actions-email" title="Permalink to this heading">¶</a></h2>
+<h2>Execute actions email<a class="headerlink" href="#execute-actions-email" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.execute_actions_email.</span></span><span class="sig-name descname"><span class="pre">UsersByIdExecuteActionsEmail</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.execute_actions_email.</span></span><span class="sig-name descname"><span class="pre">UsersByIdExecuteActionsEmail</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak user execute actions email resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span>
 
@@ -319,7 +319,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -330,7 +330,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.send_email">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifespan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.send_email" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifespan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redirect_uri</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.execute_actions_email.UsersByIdExecuteActionsEmail.send_email" title="Link to this definition">¶</a></dt>
 <dd><p>Send email to user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">execute_actions_email</span><span class="o">.</span><span class="n">send_email</span><span class="p">()</span>
 </pre></div>
@@ -338,10 +338,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>actions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>client_id</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>lifespan</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>redirect_uri</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
+<li><p><strong>actions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>)</p></li>
+<li><p><strong>client_id</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>lifespan</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>redirect_uri</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -351,10 +351,10 @@
 
 </section>
 <section id="group-memberships">
-<h2>Group memberships<a class="headerlink" href="#group-memberships" title="Permalink to this heading">¶</a></h2>
+<h2>Group memberships<a class="headerlink" href="#group-memberships" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.groups.</span></span><span class="sig-name descname"><span class="pre">UsersByIdGroups</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.groups.</span></span><span class="sig-name descname"><span class="pre">UsersByIdGroups</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak groups resource for users by id</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">GroupRepresentation</span>
 
@@ -364,7 +364,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -375,7 +375,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brief_representation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get the user’s groups.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">GroupRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -383,28 +383,28 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>brief_representation</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>first</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>max</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>brief_representation</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation">keycloak_admin_aio.types.types.GroupRepresentation</a>]</p>
+<dd class="field-even"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.GroupRepresentation" title="keycloak_admin_aio.types.types.GroupRepresentation"><em>GroupRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.count">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.count" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.groups.UsersByIdGroups.count" title="Link to this definition">¶</a></dt>
 <dd><p>Get the number of groups the user belongs to.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">membership_count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>) – </p>
+<dd class="field-odd"><p><strong>search</strong> (<em>str</em><em> | </em><em>None</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>int</p>
@@ -416,10 +416,10 @@
 
 </section>
 <section id="role-mappings">
-<h2>Role mappings<a class="headerlink" href="#role-mappings" title="Permalink to this heading">¶</a></h2>
+<h2>Role mappings<a class="headerlink" href="#role-mappings" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the role mappings for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">MappingsRepresentation</span>
 
@@ -429,7 +429,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -440,7 +440,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.UsersByIdRoleMappings.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get the role mappings for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mappings</span><span class="p">:</span> <span class="n">MappingsRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -456,10 +456,10 @@
 
 </section>
 <section id="realm-role-mappings">
-<h2>Realm role mappings<a class="headerlink" href="#realm-role-mappings" title="Permalink to this heading">¶</a></h2>
+<h2>Realm role mappings<a class="headerlink" href="#realm-role-mappings" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.users.by_id.role_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">UsersByIdRoleMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the realm role mappings for users.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -469,7 +469,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -480,21 +480,21 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get realm role mappings for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create realm role mappings for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
@@ -502,14 +502,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete realm roles mappings for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
@@ -517,35 +517,35 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.available">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.available" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.available" title="Link to this definition">¶</a></dt>
 <dd><p>Get available roles which can be mapped to the user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">available</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.composite">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">composite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.composite" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">composite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.users.by_id.role_mappings.realm.UsersByIdRoleMappingsRealm.composite" title="Link to this definition">¶</a></dt>
 <dd><p>Get composed realm roles for a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">.</span><span class="n">role_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">composite</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -570,7 +570,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2023, Nicklas Sedlock.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.0.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>

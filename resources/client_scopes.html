@@ -10,9 +10,9 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
@@ -143,11 +143,11 @@
           <div class="content" role="main" v-pre>
             
   <section id="module-keycloak_admin_aio._resources.client_scopes">
-<span id="client-scopes"></span><h1>Client scopes<a class="headerlink" href="#module-keycloak_admin_aio._resources.client_scopes" title="Permalink to this heading">¶</a></h1>
-<p><a class="reference external" href="https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource">https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource</a></p>
+<span id="client-scopes"></span><h1>Client scopes<a class="headerlink" href="#module-keycloak_admin_aio._resources.client_scopes" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_client_scopes">https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_client_scopes</a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.ClientScopes">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.</span></span><span class="sig-name descname"><span class="pre">ClientScopes</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.</span></span><span class="sig-name descname"><span class="pre">ClientScopes</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes" title="Link to this definition">¶</a></dt>
 <dd><p>Provides the Keycloak client scopes resource.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">ClientScopeRepresentation</span>
 
@@ -156,7 +156,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.ClientScopes.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -167,7 +167,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.ClientScopes.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_scope_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_scope_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.create" title="Link to this definition">¶</a></dt>
 <dd><p>Create a client scope.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope_representation</span> <span class="o">=</span> <span class="n">ClientScopeRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;client-scope-name&quot;</span><span class="p">)</span>
 <span class="n">client_scope_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">client_scope_representation</span><span class="p">)</span>
@@ -175,7 +175,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>str</p>
@@ -185,7 +185,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.ClientScopes.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.ClientScopes.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get client scopes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scopes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ClientScopeRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -195,10 +195,10 @@
 </dd></dl>
 
 <section id="client-scopes-by-id">
-<h2>Client scopes by id<a class="headerlink" href="#client-scopes-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Client scopes by id<a class="headerlink" href="#client-scopes-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientScopesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.</span></span><span class="sig-name descname"><span class="pre">ClientScopesById</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById" title="Link to this definition">¶</a></dt>
 <dd><p>Client scopes by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">ClientScopeRepresentation</span>
 
@@ -208,7 +208,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -219,7 +219,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope</span><span class="p">:</span> <span class="n">ClientScopeRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 </pre></div>
@@ -233,7 +233,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.update">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_scope_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_scope_representation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.update" title="Link to this definition">¶</a></dt>
 <dd><p>Update a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope_representation</span> <span class="o">=</span> <span class="n">ClientScopeRepresentation</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;client-scope-name&quot;</span><span class="p">)</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">client_scope_representation</span><span class="p">)</span>
@@ -241,14 +241,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>) – </p>
+<dd class="field-odd"><p><strong>client_scope_representation</strong> (<a class="reference internal" href="../types.html#keycloak_admin_aio.types.ClientScopeRepresentation" title="keycloak_admin_aio.types.types.ClientScopeRepresentation"><em>ClientScopeRepresentation</em></a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.ClientScopesById.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Delete a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
 </pre></div>
@@ -259,10 +259,10 @@
 
 </section>
 <section id="scope-mappings-for-a-client-scope-by-id">
-<h2>Scope mappings for a client scope by id<a class="headerlink" href="#scope-mappings-for-a-client-scope-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Scope mappings for a client scope by id<a class="headerlink" href="#scope-mappings-for-a-client-scope-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappings</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings" title="Link to this definition">¶</a></dt>
 <dd><p>Scopes mappings for client scopes by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">MappingsRepresentation</span>
 
@@ -272,7 +272,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -283,7 +283,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.ClientScopesScopeMappings.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get scope mappings for a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope_resource</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span>
 <span class="n">mappings</span><span class="p">:</span> <span class="n">MappingsRepresentation</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client_scope_resource</span><span class="o">.</span><span class="n">scope_mappings</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -300,10 +300,10 @@
 
 </section>
 <section id="realm-scope-mappings-for-a-client-scope-by-id">
-<h2>Realm scope mappings for a client scope by id<a class="headerlink" href="#realm-scope-mappings-for-a-client-scope-by-id" title="Permalink to this heading">¶</a></h2>
+<h2>Realm scope mappings for a client scope by id<a class="headerlink" href="#realm-scope-mappings-for-a-client-scope-by-id" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.</span></span><span class="sig-name descname"><span class="pre">ClientScopesScopeMappingsRealm</span></span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm" title="Link to this definition">¶</a></dt>
 <dd><p>Realm scope mappings for a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keycloak_admin_aio</span> <span class="kn">import</span> <span class="n">KeycloakAdmin</span><span class="p">,</span> <span class="n">RoleRepresentation</span>
 
@@ -313,7 +313,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get_url">
-<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get_url" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_url</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get_url" title="Link to this definition">¶</a></dt>
 <dd><p>Get the resource’s url.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -324,7 +324,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.create">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.create" title="Link to this definition">¶</a></dt>
 <dd><p>Add roles to the realm scope mappings of a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="k">await</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span><span class="o">.</span><span class="n">scope_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span>
@@ -332,14 +332,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.get" title="Link to this definition">¶</a></dt>
 <dd><p>Get realm scope mappings for a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_scope_resource</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span>
 <span class="n">roles</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client_scope_resource</span><span class="o">.</span><span class="n">scope_mappings</span><span class="o">.</span><span class="n">realm</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -347,14 +347,14 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation">keycloak_admin_aio.types.types.RoleRepresentation</a>]</p>
+<dd class="field-odd"><p>list[<a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.delete">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.delete" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">role_representations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#keycloak_admin_aio._resources.client_scopes.by_id.scope_mappings.realm.ClientScopesScopeMappingsRealm.delete" title="Link to this definition">¶</a></dt>
 <dd><p>Remove roles from realm scope mappings for a client scope by id.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">role_representations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RoleRepresentation</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># needs to be populated</span>
 <span class="n">client_scope_resource</span> <span class="o">=</span> <span class="n">kc</span><span class="o">.</span><span class="n">client_scopes</span><span class="o">.</span><span class="n">by_id</span><span class="p">(</span><span class="n">client_scope_id</span><span class="p">)</span>
@@ -363,7 +363,7 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>keycloak_admin_aio.types.types.RoleRepresentation</em></a><em>]</em>) – </p>
+<dd class="field-odd"><p><strong>role_representations</strong> (<em>list</em><em>[</em><a class="reference internal" href="../types.html#keycloak_admin_aio.types.RoleRepresentation" title="keycloak_admin_aio.types.types.RoleRepresentation"><em>RoleRepresentation</em></a><em>]</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -388,7 +388,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2023, Nicklas Sedlock.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.0.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.4.7 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.9.1.
 </div>
             </div>
           </div>
