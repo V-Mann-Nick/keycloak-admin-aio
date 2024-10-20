@@ -88,9 +88,11 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         client_scope_id: str,
     ):
         async def create():
-            await keycloak_admin.clients.by_id(
-                a_default_client_uuid
-            ).default_client_scopes.by_id(client_scope_id).create()
+            await (
+                keycloak_admin.clients.by_id(a_default_client_uuid)
+                .default_client_scopes.by_id(client_scope_id)
+                .create()
+            )
 
         return create
 
@@ -119,9 +121,11 @@ class TestByIdDefaultClientScopesByIdLifecycle(ResourceLifeCycleTest):
         client_scope_id: str,
     ):
         async def delete(_):
-            await keycloak_admin.clients.by_id(
-                a_default_client_uuid
-            ).default_client_scopes.by_id(client_scope_id).delete()
+            await (
+                keycloak_admin.clients.by_id(a_default_client_uuid)
+                .default_client_scopes.by_id(client_scope_id)
+                .delete()
+            )
 
         return delete
 

@@ -37,9 +37,7 @@ def assert_not_raises(func: TFunction) -> TFunction:
         try:
             return await func(*args, **kwargs)
         except httpx.HTTPError as e:
-            assert (
-                False
-            ), f"{get_module_name(args)}::{func.__name__} unexpectadly raised an httpx.HTTPError: {e}"
+            assert False, f"{get_module_name(args)}::{func.__name__} unexpectadly raised an httpx.HTTPError: {e}"
 
     return cast(TFunction, new_func)
 

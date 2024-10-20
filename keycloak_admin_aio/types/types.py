@@ -199,9 +199,9 @@ class ResourceServerRepresentation(DataClass):
     allowRemoteResourceManagement: Optional[bool] = None
     clientId: Optional[str] = None
     decisionStrategy: Optional[Literal["AFFIRMATIVE", "UNANIMOUS", "CONSENSUS"]] = None
-    policyEnforcementMode: Optional[
-        Literal["ENFORCING", "PERMISSIVE", "DISABLED"]
-    ] = None
+    policyEnforcementMode: Optional[Literal["ENFORCING", "PERMISSIVE", "DISABLED"]] = (
+        None
+    )
     resources: Optional[list[ResourceRepresentation]] = None
     scopes: Optional[list[ScopeRepresentation]] = None
     policies: Optional[list[PolicyRepresentation]] = None

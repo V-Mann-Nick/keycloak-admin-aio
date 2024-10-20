@@ -31,10 +31,10 @@ def get_resource_id_in_location_header(
     response: httpx.Response, is_no_uuid=False
 ) -> str:
     location_header = response.headers.get("location")
-    if not location_header or type(location_header) != str:
+    if not location_header or type(location_header) is not str:
         raise Exception("The response headers didn't include location.")
     resource_id = location_header.split("/").pop()
-    is_correct_type = type(resource_id) == str and (is_no_uuid or is_uuid(resource_id))
+    is_correct_type = type(resource_id) is str and (is_no_uuid or is_uuid(resource_id))
     if not is_correct_type:
         raise Exception("Resource id couldn't be found in location header.")
     return resource_id

@@ -1,6 +1,18 @@
-.venv
-.env
-__pycache__
-.pytest_cache
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# direnv
+.direnv
+
+# Sphinx build output
 _build
-dist
+
+# Devenv
+.devenv
+# Managed by devenv
+.pre-commit-config.yaml

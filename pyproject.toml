@@ -1,65 +1,46 @@
-[tool.poetry]
+[project]
 name = "keycloak-admin-aio"
 version = "1.3.5"
 description = "async keycloak admin api wrapper"
-authors = ["Nicklas Sedlock <nicklas.sedlock@posteo.net>"]
-homepage = "https://github.com/V-Mann-Nick/keycloak-admin-aio"
-license = "Apache-2.0"
+authors = [{name = "Nicklas Sedlock", email = "nicklas.sedlock@posteo.net"}]
+license = {file = "LICENSE"}
 readme = "README.rst"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-httpx = ">=0.23.3"
-dacite = "^1.6.0"
-
-[tool.poetry.group.linting.dependencies]
-black = "^23.7.0"
-pre-commit = "^3.3.3"
-flake8 = "^6.0.0"
-pep8-naming = "^0.13.3"
-isort = "^5.12.0"
-
-[tool.poetry.group.testing.dependencies]
-pytest = "^7.4.0"
-pytest-asyncio = "^0.21.1"
-networkx = "^3.2.1"
-
-[tool.poetry.group.other.dependencies]
-commitizen = "^3.5.2"
-poethepoet = "^0.21.1"
-
-[tool.poetry.group.docs.dependencies]
-sphinx = "^7.0.1"
-sphinx-press-theme = "^0.8.0"
-
-[tool.commitizen]
-name = "cz_conventional_commits"
-version = "1.3.5"
-version_files = [
-    "keycloak_admin_aio/__version__.py",
-    "pyproject.toml:version"
+requires-python = ">=3.9"
+dependencies = [
+  "httpx >=0.23.3",
+  "dacite >=1.6.0"
 ]
-tag_format = "$version"
 
-[tool.poe.tasks]
-install_pre_commit = "pre-commit install -t commit-msg -t pre-commit --install-hooks"
-uninstall_pre_commit = "pre-commit uninstall -t commit-msg -t pre-commit --install-hooks"
-docgen = "sphinx-build -b html docs/ docs/_build/html"
-test = "pytest test/"
-check = "pre-commit run --all-files"
-
-[tool.isort]
-profile = "black"
-multi_line_output = 3
-skip = ["keycloak_admin_aio/_resources/__init__.py"]
+[project.urls]
+Documentation = "https://v-mann-nick.github.io/keycloak-admin-aio/"
+Repository = "https://github.com/V-Mann-Nick/keycloak-admin-aio.git"
+Issues = "https://github.com/V-Mann-Nick/keycloak-admin-aio/issues"
+Changelog = "https://github.com/V-Mann-Nick/keycloak-admin-aio/blob/main/CHANGELOG.md"
 
 [tool.pyright]
-venvPath = "."
-venv = ".venv"
+venv = "venv"
+reportIncompatibleMethodOverride = false
+
+[tool.uv]
+dev-dependencies = [
+    "commitizen>=3.29.1",
+    "networkx>=3.2.1",
+    "pytest>=7.4.4",
+    "pytest-asyncio<0.22",
+    "sphinx-press-theme>=0.9.1",
+    "sphinx>=7.4.7",
+]
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F403", "F401"]
+"keycloak_admin_aio/types/__init__.py" = ["F405"]
+"keycloak_admin_aio/_resources/__init__.py" = ["I"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+pythonpath = [
+  "."
+]
