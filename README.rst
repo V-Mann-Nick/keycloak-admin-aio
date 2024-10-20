@@ -20,7 +20,7 @@ How to install?
 
 .. code:: shell
 
-   poetry add keycloak-admin-aio
+   pip install keycloak-admin-aio
 
 How to use it?
 --------------
