@@ -98,5 +98,4 @@ class KeycloakResourceWithIdentifierGetter(Generic[T]):
     this way resolved the mypy issue I was having
     """
 
-    def __call__(self, identifier: str) -> T:
-        ...
+    def __call__(self, identifier: str) -> T: ...
