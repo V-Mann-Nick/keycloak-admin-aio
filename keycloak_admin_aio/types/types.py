@@ -8,7 +8,7 @@ from ._data_class import DataClass
 
 @dataclass
 class RoleRepresentationComposites(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_rolerepresentation-composites"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#RoleRepresentation"""
 
     realm: Optional[list[str]] = None
     client: Optional[dict[str, list[str]]] = None
@@ -16,7 +16,7 @@ class RoleRepresentationComposites(DataClass):
 
 @dataclass
 class RoleRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_rolerepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#RoleRepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -30,7 +30,7 @@ class RoleRepresentation(DataClass):
 
 @dataclass
 class ClientMappingsRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clientmappingsrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#ClientMappingsRepresentation"""
 
     id: Optional[str] = None
     client: Optional[str] = None
@@ -39,7 +39,7 @@ class ClientMappingsRepresentation(DataClass):
 
 @dataclass
 class MappingsRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_mappingsrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#MappingsRepresentation"""
 
     clientMappings: Optional[dict[str, ClientMappingsRepresentation]] = None
     realmMappings: Optional[list[RoleRepresentation]] = None
@@ -47,7 +47,7 @@ class MappingsRepresentation(DataClass):
 
 @dataclass
 class ProtocolMapperRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_protocolmapperrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#ProtocolMapperRepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -57,7 +57,7 @@ class ProtocolMapperRepresentation(DataClass):
 
 @dataclass
 class ClientScopeRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clientscoperepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_clientscoperepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -69,7 +69,7 @@ class ClientScopeRepresentation(DataClass):
 
 @dataclass
 class FederatedIdentityRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_federatedidentityrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_federatedidentityrepresentation"""
 
     userId: Optional[str] = None
     userName: Optional[str] = None
@@ -78,7 +78,7 @@ class FederatedIdentityRepresentation(DataClass):
 
 @dataclass
 class CredentialRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_credentialrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_credentialrepresentation"""
 
     id: Optional[str] = None
     createdDate: Optional[int] = None
@@ -93,7 +93,7 @@ class CredentialRepresentation(DataClass):
 
 @dataclass
 class UserConsentRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_userconsentrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_userconsentrepresentation"""
 
     clientId: Optional[str] = None
     createdDate: Optional[int] = None
@@ -103,7 +103,7 @@ class UserConsentRepresentation(DataClass):
 
 @dataclass
 class UserRepresentation(DataClass):  # type: ignore
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_userrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_userrepresentation"""
 
     id: Optional[str] = None
     firstName: Optional[str] = None
@@ -133,7 +133,7 @@ class UserRepresentation(DataClass):  # type: ignore
 
 @dataclass
 class GroupRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_grouprepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_grouprepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -147,7 +147,7 @@ class GroupRepresentation(DataClass):
 
 @dataclass
 class ScopeRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_scoperepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_scoperepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -159,7 +159,7 @@ class ScopeRepresentation(DataClass):
 
 @dataclass
 class ResourceRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_resourcerepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_resourcerepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -174,7 +174,7 @@ class ResourceRepresentation(DataClass):
 
 @dataclass
 class PolicyRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_policyrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_policyrepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -192,7 +192,7 @@ class PolicyRepresentation(DataClass):
 
 @dataclass
 class ResourceServerRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_resourceserverrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_resourceserverrepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -209,7 +209,7 @@ class ResourceServerRepresentation(DataClass):
 
 @dataclass
 class ClientRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clientrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_clientrepresentation"""
 
     id: Optional[str] = None
     name: Optional[str] = None
@@ -253,7 +253,7 @@ class ClientRepresentation(DataClass):
 
 @dataclass
 class RequiredActionProviderRepresentation(DataClass):
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_requiredactionproviderrepresentation"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_requiredactionproviderrepresentation"""
 
     alias: Optional[str] = None
     config: Optional[dict[str, Any]] = None

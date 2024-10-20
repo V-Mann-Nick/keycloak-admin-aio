@@ -1,3 +1,3 @@
-"""https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource"""
+"""https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_client_scopes"""
 
 from .client_scopes import ClientScopes

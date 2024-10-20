@@ -2,7 +2,7 @@ What is keycloak_admin_aio?
 ---------------------------
 
 This package provides an asynchronous api wrapper for the `keycloak admin api
-<https://www.keycloak.org/docs-api/15.0/rest-api>`_.
+<https://www.keycloak.org/docs-api/26.0.0/rest-api/>`_.
 
 The main dependencies are:
 
