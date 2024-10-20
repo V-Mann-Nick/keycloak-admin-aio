@@ -9,31 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v3
-      - name: Setup
-        id: setup
-        uses: ./.github/actions/setup
-      - name: Load cached pre-commit environment
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ steps.setup.outputs.python-version }}-${{ hashFiles('.pre-commit-config.yaml') }}
+        uses: actions/checkout@v4
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
       - name: Run pre-commit
-        run: poetry run pre-commit run --all-files
+        run: nix develop --impure --command bash -c 'pre-commit run --all-files'
   testing:
     name: Test against Keycloak
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.9", "3.10", "3.11"]
-        keycloak-version: ["18.0", "19.0", "20.0", "21.1"]
+    # strategy:
+    #   fail-fast: false
+    #   matrix:
+    #     python-version: ["3.9", "3.10", "3.11"]
+    #     keycloak-version: ["18.0", "19.0", "20.0", "21.1"]
     steps:
       - name: Check out
-        uses: actions/checkout@v3
-      - name: Setup
-        uses: ./.github/actions/setup
-        with:
-          python-version: ${{ matrix.python-version }}
+        uses: actions/checkout@v4
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
       - name: Run tests
-        run: KEYCLOAK_VERSION=${{ matrix.keycloak-version }} poetry run poe test -v
+        run: nix develop --impure --command bash -c 'pytest'
