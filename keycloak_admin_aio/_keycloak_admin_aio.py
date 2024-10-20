@@ -41,30 +41,30 @@ class KeycloakAdmin:
         ("attack_detection", AttackDetection),
     ]
     roles: Roles
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_roles_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_roles"""
 
     client_scopes: ClientScopes
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_client_scopes_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_client_scopes"""
 
     users: Users
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_users_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_users"""
 
     clients: Clients
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_clients_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_clients"""
 
     admin_events: AdminEvents
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_realms_admin_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_realms_admin"""
 
     authentication: Authentication
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_authentication_management_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_authentication_management"""
 
     groups: Groups
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_groups_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_groups"""
 
     sessions: Sessions
 
     attack_detection: AttackDetection
-    """https://www.keycloak.org/docs-api/15.0/rest-api/index.html#_attack_detection_resource"""
+    """https://www.keycloak.org/docs-api/26.0.0/rest-api/index.html#_attack_detection"""
 
     leeway: int
     """A token will be considered as expired seconds before its actual expiry controlled by this value."""
