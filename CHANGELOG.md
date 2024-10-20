@@ -1,3 +1,9 @@
+## 1.3.7 (2024-10-20)
+
+### Fix
+
+- trigger version bump skipping poisoned 1.3.6
+
 ## 1.3.6 (2024-10-20)
 
 ### Fix
